@@ -1,0 +1,63 @@
+.veiling-back-view {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .views-row {
+    margin-bottom: 50px;
+
+    article.veiling_invoer_handelaren,
+    article.veiling_invoer_particulieren {
+      position: relative;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -moz-box-direction: normal;
+      -moz-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+
+      .vehicle-meta-information {
+        color: #616161;
+        font-size: 16px;
+      }
+
+      .item-img {
+        margin-bottom: 15px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .veiling-back-view {
+    .views-row {
+      display: flex;
+      flex: 1 0 25%;
+    }
+  }
+  .veiling-back-view.particuliere-voertuigen-listing-page,
+  .veiling-back-view.voertuigen-listing-page {
+    .views-row {
+      display: flex;
+      flex: 1 0 33%
+    }
+  }
+}
+#block-exposedformactieve-veiling-handelaar-voertuigen-new,
+#block-exposedformactieve-veiling-particulieren-voertuigen-new,
+#block-exposedform-veiling-alle-voertuigen {
+  padding: 20px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
+  margin-bottom: 100px;
+}

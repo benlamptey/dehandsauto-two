@@ -1,0 +1,19 @@
+uuid: 8210c4ee-427c-42f2-88aa-a4ba41c2cc13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_beschrijving
+    - node.type.veiling_invoer_handelaren
+id: node.veiling_invoer_handelaren.field_beschrijving
+field_name: field_beschrijving
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Beschrijving
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

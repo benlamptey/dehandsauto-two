@@ -1,0 +1,65 @@
+uuid: 285d4166-0316-44ab-a315-bc18ea562927
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.veiling_invoer_handelaren.field_afteller
+    - field.field.node.veiling_invoer_handelaren.field_beschrijving
+    - field.field.node.veiling_invoer_handelaren.field_brandstof
+    - field.field.node.veiling_invoer_handelaren.field_deuren
+    - field.field.node.veiling_invoer_handelaren.field_doe_een_bod
+    - field.field.node.veiling_invoer_handelaren.field_euro_norm
+    - field.field.node.veiling_invoer_handelaren.field_expaire_time
+    - field.field.node.veiling_invoer_handelaren.field_foto_s
+    - field.field.node.veiling_invoer_handelaren.field_jaar
+    - field.field.node.veiling_invoer_handelaren.field_kleur_picker
+    - field.field.node.veiling_invoer_handelaren.field_km
+    - field.field.node.veiling_invoer_handelaren.field_laatste_bod
+    - field.field.node.veiling_invoer_handelaren.field_maand
+    - field.field.node.veiling_invoer_handelaren.field_merk
+    - field.field.node.veiling_invoer_handelaren.field_min_elevation
+    - field.field.node.veiling_invoer_handelaren.field_prijs
+    - field.field.node.veiling_invoer_handelaren.field_regio
+    - field.field.node.veiling_invoer_handelaren.field_reserve
+    - field.field.node.veiling_invoer_handelaren.field_schakeling
+    - field.field.node.veiling_invoer_handelaren.field_vermogen
+    - node.type.veiling_invoer_handelaren
+  module:
+    - user
+id: node.veiling_invoer_handelaren.teaser
+targetEntityType: node
+bundle: veiling_invoer_handelaren
+mode: teaser
+content:
+  flag_rate_node:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_afteller: true
+  field_beschrijving: true
+  field_brandstof: true
+  field_deuren: true
+  field_doe_een_bod: true
+  field_euro_norm: true
+  field_expaire_time: true
+  field_foto_s: true
+  field_jaar: true
+  field_kleur_picker: true
+  field_km: true
+  field_laatste_bod: true
+  field_maand: true
+  field_merk: true
+  field_min_elevation: true
+  field_prijs: true
+  field_regio: true
+  field_reserve: true
+  field_schakeling: true
+  field_vermogen: true

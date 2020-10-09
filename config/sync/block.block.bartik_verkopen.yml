@@ -1,0 +1,29 @@
+uuid: 15050409-4c3f-45e4-a50a-4bbcad254fb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.verkopen
+  module:
+    - block_class
+    - system
+  theme:
+    - bartik
+third_party_settings:
+  block_class:
+    classes: kpvkmenu
+id: bartik_verkopen
+theme: bartik
+region: primary_menu
+weight: -5
+provider: null
+plugin: 'system_menu_block:verkopen'
+settings:
+  id: 'system_menu_block:verkopen'
+  label: Verkopen
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

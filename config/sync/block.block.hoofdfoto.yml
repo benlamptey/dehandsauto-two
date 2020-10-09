@@ -1,0 +1,25 @@
+uuid: 0b98dfb3-d299-4645-a68d-fd1e92d271b6
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+  module:
+    - block_content
+  theme:
+    - currus
+id: hoofdfoto
+theme: currus
+region: banner
+weight: -10
+provider: null
+plugin: 'block_content:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+settings:
+  id: 'block_content:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+  label: 'Hoofd Foto'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,29 @@
+uuid: 2fef40fc-6c10-4cd8-8930-53fedcca6ada
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.volg-ons
+  module:
+    - block_class
+    - system
+  theme:
+    - adminio
+third_party_settings:
+  block_class:
+    classes: 'footerdiv w3-col l4 m4 w3-padding'
+id: volgons_2
+theme: adminio
+region: footer
+weight: -7
+provider: null
+plugin: 'system_menu_block:volg-ons'
+settings:
+  id: 'system_menu_block:volg-ons'
+  label: 'Volg ons'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

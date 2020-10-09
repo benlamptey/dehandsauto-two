@@ -1,0 +1,20 @@
+uuid: 2c8974bb-7a9b-4775-8b7d-6786a22c6dfc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_plaats
+  module:
+    - user
+id: user.user.field_plaats
+field_name: field_plaats
+entity_type: user
+bundle: user
+label: Plaats
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

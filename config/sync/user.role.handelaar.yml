@@ -1,0 +1,23 @@
+uuid: ab2cf786-1c21-407a-9961-4c2aea8e22c4
+langcode: en
+status: true
+dependencies: {  }
+id: handelaar
+label: Handelaar
+weight: 4
+is_admin: null
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'access user contact forms'
+  - 'cancel account'
+  - 'change own username'
+  - 'create veiling_invoer_handelaren content'
+  - 'delete own veiling_invoer_handelaren content'
+  - 'edit own comments'
+  - 'edit own veiling_invoer_handelaren content'
+  - 'execute php code'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'view own unpublished content'

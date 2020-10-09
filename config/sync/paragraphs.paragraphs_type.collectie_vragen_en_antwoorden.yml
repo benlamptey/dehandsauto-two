@@ -1,0 +1,9 @@
+uuid: 4d793f60-2b84-475c-af04-30c3ff035e69
+langcode: en
+status: true
+dependencies: {  }
+id: collectie_vragen_en_antwoorden
+label: 'Collectie vragen en antwoorden'
+icon_uuid: null
+description: 'Vraag antwoord, like en dislike'
+behavior_plugins: {  }

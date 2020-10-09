@@ -1,0 +1,23 @@
+uuid: d1ad2af3-1819-4984-a099-7aee34636709
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reserve
+    - node.type.veiling_invoer_handelaren
+id: node.veiling_invoer_handelaren.field_reserve
+field_name: field_reserve
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Instelprijs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: 100000
+  prefix: ''
+  suffix: ''
+field_type: integer

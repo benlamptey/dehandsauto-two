@@ -1,0 +1,8 @@
+uuid: 1f42ad09-5928-45c1-be9e-60d5a4db381e
+langcode: en
+status: true
+dependencies: {  }
+id: volg-ons
+label: 'Volg ons'
+description: 'Menu met links naar de sociale media'
+locked: false

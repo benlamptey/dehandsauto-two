@@ -1,0 +1,25 @@
+uuid: fec4dc55-18e4-4f76-91e5-90af4a174c94
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+  module:
+    - block_content
+  theme:
+    - stark
+id: stark_hoofdfoto
+theme: stark
+region: highlighted
+weight: -9
+provider: null
+plugin: 'block_content:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+settings:
+  id: 'block_content:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+  label: 'Hoofd Foto'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

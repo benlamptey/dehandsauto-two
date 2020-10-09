@@ -1,0 +1,14 @@
+uuid: 4058658d-6601-48a8-aa2d-723dc76032bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.handelaar
+  module:
+    - user
+id: user_remove_role_action.handelaar
+label: 'Remove the Handelaar role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: handelaar

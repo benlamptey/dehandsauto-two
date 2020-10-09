@@ -1,0 +1,31 @@
+uuid: 0cc9d7b0-7915-4663-8b4a-79e92c57e2a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - block_class
+    - system
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: 'kpvkmenu bg-brown'
+_core:
+  default_config_hash: rx9IrdDv7Ldc4kpalZAxdhIPZfYIeOMh1N-qKoQZwHo
+id: currus_main_menu
+theme: currus
+region: header_top
+weight: -10
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,72 @@
+<div class="header-warpper">
+    <div class="top-header">
+        <div class="container">
+            {{ page.header_top }}
+        </div>
+    </div>
+    <header id="header">
+        <div class="container">
+            {{ page.header }}
+        </div>
+    </header>
+</div>
+
+<div class="banner-bottom bg-dark">
+    <div class="container">
+        {{ page.banner_bottom }}
+    </div>
+</div>
+
+<div>
+    <div class="container">
+        {{ page.highlighted }}
+        {{ messages }}
+    </div>
+</div>
+            
+<div class="main-content light-bg">
+    <div class="container">
+        <div class="user-form-outer">
+            <h1>{{ title }}</h1>
+            {{ page.content }}
+            <div class="inloggen-grid"> 
+                <div class="wachtwoord-link">
+                    <p>{{ 'Wachtwoord vergeten' }}<a href="{{ path('user.pass') }}">{{ ' klik hier' }}</a></p>
+                </div>
+            
+                <div class="register-link">
+                    <a href="{{ path('user.register') }}">
+                     {{ 'Nog geen account?<br/>' }}<span id="meld_gratis">{{ 'meld je gratis aan' }}</span></a>
+                </div>
+            </div>
+            <div class="social-link">
+                <div class="login-fb">
+                    <div class="login-fb-inner">
+                        <a href="/user/simple-fb-connect"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="login-google">
+                    <div class="login-google-inner">
+                        <a href="/user/login/google"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+            
+<footer class="footerhead">
+    <div class="footer-inner">
+        <div class="container">
+            <div class="row">
+                 {{ page.footer }}  
+            </div>
+        </div>
+    </div>
+</footer>
+            
+  
+
+
+        
+        

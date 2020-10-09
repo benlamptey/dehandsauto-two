@@ -1,0 +1,5 @@
+services:
+  inloggen_event_subscriber:
+    class: Drupal\inloggen\EventSubscriber\InloggenSubscriber
+    tags:
+      - {name: event_subscriber}

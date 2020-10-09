@@ -1,0 +1,22 @@
+uuid: a2d2fad6-6789-4887-8d15-a6b896f851ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kleur_picker
+    - node.type.veiling_invoer_handelaren
+  module:
+    - color_field
+id: node.veiling_invoer_handelaren.field_kleur_picker
+field_name: field_kleur_picker
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Kleur
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

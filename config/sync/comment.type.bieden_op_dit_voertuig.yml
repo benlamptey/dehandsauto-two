@@ -1,0 +1,8 @@
+uuid: f58e797e-4af8-4b13-9c64-fa40bc511099
+langcode: en
+status: true
+dependencies: {  }
+id: bieden_op_dit_voertuig
+label: 'Bieden op dit voertuig'
+target_entity_type_id: node
+description: 'Met dit formulier kunnen bezoekers bieden, bestaat uit een vak ''nieuw bod'' en een knop ''bieden'''

@@ -1,0 +1,190 @@
+/* variables */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900&display=swap');
+$black: #000000;
+$white: #ffffff;
+$primary-dark: #494945;
+$primary-color: #7d673f;
+$light-bg: #f6f8f8;
+
+/* variables */
+@mixin all-clear {
+  &::after, &::before {
+  content: " ";
+  display: table;
+  width: 0;
+  }
+  &::after {
+    clear: both;
+  }
+}
+@mixin clear-both {
+  &::after, &::before {
+  content: " ";
+  display: table;
+  clear: both;
+  }
+  &::after {
+    clear: both;
+  }
+}
+@mixin placeholder($color, $opacity) {
+   &::-moz-placeholder {
+     color: $color;
+     opacity: $opacity;
+   }
+   &::-webkit-input-placeholder {
+     opacity: $opacity;
+     color: $color;
+   }
+   &:-ms-input-placeholder {
+     opacity: $opacity;
+     color: $color;
+   }
+   &::-ms-input-placeholder {
+     opacity: $opacity;
+     color: $color;
+   }
+   &:focus {
+       &::-moz-placeholder {
+       opacity: 1;
+
+     &::-webkit-input-placeholder {
+       opacity: 1;
+     }
+     &:-ms-input-placeholder {
+       opacity: 1;
+     }     }
+     &::-ms-input-placeholder {
+       opacity: 1;
+     }
+   }
+}
+
+
+@mixin flexbox($wrap:false, $direction:false, $oriant:false) {
+  display: flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  @if $wrap {
+    flex-wrap: $wrap;
+    -webkit-flex-wrap: $wrap;
+  }
+  @if $direction {
+    -webkit-flex-direction: $direction;
+    flex-direction: $direction;
+  }  
+  @if $oriant {
+    -webkit-box-orient: $oriant;
+  }  
+}
+
+@mixin align-items($pos) {
+  -webkit-align-items: $pos;
+  -ms-align-items: $pos;
+  align-items: $pos;
+}
+
+@mixin justify-content($pos) {
+    -webkit-justify-content: $pos;
+    -ms-justify-content: $pos;
+    justify-content: $pos;
+}
+
+@mixin appearance($value:false) {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+  @if $value {
+      -webkit-appearance: $value;
+      -moz-appearance:    $value;
+      appearance:         $value;
+  }
+}
+@mixin skew($s1, $s2) {
+-ms-transform: skew($s1,$s2);
+  -webkit-transform: skew($s1,$s2);
+  transform: skew($s1,$s2);
+}
+@mixin scale($m) {
+  -webkit-transform: scale($m);
+  -moz-transform:    scale($m);
+  -ms-transform:     scale($m);
+  -o-transform:      scale($m);
+  transform:         scale($m);
+  }
+
+@mixin translate($p, $q) {
+  -webkit-transform: translate($p,$q);
+  -moz-transform:    translate($p,$q);
+  -ms-transform:     translate($p,$q);
+  -o-transform:      translate($p,$q);
+  transform:         translate($p,$q);
+}
+@mixin translatex($y) {
+  -webkit-transform: translateX($y);
+  -moz-transform:    translateX($y);
+  -ms-transform:     translateX($y);
+  -o-transform:      translateX($y);
+  transform:         translateX($y);
+  }
+@mixin translatey($x) {
+  -webkit-transform: translateY($x);
+  -moz-transform:    translateY($x);
+  -ms-transform:     translateY($x);
+  -o-transform:      translateY($x);
+  transform:         translateY($x);
+  }
+  @mixin rotate($angle) {
+  -webkit-transform: rotate($angle);
+  -moz-transform:    rotate($angle);
+  -ms-transform:     rotate($angle);
+  -o-transform:      rotate($angle);
+  transform:         rotate($angle);
+  }
+  
+@mixin transition($t) {
+  transition: all $t ease-in-out;
+  -ms-transition: all $t ease-in-out;
+  -o-transition: all $t ease-in-out;
+  -moz-transition: all $t ease-in-out;
+  -webkit-transition: all $t ease-in-out;
+}
+
+@mixin breakpoint($width, $direction: up) {
+   @if $direction == up {
+     @media screen and (min-width: $width) {
+       @content;
+       }
+     }
+     @else if $direction == down {
+       @media screen and (max-width: $width - 1px) {
+       @content;
+     }
+   }
+}
+
+@mixin breakpoint-n($width, $widthx) {
+ @media screen and (min-width: $width) and (max-width: $widthx) {
+ @content;
+ }
+}
+
+
+@mixin primary-button {
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: $primary-color;
+  font-weight: 700;
+  color: $white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  border: none;
+  box-shadow: none;
+  @include transition(.25s);
+  &:hover {
+    background-color: darken($primary-color, 15%);
+  }
+}

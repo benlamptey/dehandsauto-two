@@ -1,0 +1,25 @@
+uuid: 642478a2-dfbc-4491-b263-eb1d892e7a77
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.waardering_verkoper
+    - field.field.comment.waardering_verkoper.field_tekstvak
+id: comment.waardering_verkoper.default
+targetEntityType: comment
+bundle: waardering_verkoper
+mode: default
+content:
+  field_tekstvak:
+    weight: 101
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

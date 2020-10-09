@@ -1,0 +1,26 @@
+/*+++++++Over ons++++++++*/
+.footerhead h2::after{display: block;border-bottom: 4px solid var(--basis-kleur);width: 21px;content:'';}
+.footerhead p{font-size: 12px;}
+.footerhead{background-color:var(--lichte-achtergrond)}
+
+/*+++++++Nieuwsbrief+++++++*/
+.footer-nieuwsbrief{margin-bottom: 15px;}
+.footer-nieuwsbrief h2::after{display: block;border-bottom: 4px solid var(--basis-kleur);width: 21px;content:'';}
+.footer-nieuwsbrief form{display:flex;align-content: flex-start;float:left;position:relative;}
+.footer-nieuwsbrief form::after{content:'Gratis inschrijven op de nieuwsbrief';font-size: 11px;
+                                 position: absolute;bottom: -20px;left: 5px;}
+.footer-nieuwsbrief input:hover{box-shadow: 7px 7px 13px lightgrey;border:none;}
+.footer-nieuwsbrief div{width: 200px;margin-right: 17px;}
+.footer-nieuwsbrief input[type=submit]{border:none;padding:6px 13px 6px 13px;margin: 10px;
+                                        background-color:var(--basis-kleur);color:var(--bleketekst);}
+.footer-nieuwsbrief input[type=email]{padding:5px}
+
+/*Menu meer info & bruikbare links*/
+.footerdiv li{list-style: none;}
+.footerdiv a:link{text-decoration: none;display: block;position: relative;}
+.footerdiv a:hover::before{display:block;border-left:2px solid var(--basis-kleur);height:13px;content:'';top:8px;
+                           border-bottom: 2px solid var(--basis-kleur);width:13px;position: absolute;left:-5px;}
+.footerdiv a:active{font-weight: bold;}
+.footerdiv h2::after{display: block;border-bottom: 4px solid var(--basis-kleur);width: 21px;content:'';
+                     
+

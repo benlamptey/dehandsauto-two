@@ -1,0 +1,217 @@
+<?php
+
+/**
+ * @file
+ * Make the login screens better :).
+ */
+
+use \Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function inloggen_help($path, $arg) {
+  switch ($path) {
+    case 'help.page.inloggen':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Better Login module is used to remove issue of styling Drupal login/password/registration forms. It is slightly inspired by the way Wordpress login forms work, and uses three page templates to change the style of the forms. It is very simple to use, just install the Better Login module and
+it starts working immediately.') . '</p>';
+      $output .= '<p>' . t('For more information, see the <a href="https://www.drupal.org/project/betterlogin">BetterLogin module</a>.') . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<p>' . t('This module uses four templates:') . '</p>';
+      $output .= '<ul>';
+      $output .= '<li>' . t('page--user--login.tpl.php') . '</li>';
+      $output .= '<li>' . t('page--user--password.tpl.php') . '</li>';
+      $output .= '<li>' . t('page--user--register.tpl.php') . '</li>';
+      $output .= '<li>' . t('page--user--reset.tpl.php') . '</li>';
+      $output .= '</ul>';
+      $output .= '<p>' . t('These sit in the /templates directory in the module. You can override them by copying the templates out of the module and into your theme directory.') . '</p>';
+      $output .= '<p>' . t('Alternatively if you are happy with the templates you can easily just alter the CSS styles in your theme.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Autofocus on the username field.
+ * Some proper page titles would be nice for a change,
+ * User account is a bit boring..
+ */
+function inloggen_form_alter(&$form, FormStateInterface $form_state, $form_id){
+  // Autofocus on the username field.
+  // And add some pretty CSS :).
+  // And a few other things too...
+  if ($form_id == 'node_veiling_invoer_handelaren_form' || $form_id == 'node_veiling_invoer_handelaren_edit_form') {
+    $form['#attached']['library'][] = 'inloggen/inloggen_css';
+  }
+
+  if ($form_id == 'user_login_form' || $form_id == 'user_register_form' || $form_id == 'user_pass' 
+      || $form_id == 'user_pass_reset') {
+    $form['name']['#attributes']['autofocus'] = 'autofocus';
+    // We don't really need descriptions to tell us what we already know...
+    unset($form['name']['#description']);
+    unset($form['pass']['#description']);
+    unset($form['user_picture']);
+
+    // Add in some CSS.
+    $form['#attached']['library'][] = 'inloggen/inloggen_css';
+
+    if ($form_id == 'user_login_form'){
+      //Verander de tekst in het login formulier.
+      $form['actions']['submit']['#value'] = 'log in';
+      $form['name']['#title'] = '';
+      $form['name']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf0e0;  E-mailadres of naam");
+      $form['name']['#attributes']['style'][] = 'font-family:Arial, FontAwesome;';
+      $form['pass']['#title'] = '';
+      $form['pass']['#attributes']['style'][] = 'font-family:Arial, FontAwesome;';
+      $form['pass']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf023;  Wachtwoord");
+    }
+
+    if ($form_id == 'user_pass'){
+        //Verander de tekst in het formulier om het wachtwoord te herzetten.
+    $form['actions']['submit']['#value'] = 'Opvragen';
+    $form['name']['#title'] = '';
+    $form['name']['#placeholder'] = 'E-mailadres of naam';
+    $form['pass']['#title'] = '';
+    $form['mail']['#markup'] = 'Om uw wachtwoord te herstellen, ontvangt u een email met instructies';
+
+    }
+
+    if ($form_id == 'user_register_form'){
+        //Verander de tekst in het formulier om een nieuwe account te registreren.
+    $form['account']['mail']['#title'] = '';
+    $form['account']['mail']['#placeholder'] = 'E-mailadres';
+    $form['account']['mail']['#description'] = 'Uw E-mailadres wordt niet openbaar gemaakt. Doel : 1 → ontvangen van berichten 2 → wachtwoord herstel.';
+    $form['account']['name']['#title'] = '';
+    $form['account']['name']['#placeholder'] = 'Profiel naam';
+    $form['account']['name']['#description'] = 'Speciale karakters als : , - _ @ , zijn toegelaten. Hoofdletter gevoelig.';
+    $form['actions']['submit']['#value'] = 'maak account aan';
+    $form['select_roles']['#title'] = 'Kies een rol';
+    }
+
+  }
+
+  // Exit if we're not on a target url, since the form may have been rendered
+  // programmatically. We don't want to change page titles on other pages.
+  $pages = array('login', 'register', 'password', 'reset');
+  // Retrieve an array which contains the path pieces.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path_args = explode('/', $current_path);
+  if (!in_array($path_args, $pages)) {
+    return;
+  }
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function inloggen_theme_registry_alter(&$theme_registry) {
+  // I'VE COMMENTED OUT THE FOLLOWING BECAUSE DRUPAL AUTOMATICALLY DOES THIS. @BL
+
+//  $pages = [
+//    'page__user__login' => 'page--user--login',
+//    'page__user__register' => 'page--user--register',
+//    'page__user__password' => 'page--user--password',
+//    'page__user__reset' => 'page--user--reset',
+//  ];
+//  $mod_path = drupal_get_path('module', 'inloggen') . '/templates';
+//
+//  foreach ($pages as $key => $template) {
+//    $theme_registry[$key]['template'] = $template;
+//    $theme_registry[$key]['path'] = $mod_path;
+//    $theme_registry[$key]['preprocess functions'][0] = 'inloggen_preprocess_page';
+//    $theme_registry[$key]['preprocess functions'][1] = 'inloggen_preprocess_html';
+//    $theme_registry[$key]['type'] = 'base_theme_engine';
+//  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function inloggen_preprocess_page(&$variables) {
+  // IDEALLY THIS WOULD BE IN CURRUS.THEME @BL
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $variables['logo'] = theme_get_setting('logo.url');
+  $current_path = \Drupal::service('path.current')->getPath();
+  switch ($current_path) {
+    case '/user/login':
+      $variables['title'] = t('Inloggen');
+      break;
+
+    case '/user/password':
+      $variables['title'] = t('Wachtwoord vergeten?');
+      break;
+
+    case '/user/register':
+      $variables['title'] = t('Account aanmaken');
+      break;
+
+    case '/user/reset':
+      $variables['title'] = t('Wachtwoord herinstellen');
+      break;
+  }
+
+  $variables['#cache']['contexts'][] = 'route';
+  $variables['page']['#cache']['contexts'][] = 'route';
+  $variables['page']['content']['bartik_local_tasks'] = array();
+  $variables['page']['content']['bartik_page_title'] = array();
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function inloggen_preprocess_html(&$variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  switch ($current_path) {
+    case '/user/login':
+      $variables['head_title']['title'] = t('Inloggen');
+      break;
+
+    case '/user/password':
+      $variables['head_title']['title'] = t('Wachtwoord vergeten?');
+      break;
+
+    case '/user/register':
+      $variables['head_title']['title'] = t('Registreer');
+      break;
+
+    case '/user/reset':
+      $variables['head_title']['title'] = t('Wachtwoord herzetten');
+      break;
+  }
+
+  $variables['#cache']['contexts'][] = 'route';
+  $variables['page']['#cache']['contexts'][] = 'route';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function inloggen_form_user_profile_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['#attributes']['style'][] = 'font-family:Arial, FontAwesome;';
+  $form['pass']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf023; Wachtwoord");
+  $form['confirm_pass']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf023;  Herhaal wachtwoord");
+  $form['field_plaats']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf041;  Plaats");
+  $form['field_land']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf024;  Land");
+  $form['field_postcode']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf015;  Postcode");
+  $form['field_telefoonnummer']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf095; Telefoonnummer");
+
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function inloggen_form_user_registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['#attributes']['style'][] = 'font-family:Arial, FontAwesome;';
+  $form['nom']['#attributes']['placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf007;") . " Naam";
+  $form['user_mail']['#attributes']['placeholder'] =  \Drupal\Component\Utility\Html::decodeEntities("&#xf0e0;") . " Email";
+  $form['pass']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf023; Wachtwoord");
+  $form['confirm_pass']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf023;  Herhaal wachtwoord");
+  $form['field_plaats']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf041;  Plaats");
+  $form['field_land']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf024;  Land");
+  $form['field_postcode']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf015;  Postcode");
+  $form['field_telefoonnummer']['#placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf095; Telefoonnummer");
+
+}

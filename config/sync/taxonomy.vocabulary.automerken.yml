@@ -1,0 +1,8 @@
+uuid: 2230458d-5ee3-4382-98a2-7df03c8cbff6
+langcode: en
+status: true
+dependencies: {  }
+name: Automerken
+vid: automerken
+description: 'Lijst van alle merken en hun types'
+weight: 0

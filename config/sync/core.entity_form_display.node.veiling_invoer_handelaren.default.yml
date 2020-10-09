@@ -1,0 +1,200 @@
+uuid: ffe2f153-5166-4848-a01d-ad304a33f778
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.veiling_invoer_handelaren.field_afteller
+    - field.field.node.veiling_invoer_handelaren.field_beschrijving
+    - field.field.node.veiling_invoer_handelaren.field_brandstof
+    - field.field.node.veiling_invoer_handelaren.field_deuren
+    - field.field.node.veiling_invoer_handelaren.field_doe_een_bod
+    - field.field.node.veiling_invoer_handelaren.field_euro_norm
+    - field.field.node.veiling_invoer_handelaren.field_expaire_time
+    - field.field.node.veiling_invoer_handelaren.field_foto_s
+    - field.field.node.veiling_invoer_handelaren.field_jaar
+    - field.field.node.veiling_invoer_handelaren.field_kleur_picker
+    - field.field.node.veiling_invoer_handelaren.field_km
+    - field.field.node.veiling_invoer_handelaren.field_laatste_bod
+    - field.field.node.veiling_invoer_handelaren.field_maand
+    - field.field.node.veiling_invoer_handelaren.field_merk
+    - field.field.node.veiling_invoer_handelaren.field_min_elevation
+    - field.field.node.veiling_invoer_handelaren.field_prijs
+    - field.field.node.veiling_invoer_handelaren.field_regio
+    - field.field.node.veiling_invoer_handelaren.field_reserve
+    - field.field.node.veiling_invoer_handelaren.field_schakeling
+    - field.field.node.veiling_invoer_handelaren.field_vermogen
+    - image.style.thumbnail
+    - node.type.veiling_invoer_handelaren
+  module:
+    - color_field
+    - fiu
+    - scheduler
+    - shs
+    - yearonly
+id: node.veiling_invoer_handelaren.default
+targetEntityType: node
+bundle: veiling_invoer_handelaren
+mode: default
+content:
+  field_beschrijving:
+    weight: 2
+    settings:
+      rows: 4
+      placeholder: 'Voeg hier uw beschrijving toe'
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_brandstof:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_deuren:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_euro_norm:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_expaire_time:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_foto_s:
+    weight: 15
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: fine_image
+    region: content
+  field_jaar:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: yearonly_default
+    region: content
+  field_kleur_picker:
+    weight: 12
+    settings:
+      default_colors: '#FFFFFF,#B2B0AF,#000000,#595BF0,#F50909,#18AA23,#FBF81F,#D841C6,#A141D8,#F07B07'
+    third_party_settings: {  }
+    type: color_field_widget_box
+    region: content
+  field_km:
+    weight: 6
+    settings:
+      placeholder: Km
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_maand:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_merk:
+    weight: 0
+    settings:
+      display_node_count: false
+      create_new_items: false
+      create_new_levels: false
+      force_deepest: false
+    third_party_settings: {  }
+    type: options_shs
+    region: content
+  field_min_elevation:
+    weight: 18
+    settings:
+      placeholder: 'Opbod  €'
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_prijs:
+    weight: 5
+    settings:
+      placeholder: Prijs
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_regio:
+    weight: 14
+    settings:
+      force_deepest: true
+      create_new_items: false
+      create_new_levels: false
+      display_node_count: false
+    third_party_settings: {  }
+    type: options_shs
+    region: content
+  field_reserve:
+    weight: 16
+    settings:
+      placeholder: 'Instelprijs €'
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_schakeling:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_vermogen:
+    weight: 13
+    settings:
+      placeholder: PK
+    third_party_settings: {  }
+    type: number
+    region: content
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 70
+      placeholder: 'Titel veiling zoekertjes'
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_afteller: true
+  field_doe_een_bod: true
+  field_laatste_bod: true
+  moderation_state: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

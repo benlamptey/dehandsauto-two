@@ -1,0 +1,5 @@
+name: 'biedconditie voor views'
+type: module
+description: 'Extentie views filter.'
+core_version_requirement: ^8.8 || ^9.0
+package: 'Custom'

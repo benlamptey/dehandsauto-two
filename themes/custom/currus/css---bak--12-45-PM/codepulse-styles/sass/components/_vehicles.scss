@@ -1,0 +1,49 @@
+.veiling_invoer_handelaren,
+.veiling_invoer_particulieren {
+  .vehicle-label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #181818;
+  }
+
+  .vehicle-timer {
+    font-size: 11px;
+  }
+
+  .item-caption {
+    margin-bottom: 15px;
+  }
+
+  .vehicle-prijs {
+    font-weight: bold;
+    font-size: 16px;
+    color: #b88234;
+  }
+
+  .prijs-timer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .bied-mee-cta {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+  }
+
+  .bied-mee-cta a {
+    padding: 10px;
+    line-height: 1;
+    background-color: #b99a6f;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    -webkit-mask-image: radial-gradient(circle at left, transparent 13px, #7d673f 13px);
+    width: 150px;
+    margin-bottom: 16px;
+  }
+}

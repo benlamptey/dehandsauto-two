@@ -1,0 +1,80 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 9, 2019, 10:49:14 AM
+    Author     : LENOVO
+*/
+
+/*Custom styles voor de pagina van een individueel voertuig*/
+.auto-merk-header {text-decoration:none;color:#262626;}
+.hoogste-bod-zover{position:absolute;right:13px;}
+.hoogste-bod-zover p{position:absolute;right:13px;color:#2a77b1;}
+.laatste-bod{font-size:25px;color:#2a77b1;font-weight: bold;}
+.reserve-veld{position:absolute;right:13px;color: #2a77b1}
+/*single car pagina eerste blok met foto en rechts offers en eigenaar gegevens*/
+.eerste-kader{position:relative;background-color:var(--lichte-achtergrond);}
+
+/*hartje rechtsboven*/
+.hartje{border-radius:3px;display:inline;position:absolute;top:0px;right:0px;}
+.hartje-prijs{font-weight:700;font-size:19px;float:right;}
+.hartje-prijs div{display:inline-block;}
+.hartje-kopen{color:var(--grijzetekst);font-size:15px;font-weight:400;}
+.naam-author{color:#262626;padding-bottom:16px;}
+.naam-author a:link{text-decoration:none;}
+.naam-author a:hover{box-shadow: 4px 3px 4px lightsteelblue;padding:3px;}
+.naam-author a:active{box-shadow: 4px 3px 4px lightslategray;padding:3px;}
+.autolijn{border-bottom:1px solid lightsteelblue;width:90%;padding-bottom:16px;padding-top:8px;
+          margin-top:10px;}
+.berichtlijn{border-bottom:1px solid lightsteelblue;width:90%;padding-bottom:16px;padding-top:8px;
+             margin-top:10px;}
+
+/*style commment form*/
+.comment-bieden-op-dit-voertuig__form input{display:inline;}
+.autobeschrijving-rij{margin-top:47px;margin-bottom:23px;}
+.autobeschrijving-tittel{display:inline;border-left:1px solid lightgrey;border-right:1px solid lightgrey;
+                         border-top:1px solid lightgrey;padding:2px 7px 2px 7px;border-top-left-radius: 5px;
+                         border-top-right-radius:5px;}
+.autobeschrijving {background-color:#FaFaFa;padding:7px;overflow-wrap: break-word;}
+.regios div{display:inline-block;}
+
+.berichtknop{border-radius:3px;background-color:var(--basis-kleur);color:#fff;padding:7px 7px 7px 10px;
+             margin-right: 10px;display:inline-block;max-width:107px;height:auto;margin-bottom:8px;}
+.berichtknop:hover{box-shadow:inset 0px 0px 2px 2px lightsteelblue;}
+.berichtknop:active{box-shadow:none;padding:6px 6px 6px 9px;}
+.berichtknop a:link{text-decoration: none;}
+.eurobod div{display:inline;}
+.eurobod{padding-bottom:16px;}
+.biedform input[type|='number']{vertical-align: middle;margin:5px 10px 5px 0;padding:5px;
+                                background-color: #fff;border: 1px solid #ddd;border-radius:3px;}
+.biedform input[type|='number']:focus{background-color:lightslategray;color:#262626;}
+.biedform input[type|='number']:hover{box-shadow:0px 0px 2px 2px #ddd;}
+.biedform input[type|='submit']{padding: 10px 5px;letter-spacing:1px;color:#fff;border:none;border-radius:3px;
+                                background-color:var(--basis-kleur)}
+.biedform input[type|='submit']:hover{box-shadow:inset 0px 0px 2px 2px lightsteelblue;}
+.biedform input[type|='submit']:active{box-shadow:none;padding:9px 4px;}
+.biedform input[type|='submit']:link{border:none;}
+
+/* Zelfe stijl wagen met blauwe silhoutte, maar voor op de node wagens weergave pagina, CSS voor w3-col l3  */ 
+.footers-blauw{position:relative;background-position:center;background: url("../images/blauwesilhoutte.png");
+              max-width:250px;padding:7px 7px 21px 7px;}
+.footers-blauw h4{color:ivory;}
+.footers-blauw p{color:ivory;}
+.knopveilen{background-color:lightsteelblue;color:#fff;padding:5px;border-radius:3px;border:none;padding:13px;
+            font-size:17px;letter-spacing:1px;} 
+.knopveilen:hover{box-shadow:0px 0px 2px 2px mintcream;}
+.knopveilen:active{padding:12px;box-shadow:none;}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 620px) { #blauwvoet{display:none;} }   
+.labeltekst{color:#262626;text-decoration:underline;}
+/*tabel biedingen per voertuig op auto pagina*/
+.biedingen-tabel table{border:1px solid transparent ;border-collapse: collapse;}
+.biedingen-tabel thead{color:#262626}
+.instelbod div{float:right;}
+.instelopspan{color:#262626;}
+.opbod div{float:right;}
+.jaarmaand div{display:inline;}
+#cont-gebruikr-01, #cont-gebruikr-02{}
+

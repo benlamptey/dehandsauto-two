@@ -1,0 +1,8 @@
+uuid: 5bf0500f-62e7-4bac-8c00-757a9a5e483a
+langcode: en
+status: true
+dependencies: {  }
+id: footer-bottom-links
+label: 'Footer bottom links'
+description: ''
+locked: false

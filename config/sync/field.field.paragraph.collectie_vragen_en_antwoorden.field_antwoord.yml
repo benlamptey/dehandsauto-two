@@ -1,0 +1,21 @@
+uuid: 0af0145b-afb2-4277-bcfd-84c92b6db0f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_antwoord
+    - paragraphs.paragraphs_type.collectie_vragen_en_antwoorden
+  module:
+    - text
+id: paragraph.collectie_vragen_en_antwoorden.field_antwoord
+field_name: field_antwoord
+entity_type: paragraph
+bundle: collectie_vragen_en_antwoorden
+label: Antwoord
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

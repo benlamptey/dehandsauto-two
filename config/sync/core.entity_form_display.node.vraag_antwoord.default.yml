@@ -1,0 +1,55 @@
+uuid: 3e4b38c3-4178-4d8f-b7ed-1a817ea5c79b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.vraag_antwoord.field_vragen_antwoorden
+    - node.type.vraag_antwoord
+  module:
+    - paragraphs
+    - path
+id: node.vraag_antwoord.default
+targetEntityType: node
+bundle: vraag_antwoord
+mode: default
+content:
+  field_vragen_antwoorden:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: 'Paragraaf vraag en antwoord'
+      title_plural: 'Paragraaf vraag en antwoord'
+      edit_mode: preview
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: collectie_vragen_en_antwoorden
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  promote: true
+  publish_on: true
+  sticky: true
+  uid: true
+  unpublish_on: true

@@ -1,0 +1,24 @@
+uuid: 6f981064-79a9-4641-a3ce-2343b4366284
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.bieden_op_dit_voertuig
+    - field.field.comment.bieden_op_dit_voertuig.field_nieuw_bod
+  module:
+    - opbieden
+id: comment.bieden_op_dit_voertuig.default
+targetEntityType: comment
+bundle: bieden_op_dit_voertuig
+mode: default
+content:
+  field_nieuw_bod:
+    weight: 0
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: opbieden_widget_type
+    region: content
+hidden:
+  author: true
+  subject: true

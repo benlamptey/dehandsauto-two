@@ -1,0 +1,29 @@
+uuid: 6b4d1f77-6dd8-4c5a-9bcd-4be4a5a5b744
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.nuttige-links
+  module:
+    - block_class
+    - system
+  theme:
+    - stark
+third_party_settings:
+  block_class:
+    classes: 'footerdiv w3-col l4 m4 w3-padding '
+id: stark_nuttigelinks
+theme: stark
+region: footer
+weight: -8
+provider: null
+plugin: 'system_menu_block:nuttige-links'
+settings:
+  id: 'system_menu_block:nuttige-links'
+  label: 'Nuttige links'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

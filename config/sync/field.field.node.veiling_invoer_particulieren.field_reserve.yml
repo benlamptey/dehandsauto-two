@@ -1,0 +1,23 @@
+uuid: eccb4212-2f95-4ade-b9c0-7167880216bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reserve
+    - node.type.veiling_invoer_particulieren
+id: node.veiling_invoer_particulieren.field_reserve
+field_name: field_reserve
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Instelprijs
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: 100000
+  prefix: ''
+  suffix: ''
+field_type: integer

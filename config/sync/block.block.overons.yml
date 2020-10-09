@@ -1,0 +1,29 @@
+uuid: 717dff97-f88b-4a0f-8ed9-ca32dc5b77c4
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:844ef682-e287-491a-a8f1-fcb06398f351'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: 'about-us col-md-3'
+id: overons
+theme: currus
+region: footer
+weight: -14
+provider: null
+plugin: 'block_content:844ef682-e287-491a-a8f1-fcb06398f351'
+settings:
+  id: 'block_content:844ef682-e287-491a-a8f1-fcb06398f351'
+  label: Address
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

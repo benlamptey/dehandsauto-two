@@ -1,0 +1,119 @@
+<div class="add-handelaren-form-wrapper">
+{{ form.form_build_id }}
+{{ form.form_token }}
+{{ form.form_id }}
+
+<div id="add-handelaren-form-elements">
+    <div class="form-top-section">
+        <div class="form-item-wrapper">
+                <label class="form-label">Merk/model</label>
+            <div class="items-2">
+                <div class="item-col hide-title">
+                    {{ form.field_merk }}
+                </div>
+                <div class="item-col hide-title">
+                    {{ form.field_prijs }}
+                </div>
+            </div>
+        </div>
+        <div class="form-item-wrapper">
+            <div class="item-col">
+                {{ form.title }}
+            </div>
+        </div>
+
+        <div class="form-item-wrapper">
+            <div class="item-col">
+                {{ form.field_beschrijving }}
+            </div>
+        </div>
+
+        <div class="form-item-wrapper">
+            <div class="items-2">
+                <div class="item-col hide-title">
+                    <label class="form-label">Bouwjaar</label>
+                <div class="items-bouwjaar">
+                            {{ form.field_maand }}
+                            {{ form.field_jaar }}
+                </div>
+                </div>
+                <div class="item-col small">
+                    {{ form.field_km }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item-wrapper">
+            <div class="item-col">
+                {{ form.field_kleur_picker }}
+            </div>
+        </div>
+
+        <div class="form-item-wrapper">
+            <div class="items-2">
+                <div class="item-col">
+                    {{ form.field_brandstof }}
+                </div>
+                <div class="item-col">
+                    {{ form.field_schakeling }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item-wrapper">
+            <div class="items-2">
+                <div class="item-col">
+                    {{ form.field_deuren }}
+                </div>
+                <div class="item-col">
+                    {{ form.field_euro_norm }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item-wrapper">
+            <div class="items-color">
+                <div class="item-col color-item">
+                    {{ form.field_kleur }}
+                </div>
+                <div class="item-col small">
+                    {{ form.field_vermogen }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-item-wrapper">
+            <div class="item-col">
+                {{ form.field_regio }}
+                {{ form.field_foto_s }}
+            </div>
+        </div>
+    </div>
+    <div class="form-bottom-section">
+        <div class="form-item-wrapper">
+        <label class="form-label">
+            Veiling instelling
+        </label>
+        <div class="items-3">
+            <div class="item-col hide-title">
+                {{ form.field_reserve }}
+                <p>Om nutteloze biedingen te vermijden kan u hier een minimum instel bod bepalen. Dit instel bod verbind u niet om te verkopen aan deze prijs.</p>
+            </div>
+            <div class="item-col hide-title">
+                {{ form.field_expaire_time }}
+                <p>Instellen hoelang de veiling mag duren.</p>
+            </div>
+            <div class="item-col hide-title">
+                {{ form.field_min_elevation }}
+                <p>Instellen met hoeveel een bod minstens dient verhoogd te worden.</p>
+            </div>
+        </div>
+        </div>
+
+        <div class="form-group-button">
+          {{ form.actions }}
+        </div>
+    </div>
+</div>
+
+</div>

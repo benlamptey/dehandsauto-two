@@ -1,0 +1,25 @@
+uuid: 9081edec-3563-49b9-85ab-c62c8828a3ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.vraag_antwoord
+  module:
+    - user
+id: node.vraag_antwoord.teaser
+targetEntityType: node
+bundle: vraag_antwoord
+mode: teaser
+content:
+  flag_rate_node:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

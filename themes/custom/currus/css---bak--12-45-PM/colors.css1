@@ -1,0 +1,12 @@
+ :root{
+      /*donker bruin*/
+      --donkeretekst:#4E4946;
+      /*--donkeretekst:#695530;*//*w3 theme suggestion*/
+      --bleketekst:ivory;
+     /*+++++++hoofdkleur views biedknoppen, filters achtergrond, publi+++++++*/
+     --grijzetekst:#b3b3b3;
+     --basis-kleur:#695530;
+     /*achtergronden, header, footer..*/
+     --lichte-achtergrond:#f9f2ec;
+      }   
+

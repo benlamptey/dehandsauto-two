@@ -1,0 +1,29 @@
+uuid: 43cb5e08-0ea6-45a5-b94f-81dfeb49d087
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.actieve_veiling_particulieren_voertuigen_new
+  module:
+    - system
+    - views
+  theme:
+    - currus
+id: exposedformactieve_veiling_particulieren_voertuigen_new
+theme: currus
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:actieve_veiling_particulieren_voertuigen_new-pagina_veiling_particuliere_voertuigen'
+settings:
+  id: 'views_exposed_filter_block:actieve_veiling_particulieren_voertuigen_new-pagina_veiling_particuliere_voertuigen'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /veiling_voertuigen_particulier
+    negate: false
+    context_mapping: {  }

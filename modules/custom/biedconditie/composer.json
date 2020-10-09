@@ -1,0 +1,14 @@
+{
+  "name": "drupal/biedconditie",
+  "type": "drupal-module",
+  "description": "Validatie voor een nieuw en of eerste bod",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/biedconditie",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/biedconditie",
+    "source": "http://cgit.drupalcode.org/biedconditie"
+  },
+  "require": { }
+}

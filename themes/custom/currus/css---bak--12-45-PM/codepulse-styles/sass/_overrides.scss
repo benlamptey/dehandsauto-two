@@ -1,0 +1,78 @@
+.container.veiling-back-view .views-wrapper {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.footer-inner {
+  margin-top: 0;
+}
+
+.footer-inner .nieuwsbrief form input.form-email {
+  border-bottom: 1px solid #fff;
+}
+
+.main-content .blok-header {
+  margin-bottom: 0;
+}
+
+.footer-inner h2 {
+  font-size: 22px;
+  text-transform: none;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 35px;
+}
+
+.footer-inner .footer-col p {
+  font-size: 15px;
+}
+
+.call-to-action .right-content h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  max-width: unset;
+}
+
+.call-to-action .right-content a {
+  font-weight: 400;
+}
+
+#header .kpvkmenu > ul > li:hover > ul {
+  z-index: 1;
+
+  li {
+    a {
+      &:hover {
+        color: #b88234;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top-header {
+    background-color: #fff;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  .user-profile-menu,
+  .kpvkmenu {
+    display: none;
+  }
+}
+
+.color_field_widget_box__square {
+  border-radius: 100%;
+  border: 1px solid #cac8c8;
+  box-shadow: unset;
+}
+
+.responsive-menu-toggle-icon:before, .responsive-menu-toggle-icon:after, .responsive-menu-toggle-icon span.icon {
+  background: #b79b6f;
+}
+
+.user-profile-menu ul > li .user-profile {
+  height: 57px;
+}

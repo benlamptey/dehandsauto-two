@@ -1,0 +1,20 @@
+uuid: 5c041c4e-c0ae-4ae5-81b8-7e8343a294b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - node
+id: node.field_doe_een_bod
+field_name: field_doe_een_bod
+entity_type: node
+type: comment
+settings:
+  comment_type: bieden_op_dit_voertuig
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

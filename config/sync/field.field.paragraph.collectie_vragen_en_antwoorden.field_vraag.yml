@@ -1,0 +1,21 @@
+uuid: 39d0812e-e140-4ccc-8b00-73b8a4518601
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_vraag
+    - paragraphs.paragraphs_type.collectie_vragen_en_antwoorden
+  module:
+    - text
+id: paragraph.collectie_vragen_en_antwoorden.field_vraag
+field_name: field_vraag
+entity_type: paragraph
+bundle: collectie_vragen_en_antwoorden
+label: Vraag
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

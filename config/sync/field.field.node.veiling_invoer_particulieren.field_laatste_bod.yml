@@ -1,0 +1,25 @@
+uuid: 5b1b5303-607e-4c25-8334-759b74443f16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_laatste_bod
+    - node.type.veiling_invoer_particulieren
+id: node.veiling_invoer_particulieren.field_laatste_bod
+field_name: field_laatste_bod
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: 'Laatste bod'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,29 @@
+uuid: 837843f8-9439-414d-a0bd-24afcc174ea3
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.meer-info
+  module:
+    - block_class
+    - system
+  theme:
+    - adminio
+third_party_settings:
+  block_class:
+    classes: 'footerdiv w3-col l4 m4 w3-padding '
+id: meerinfo_2
+theme: adminio
+region: footer
+weight: -9
+provider: null
+plugin: 'system_menu_block:meer-info'
+settings:
+  id: 'system_menu_block:meer-info'
+  label: 'Meer Info'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,96 @@
+.comment-bieden-op-dit-voertuig-form {
+  input[type=number] {
+    background-color: #f2f2f2;
+    border: 1px solid #bcbcbc;
+  }
+
+  input[type=submit] {
+    background-color: #b79b6f;
+    width: 100%;
+    padding: 15px 50px;
+    border: 1px solid #c5c0bc;
+    color: #fff;
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: normal;
+  }
+}
+
+.contact-title {
+  font-size: 30px;
+  color: #b79b6f;
+  margin-bottom: 30px;
+}
+
+.user-profile-form,
+.user-registration-form,
+.user-login-form,
+.contact-message-feedback-form {
+  textarea,
+  input[type='password'],
+  input[type='email'],
+  input[type='text'] {
+    background: #f9f9f9;
+    border: 0;
+    border-bottom: 1px solid #acacac;
+    font-size: 16px;
+  }
+
+  input[type=submit] {
+    background: #323232;
+    border: 0;
+    border-left: 5px solid #b79b6f;
+    display: block;
+    width: 230px;
+    color: #fff;
+    padding: 10px 50px;
+    margin-bottom: 10px;
+    transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    &:hover {
+      color: #b79b6f;
+    }
+  }
+}
+.user-profile-form,
+.user-registration-form {
+  input {
+    margin-bottom: 20px;
+  }
+}
+
+.already-account {
+  margin-bottom: 20px;
+}
+
+.register-desc {
+  color: #868383;
+}
+
+.captcha {
+  margin-top: 20px;
+}
+
+#edit-actions {
+  margin-top: 20px;
+}
+
+.beperkt-zoekvenster form .js-form-item.form-item select {
+  width: 100%;
+  padding: 6px 25px 6px 12px;
+  border: none;
+  color: #080704;
+  background-color: #ffffff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg fill='%7b7a7a' version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 129 129' xmlns:xlink='http://www.w3.org/1999/xlink' enable-background='new 0 0 129 129'%3E%3Cg%3E%3Cpath d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center right 10px;
+  background-repeat: no-repeat;
+  height: 40px;
+  background-size: 10px;
+  border-radius: 0;
+}

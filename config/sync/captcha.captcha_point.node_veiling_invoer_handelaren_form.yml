@@ -1,0 +1,7 @@
+uuid: f9a1f58a-2091-4b9b-9fb7-3f97ae6cb083
+langcode: en
+status: false
+dependencies: {  }
+formId: node_veiling_invoer_handelaren_form
+captchaType: default
+label: null

@@ -1,0 +1,14 @@
+uuid: c8fca215-9cac-4c0f-95c7-f32aa9304e34
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.particulier
+  module:
+    - user
+id: user_remove_role_action.particulier
+label: 'Remove the Particulier role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: particulier

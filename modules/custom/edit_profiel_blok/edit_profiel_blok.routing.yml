@@ -1,0 +1,31 @@
+edit_profiel_blok.simple_register_form:
+  path: '/register'
+  defaults:
+    _entity_form: 'user.simple_registration'
+    _title: 'User Registration'
+  requirements:
+    _permission: 'access content'
+
+edit_profiel_blok.additional_details:
+  path: '/additional-details'
+  defaults:
+    _entity_form: 'user.additional'
+    _title: 'Additional Details'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+    
+edit_profiel_blok.custom_registratie_form:
+  path: '/account/aanmaken'
+  defaults: 
+    _title: 'Account aanmaken'
+    _form: '\Drupal\edit_profiel_blok\Form\CustomEditRegistrationForm'
+  requirements:
+    _permission: 'access content'   
+    
+edit_profiel_blok.account_verwijderen_form:
+  path: '/account/verwijderen'
+  defaults: 
+    _title: 'Account aanmaken'
+    _form: '\Drupal\edit_profiel_blok\Form\VerwijderAccountForm'
+  requirements:
+    _permission: 'access content'     

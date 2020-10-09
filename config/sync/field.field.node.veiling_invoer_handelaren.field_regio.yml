@@ -1,0 +1,29 @@
+uuid: 8aee12dc-d60a-4940-b261-23ba2f031c01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_regio
+    - node.type.veiling_invoer_handelaren
+    - taxonomy.vocabulary.regio_s
+id: node.veiling_invoer_handelaren.field_regio
+field_name: field_regio
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Regio
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      regio_s: regio_s
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

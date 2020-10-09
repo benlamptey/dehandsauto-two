@@ -1,0 +1,29 @@
+uuid: 83107ce4-755e-4a52-a667-0c9ffee0b618
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.volg-ons
+  module:
+    - block_class
+    - system
+  theme:
+    - bartik
+third_party_settings:
+  block_class:
+    classes: 'footerdiv w3-col l4 m4 w3-padding'
+id: bartik_volgons
+theme: bartik
+region: header
+weight: -9
+provider: null
+plugin: 'system_menu_block:volg-ons'
+settings:
+  id: 'system_menu_block:volg-ons'
+  label: 'Volg ons'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

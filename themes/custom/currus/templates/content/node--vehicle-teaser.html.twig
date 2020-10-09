@@ -1,0 +1,19 @@
+<article{{ attributes.addClass(node.bundle()) }}>
+    <div class="item-box white-bg">
+        <div class="item-img">
+           {# <a href="{{ path('entity.node.canonical', {'node': node.id}) }}">
+                <img src="{{ image_path }}">
+            </a> #}
+            {{ content.field_foto_s[0] }}
+        </div>
+        <div class="item-caption">
+            <div class="vehicle-meta-information">{{ content.field_jaar }} {{ content.field_km }}</div>
+            <div class="vehicle-label">{{ label }}</div>
+            <div class="prijs-timer">
+                <div class="vehicle-prijs">{{ content.field_prijs }}</div>
+                <div class="vehicle-timer">{{ content.field_afteller }}</div>
+            </div>
+            <div class="bied-mee-cta"><a href="{{ path('entity.node.canonical', {'node': node.id}) }}">{{ 'Bied Mee' |t }}</a></div>
+        </div>
+    </div>
+</article>

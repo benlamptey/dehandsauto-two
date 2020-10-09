@@ -1,0 +1,29 @@
+uuid: ab8c2c05-85a9-4bd5-87d8-6b426276bc77
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.verkopen
+  module:
+    - block_class
+    - system
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: kpvkmenu
+id: verkopen
+theme: currus
+region: header
+weight: -10
+provider: null
+plugin: 'system_menu_block:verkopen'
+settings:
+  id: 'system_menu_block:verkopen'
+  label: Verkopen
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

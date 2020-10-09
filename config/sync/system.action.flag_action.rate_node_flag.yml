@@ -1,0 +1,17 @@
+uuid: b44cb1eb-2552-4483-b0cd-ba806182409b
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.rate_node
+  module:
+    - flag
+_core:
+  default_config_hash: Vcgp8aWq2xdlPp155yl1tHzwa46KqEGHgRjyLOW5XpM
+id: flag_action.rate_node_flag
+label: Rate
+type: node
+plugin: 'flag_action:rate_node_flag'
+configuration:
+  flag_id: rate_node
+  flag_action: flag

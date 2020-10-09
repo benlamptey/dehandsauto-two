@@ -1,0 +1,21 @@
+uuid: 89a024ef-d6f4-425b-9c64-f2528d895945
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_afteller
+    - node.type.veiling_invoer_particulieren
+  module:
+    - datetime
+id: node.veiling_invoer_particulieren.field_afteller
+field_name: field_afteller
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Afteller
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

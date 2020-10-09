@@ -1,0 +1,74 @@
+uuid: 4884caf5-0432-41d1-b6ae-909f6dbe8b63
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.veiling_invoer_particulieren.field_afteller
+    - field.field.node.veiling_invoer_particulieren.field_beschrijving
+    - field.field.node.veiling_invoer_particulieren.field_brandstof
+    - field.field.node.veiling_invoer_particulieren.field_deuren
+    - field.field.node.veiling_invoer_particulieren.field_doe_een_bod
+    - field.field.node.veiling_invoer_particulieren.field_euro_norm
+    - field.field.node.veiling_invoer_particulieren.field_expaire_time
+    - field.field.node.veiling_invoer_particulieren.field_foto_s
+    - field.field.node.veiling_invoer_particulieren.field_jaar
+    - field.field.node.veiling_invoer_particulieren.field_km
+    - field.field.node.veiling_invoer_particulieren.field_laatste_bod
+    - field.field.node.veiling_invoer_particulieren.field_maand
+    - field.field.node.veiling_invoer_particulieren.field_merk
+    - field.field.node.veiling_invoer_particulieren.field_min_elevation
+    - field.field.node.veiling_invoer_particulieren.field_prijs
+    - field.field.node.veiling_invoer_particulieren.field_regio
+    - field.field.node.veiling_invoer_particulieren.field_reserve
+    - field.field.node.veiling_invoer_particulieren.field_schakeling
+    - field.field.node.veiling_invoer_particulieren.field_vermogen
+    - node.type.veiling_invoer_particulieren
+  module:
+    - field_formatter_class
+    - user
+id: node.veiling_invoer_particulieren.teaser
+targetEntityType: node
+bundle: veiling_invoer_particulieren
+mode: teaser
+content:
+  field_km:
+    type: number_integer
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+  flag_rate_node:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_afteller: true
+  field_beschrijving: true
+  field_brandstof: true
+  field_deuren: true
+  field_doe_een_bod: true
+  field_euro_norm: true
+  field_expaire_time: true
+  field_foto_s: true
+  field_jaar: true
+  field_laatste_bod: true
+  field_maand: true
+  field_merk: true
+  field_min_elevation: true
+  field_prijs: true
+  field_regio: true
+  field_reserve: true
+  field_schakeling: true
+  field_vermogen: true

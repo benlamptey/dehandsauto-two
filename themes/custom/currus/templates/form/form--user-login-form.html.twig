@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme override for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ */
+#}
+<div class="container">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=386278948981434&autoLogAppEvents=1"></script>
+    <div class="container">
+        <h2 class="contact-title">{{ 'Inloggen' | t }}</h2>
+    </div>
+    <form{{ attributes }}>
+        {{ children }}
+    </form>
+    <div class="inloggen-grid">
+        <div class="wachtwoord-link">
+            <p>{{ 'Wachtwoord vergeten' }}<a href="{{ path('user.pass') }}">{{ ' klik hier' }}</a></p>
+        </div>
+
+        <div class="register-link"><strong>{{ 'Nog geen account?<br/>' }}</strong>
+            <a href="{{ path('user.register') }}">
+                <span id="meld_gratis">{{ 'meld je gratis aan' }}</span></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mb-40">
+            <div class="or-login">
+                {{ 'OR' | t }}<br>
+                {{ 'Login with' }}
+            </div>
+            <div class="social-link">
+                <a href="/user/simple-fb-connect" class="fb social-btn">
+                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                </a>
+                <a href="/user/login/google" class="google social-btn"><i class="fa fa-google fa-fw">
+                    </i> Login with Google+
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

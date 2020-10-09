@@ -1,0 +1,70 @@
+.profile-sidebar {
+  background: #fafafa;
+  padding: 20px 25px;
+  margin-right: 20px;
+  h3 {
+    color: #141414;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      margin-bottom: 25px;
+
+      a {
+        color: #6a6a6a;
+
+        &:hover {
+          text-decoration: underline;
+          color: #6a6a6a;
+        }
+      }
+    }
+  }
+}
+
+.profile-content {
+  border: 1px solid #ccc;
+  padding: 15px 40px;
+}
+.user-field-value {
+  font-weight: 800;
+}
+.user-account-profile-items {
+  margin-bottom: 15px;
+}
+
+.user-field-label {
+  font-weight: 500;
+}
+
+.comment-waardering-verkoper-form {
+  textarea {
+    background: #fafafa;
+    height: 130px;
+  }
+  #edit-actions {
+    input[type=submit] {
+      background: #323232;
+      color: #fff;
+      border: 0;
+      border-left: 5px solid #b99a6f;
+      padding: 10px 20px;
+      width: 200px;
+      text-transform: uppercase;
+      transition: all 0.25s ease-in-out;
+      -ms-transition: all 0.25s ease-in-out;
+      -o-transition: all 0.25s ease-in-out;
+      -moz-transition: all 0.25s ease-in-out;
+      -webkit-transition: all 0.25s ease-in-out;
+      margin-right: 20px;
+      &:hover {
+        color: #b99a6f;
+      }
+    }
+  }
+}

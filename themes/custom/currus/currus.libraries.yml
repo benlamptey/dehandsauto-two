@@ -1,0 +1,32 @@
+global-styling:
+   version: 1.0
+   css:
+    theme:
+      css/bootstrap.css: {}
+      css/meanmenu.css: {}
+      css/style.css: {}
+      css/codepulse-styles/codepulse-styles.css: {}
+      css/belba-styles/belba.css: {}
+      "https://www.w3schools.com/w3css/4/w3.css": { type:external }
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css": {type:external}
+
+global-js:
+   version: 1.0
+   js:
+     js/bootstrap.js : {}
+     js/script.js : {}
+     js/custom-select.js : {}
+     js/custom-color-filter.js : {}
+     js/jquery.meanmenu.js : {}
+     "https://www.w3schools.com/lib/w3.js" : {type:external}
+   dependencies:
+    - core/jquery
+    - core/jquery.once   
+     
+belba-js:
+  version: 1.x
+  js:
+    js/user-tabs.js: {}    
+  dependencies:
+    - core/jquery
+    - core/jquery.once 

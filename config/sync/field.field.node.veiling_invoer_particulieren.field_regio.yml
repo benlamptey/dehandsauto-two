@@ -1,0 +1,29 @@
+uuid: 329a79fd-11e1-4808-bbd5-8ba81791526f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_regio
+    - node.type.veiling_invoer_particulieren
+    - taxonomy.vocabulary.regio_s
+id: node.veiling_invoer_particulieren.field_regio
+field_name: field_regio
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Regio
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      regio_s: regio_s
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

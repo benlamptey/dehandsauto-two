@@ -1,0 +1,23 @@
+uuid: e3e458d8-df80-46d5-8716-5396f9d34c7b
+langcode: en
+status: true
+dependencies: {  }
+name: individueel_voertuig
+label: 'Individueel voertuig (620 X 400)'
+effects:
+  4233f6d8-b96c-448e-85e2-2c7afe713a86:
+    uuid: 4233f6d8-b96c-448e-85e2-2c7afe713a86
+    id: image_scale
+    weight: 1
+    data:
+      width: 620
+      height: 400
+      upscale: true
+  8ae76db2-d99e-4b6d-93a0-6bd65bee91ab:
+    uuid: 8ae76db2-d99e-4b6d-93a0-6bd65bee91ab
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 625
+      height: 400
+      anchor: center-center

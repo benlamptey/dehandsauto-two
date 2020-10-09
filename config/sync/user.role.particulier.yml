@@ -1,0 +1,23 @@
+uuid: a1215d9b-3824-441f-83cc-ec1408646d4a
+langcode: en
+status: true
+dependencies: {  }
+id: particulier
+label: Particulier
+weight: 3
+is_admin: null
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'access user contact forms'
+  - 'cancel account'
+  - 'change own username'
+  - 'create veiling_invoer_particulieren content'
+  - 'delete own veiling_invoer_particulieren content'
+  - 'edit own comments'
+  - 'edit own veiling_invoer_particulieren content'
+  - 'execute php code'
+  - 'post comments'
+  - 'skip comment approval'
+  - 'view own unpublished content'

@@ -1,0 +1,181 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+<div class="node-particulieren">
+
+    <div{{ attributes.addClass("banner-block-wrapper") }}
+            style="background-image: url('../themes/custom/currus/images/zwart-oranje-cockpit.jpg');">
+        <h2>{{ label }}</h2>
+        <p class="sub-title">{{ sub_title }}</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h2>{{ label }}</h2>
+                <div class="vehicle-meta">
+                    <span><i class="fas fa-eye color-brown mr-10"></i>{{ node_stats }}</span>
+                    <span class="vehicle-since-date"><i
+                        class="fas fa-eye color-brown mr-10"></i>Sinds {{ node.created.value|date('d/m/Y') }}</span>
+                </div>
+                <div class="vehicle-gallery mt-30">
+                    {{ content.field_foto_s }}
+                </div>
+            </div>
+            <div class="col-md-5">
+
+                  <h2 class="bod-header">{{ 'Doe je bod' | t }}</h2>
+                  <div class="afteller">
+                     <p>{{ content.field_afteller }}</p>
+                  </div>
+                  <p class="instelprijs"> {{ content.field_reserve }}</p>
+                  {% if drupal_view('hoogste_bod_per_voertuig', 'page') %}
+                  <p>Hoogste bod : {{ drupal_view('hoogste_bod_per_voertuig', 'page') }}</p>
+                  {% else %}
+                    <p class="instelprijs">Ik biedt als eerste</p>
+                    {% endif %}
+                <div class="buffer mt-30"></div>
+                {{ content.field_doe_een_bod }}
+                <div class="buffer mt-30"></div>
+                <div class="block-bod-voertuig"><span>Laatste biedingen : </span>{{ drupal_view('bod_per_voertuig', 'block') }}</div>
+            </div>
+
+            </div>
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" class="tab-item" href="#overview">Overzicht</a></li>
+            <li><a data-toggle="tab" class="tab-item" href="#description">Beschrijving</a></li>
+            <li><a data-toggle="tab" class="tab-item" href="#de-verkoper">Verkoper</a></li>
+            <li><a data-toggle="tab" class="tab-item" href="#bericht">Bericht</a></li>
+        </ul>
+
+        <div class="tab-content vehicle-content">
+            <div id="overview" class="tab-pane fade in active">
+                <div class="row">
+                    <div class="vehicle-specs">
+                        <div class="col-md-6 left-spec">
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Merk:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_merk }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">KM Stand:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_km }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Schakeling:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_schakeling.0 }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Deuren:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_deuren.0 }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Euro Norm:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_euro_norm.0 }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Vermogen:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_vermogen.0 }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Kleur:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_kleur.0 }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Omgeving:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_regio.0 }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Verkoper Naam:</div>
+                                    <div class="col-md-6 spec-value">{{ author_name }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 right-spec">
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Verkoper Type:</div>
+                                    <div class="col-md-6 spec-value">{%  for role in node.Owner.roles %}
+                                                                     {{ role.entity.label }}
+                                                                     {% endfor %}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Einddatum Veiling:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_expaire_time.0 }}</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-specs--row">
+                                <div class="row">
+                                    <div class="col-md-6 spec-label">Nu Kopen:</div>
+                                    <div class="col-md-6 spec-value">{{ content.field_prijs.0 }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="description" class="tab-pane fade">
+                {{ content.field_beschrijving }}
+            </div>
+            <div id="de-verkoper" class="tab-pane fade">
+              <p><i class="fas fa-shopping-cart" style="color:#EE964D"></i>&nbsp;
+                    {%  for role in node.Owner.roles %}
+                      <b>{{ role.entity.label }}</b>
+                         {% endfor %}</p>
+              <p><i class="fas fa-registered" style="color: #EE964D"></i>&nbsp;&nbsp;Geregistreede verkoper</p>
+                 <p><i class="fas fa-user-tie" style="color: #EE964D"></i>&nbsp;&nbsp;Verkoper&nbsp;:<b class="oranje-letters">
+                 {{ author_name }} </b></p>
+
+              <p><i class="fas fa-flag" style="color: #EE964D"></i>&nbsp;&nbsp;{{ node.getOwner.field_land.value|capitalize }}</p>
+              <p><i class="fas fa-map-marker-alt" style="color: #EE964D"></i>&nbsp;&nbsp;
+              <b>Locatie : </b>{{ content.field_regio.0 }} {{ node.getOwner.field_postcode.value }}
+              <b class="oranje-letters">{{ node.getOwner.field_plaats.value|capitalize }}</b></p>
+               <a href="{{ path('entity.user.contact_form', {'user': user.id}) }}"><button>Contact verkoper</button></a>
+               {{ drupal_view('inhoud_per_auteur', 'blok_inhoud_verkoper') }}
+            </div>
+        </div>
+    </div>
+ </div>

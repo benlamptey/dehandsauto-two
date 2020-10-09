@@ -1,0 +1,28 @@
+uuid: 1c533903-2f53-4adc-9814-93cb9021808b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - currus
+id: contentform_2
+theme: currus
+region: content
+weight: -9
+provider: null
+plugin: formblock_node
+settings:
+  id: formblock_node
+  label: 'Content form'
+  provider: node
+  label_display: '0'
+  type: veiling_invoer_particulieren
+  show_help: 0
+visibility:
+  request_path:
+    id: request_path
+    pages: /add/veiling_invoer_particulieren
+    negate: false
+    context_mapping: {  }

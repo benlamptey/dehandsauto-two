@@ -1,0 +1,31 @@
+uuid: 66f53a02-c6d6-4684-8608-2d7901ca2db5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_block:8959346d-3a1e-4beb-b5fd-ca6c418a4821'
+  module:
+    - block_content
+    - system
+  theme:
+    - currus
+id: registerblock
+theme: currus
+region: banner
+weight: 0
+provider: null
+plugin: 'block_content:8959346d-3a1e-4beb-b5fd-ca6c418a4821'
+settings:
+  id: 'block_content:8959346d-3a1e-4beb-b5fd-ca6c418a4821'
+  label: 'register block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /user/account/register
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,140 @@
+               
+
+<div  class="invoer-formulier"> {#Container DIV voor het invoer formulier + filter#}
+     
+     
+
+     <div class="w3-row invoer-padding"> {#Container DIV voor het invoer formulier#}
+         
+        <aside class="w3-col l4 m4 w3-container invoer-filter">
+           <h2>
+             Ik verkoop mijn wagen graag via <span id="basicclr">2dehandsauto.be</span>
+           </h2>
+        </aside>
+      
+    <div class="w3-col l8 m8">  {# VOLLEDIGE INVOER WAGENS #}
+       <div class="invoer-sec-wagens"> {# 1ste REGIO invoer wagens : Basis gegevens #}
+            <div class="w3-row w3-container">
+                <div>
+                    {{ form.field_merk }}
+                </div>
+            </div>
+            
+            <div class="w3-row">
+                <div class="w3-container">
+                {{ form.title }}
+                </div>
+            </div>
+            
+            <div class="w3-row">
+                <div class="w3-container">
+                {{ form.field_beschrijving }}
+                </div>
+            </div>
+            
+            <div class="w3-row">
+                <div class="w3-col l6">
+                    <div class="w3-row">
+                        <div class="w3-col l6 m6 s6 w3-container downpijl">
+                            {{ form.field_maand }}
+                        </div>
+                        <div class="w3-col l6 m6 s6 w3-container downpijl">
+                            {{ form.field_jaar }}
+                        </div>
+                  </div> 
+                </div>
+                
+                                   
+                 <div class="w3-col l6 ">
+                     <div class="w3-row">
+                        <div class="w3-col l6 m6 s6 w3-container">
+                            {{ form.field_km }}
+                        </div>
+                        <div class="w3-col l6 m6 s6 w3-container">
+                            {{ form.field_prijs }}
+                        </div>
+                  </div> 
+                 </div>
+            </div>
+                 
+            <div class="w3-row">
+                <div class="w3-col l6 w3-container downpijl">
+                    {{ form.field_brandstof }}
+                </div>
+                <div class="w3-col l6 w3-container downpijl">
+                    {{ form.field_schakeling }}
+                </div>
+            </div> 
+                
+            <div class="w3-row">
+                <div class="w3-col l6 w3-container downpijl">
+                    {{ form.field_deuren }}
+                </div>
+                <div class="w3-col l6 w3-container downpijl">
+                    {{ form.field_euro_norm }}
+                </div>
+            </div>         
+         
+            <div class="w3-row">
+                <div class="w3-col l9 w3-container">
+                    {{ form.field_kleur }}
+                </div>
+                <div class="w3-col l3 w3-container">
+                    {{ form.field_vermogen }}
+                </div>
+            </div>     
+            
+            <div class="w3-row">
+                <div class="w3-col l12 w3-container streek">
+                    {{ form.field_regio }}
+                </div>
+            </div>  
+        
+            <div class="w3-row">
+                <div class="w3-col l12 w3-container">
+                    {{ form.field_foto_s }}
+                </div>
+            </div> 
+                
+        </div> {# EIND DIV ste REGIO invoer wagens : Basis gegevens #}
+    
+        
+        <div class="invoer-sec-veiling"> {# 2de REGIO ivoer wagens : VEILING INSTELLING #}
+            <h3>Instelling Veiling</h3>
+            <div class="w3-row">
+                <div class="w3-col l4 w3-container">
+                    {{ form.field_reserve }}
+                </div>
+             
+                <div class="w3-col l4 w3-container downpijl">
+                    {{ form.field_expaire_time }}
+                </div>
+            
+                <div class="w3-col l4 w3-container">
+                    {{ form.field_min_elevation }}
+                </div>
+            </div>   
+                
+                
+                <div class="w3-row">
+            <div class="w3-col l6 m6 w3-container">
+                {{ form.actions.submit }}
+            </div>
+            <div class="w3-col l6 m6">
+                {{ form.actions.preview }}
+            </div>
+               </div>
+                
+            
+        </div> {# EIND DIV 2de REGIO invoer wagens : VEILING INSTELLING #}
+        
+     </div> 
+        
+     </div>       
+</div> 
+{{ form.form_build_id }}
+{{ form.form_token }}
+{{ form.form_id }}
+
+
+

@@ -1,0 +1,36 @@
+
+.headerdiv{background-color:var(--lichte-achtergrond);}
+/*+++++++++++++++++Menu inloggen, registreren, account+++++++++++++++++++*/
+.accountmenu{padding:5px;display:inline-block;background-color:var(--donkeretekst);}
+.accountmenu li{color:var(--bleketekst);list-style-type:none;display:inline;font-size:9px;text-align:center;}
+.accountmenu a{text-decoration:none;}
+.accountmenu a:hover{}
+.accountmenu a:active{color:yellow;}
+/*+++++++++++++++++++++Menu home, kopen, verkopen++++++++++++++++*/
+.kpvkmenu{display:inline-block;margin-top:15px;padding-right:5%;padding-bottom:15px;}
+.homenav p{list-style:none;font-size:10px;letter-spacing:4px;font-weight:800;}
+.hoofdnav p{font-size:10px;letter-spacing:2px;font-weight:800;}
+.homenav li{list-style:none;}
+.hoofdnav a:link{text-decoration:none;display:block;width:115x;padding:3px 0px 3px 13px;
+                 font-weight:bold;font-size: 12px;}
+.homenav a:link{text-decoration:none;}
+.hoofdnav a:hover{box-shadow:5px 5px 37px 5px grey;}
+.homenav a:hover{box-shadow:5px 5px 37px 5px grey;}
+.hoofdnav a:active{color:#827771;}
+.homenav a:active{color:#827771;}
+
+/*+++++++++++++++++Positie logo bij groot scherm++++++++++++++++*/
+.autologo{max-width:100%;margin:auto}
+
+@media(min-width:800px){
+.menusblokken{padding-left:47%;}
+.accountmenu{display:inline-block;background-color:var(--donkeretekst);padding:2%;margin-top:0px;
+            margin-left:10%;margin-right: 7px}
+.accountmenu li{color:var(--bleketekst);list-style-type:none;display:inline;padding:13px;font-size:10px;}
+.accountmenu a{text-decoration:none;}
+.accountmenu a:hover{}
+.accountmenu a:active{}
+.kpvkmenu{display:inline-block;margin-top:50px;padding-right:5%;}
+.hoofdnav a:link{width:127px;padding:3px 0px 3px 13px;font-size:13px;}
+.autologo{margin:0px;}
+}

@@ -1,0 +1,5 @@
+name: 'inner_contact'
+type: module
+description: 'Een module voor het aanpassen van het persoonlijk contact formulier, met selectie keuze tussen aanbod wagens'
+core_version_requirement: ^8.8 || ^9.0
+package: 'Custom'

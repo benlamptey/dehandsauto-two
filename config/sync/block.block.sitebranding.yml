@@ -1,0 +1,27 @@
+uuid: f58669c9-b560-4e44-acb2-557eacf0c047
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: autologo
+id: sitebranding
+theme: currus
+region: header_top
+weight: -11
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,240 @@
+uuid: e3cd9f19-f7ac-47a1-a59a-47babe4788b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.bieden_op_dit_voertuig.default
+    - field.field.node.veiling_invoer_particulieren.field_afteller
+    - field.field.node.veiling_invoer_particulieren.field_beschrijving
+    - field.field.node.veiling_invoer_particulieren.field_brandstof
+    - field.field.node.veiling_invoer_particulieren.field_deuren
+    - field.field.node.veiling_invoer_particulieren.field_doe_een_bod
+    - field.field.node.veiling_invoer_particulieren.field_euro_norm
+    - field.field.node.veiling_invoer_particulieren.field_expaire_time
+    - field.field.node.veiling_invoer_particulieren.field_foto_s
+    - field.field.node.veiling_invoer_particulieren.field_jaar
+    - field.field.node.veiling_invoer_particulieren.field_km
+    - field.field.node.veiling_invoer_particulieren.field_laatste_bod
+    - field.field.node.veiling_invoer_particulieren.field_maand
+    - field.field.node.veiling_invoer_particulieren.field_merk
+    - field.field.node.veiling_invoer_particulieren.field_min_elevation
+    - field.field.node.veiling_invoer_particulieren.field_prijs
+    - field.field.node.veiling_invoer_particulieren.field_regio
+    - field.field.node.veiling_invoer_particulieren.field_reserve
+    - field.field.node.veiling_invoer_particulieren.field_schakeling
+    - field.field.node.veiling_invoer_particulieren.field_vermogen
+    - image.style.individueel_voertuig
+    - node.type.veiling_invoer_particulieren
+  module:
+    - comment
+    - field_formatter_class
+    - field_timer
+    - fotorama_gallery
+    - options
+    - shs
+    - user
+    - yearonly
+id: node.veiling_invoer_particulieren.default
+targetEntityType: node
+bundle: veiling_invoer_particulieren
+mode: default
+content:
+  field_afteller:
+    weight: 0
+    label: hidden
+    settings:
+      type: auto
+      regional: nl
+      format: dHMS
+      layout: ''
+      significant: 0
+      timeSeparator: ':'
+      compact: false
+      padZeroes: false
+      use_system_language: false
+    third_party_settings: {  }
+    type: field_timer_countdown
+    region: content
+  field_beschrijving:
+    weight: 21
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_brandstof:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_deuren:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_doe_een_bod:
+    weight: 5
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_euro_norm:
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_expaire_time:
+    weight: 12
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_foto_s:
+    weight: 7
+    label: hidden
+    settings:
+      image_style: individueel_voertuig
+      dimensions:
+        ratio: ''
+        width: 100%
+        maxwidth: 100%
+        minwidth: 100%
+        height: ''
+        maxheight: null
+        minheight: false
+      others:
+        fit: 1
+        allowfullscreen: 0
+        arrows: 1
+        click: true
+        loop: false
+        shuffle: false
+        keyboard: false
+        swipe: false
+        trackpad: false
+      navigation:
+        nav: 1
+        navposition: 0
+      transition:
+        transition: 0
+        clicktransition: false
+      autoplay:
+        stopautoplayontouch: false
+      image_link: ''
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: fotorama_gallery
+    region: content
+  field_jaar:
+    weight: 9
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: yearonly_default
+    region: content
+  field_km:
+    weight: 11
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_laatste_bod:
+    weight: 22
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_maand:
+    weight: 13
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    region: content
+  field_merk:
+    weight: 14
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_shs
+    region: content
+  field_min_elevation:
+    weight: 15
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_prijs:
+    weight: 16
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_regio:
+    weight: 17
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_reserve:
+    weight: 8
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_schakeling:
+    weight: 18
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_vermogen:
+    weight: 19
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  flag_rate_node:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

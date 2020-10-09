@@ -1,0 +1,25 @@
+uuid: fde9f46a-ace4-4d46-a36c-d82f748856c6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:29058d66-7b8e-44f2-97e4-42a8cc092958'
+  module:
+    - block_content
+  theme:
+    - currus
+id: footerbottomcopyright
+theme: currus
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'block_content:29058d66-7b8e-44f2-97e4-42a8cc092958'
+settings:
+  id: 'block_content:29058d66-7b8e-44f2-97e4-42a8cc092958'
+  label: 'Footer bottom copyright'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

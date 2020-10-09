@@ -1,0 +1,10 @@
+uuid: 5b0aafea-6620-412d-9a43-f151f001918f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.vehicle_teaser
+label: vehicle-teaser
+targetEntityType: node
+cache: true

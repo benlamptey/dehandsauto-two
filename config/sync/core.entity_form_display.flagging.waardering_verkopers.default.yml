@@ -1,0 +1,14 @@
+uuid: 61399950-f96f-4f66-8855-30bf2c71f3f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.flagging.waardering_verkopers.field_score
+    - flag.flag.waardering_verkopers
+id: flagging.waardering_verkopers.default
+targetEntityType: flagging
+bundle: waardering_verkopers
+mode: default
+content: {  }
+hidden:
+  field_score: true

@@ -1,0 +1,8 @@
+uuid: 2584d540-687e-4477-a310-fa47924c83da
+langcode: en
+status: true
+dependencies: {  }
+id: banner_block
+label: 'Banner block'
+revision: 1
+description: ''

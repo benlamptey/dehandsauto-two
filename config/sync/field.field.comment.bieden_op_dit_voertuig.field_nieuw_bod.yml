@@ -1,0 +1,25 @@
+uuid: 5f3cf7f7-d869-4b77-a43e-a4a69a4fb27d
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.bieden_op_dit_voertuig
+    - field.storage.comment.field_nieuw_bod
+  module:
+    - opbieden
+id: comment.bieden_op_dit_voertuig.field_nieuw_bod
+field_name: field_nieuw_bod
+entity_type: comment
+bundle: bieden_op_dit_voertuig
+label: 'Nieuw bod'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: ''
+  max: ''
+  prefix: ''
+  suffix: ''
+field_type: opbieden_field_type

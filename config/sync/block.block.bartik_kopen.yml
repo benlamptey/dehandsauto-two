@@ -1,0 +1,29 @@
+uuid: 8977a178-2e9c-4304-885e-e20704a7f062
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.kopen
+  module:
+    - block_class
+    - system
+  theme:
+    - bartik
+third_party_settings:
+  block_class:
+    classes: kpvkmenu
+id: bartik_kopen
+theme: bartik
+region: primary_menu
+weight: -6
+provider: null
+plugin: 'system_menu_block:kopen'
+settings:
+  id: 'system_menu_block:kopen'
+  label: Kopen
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

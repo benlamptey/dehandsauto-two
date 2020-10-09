@@ -1,0 +1,24 @@
+uuid: 4d305735-e98d-426d-8d16-59f74cb2ded3
+langcode: en
+status: true
+dependencies:
+  module:
+    - bavocado
+    - block_class
+  theme:
+    - stark
+third_party_settings:
+  block_class:
+    classes: 'footer-nieuwsbrief  w3-col l6 m6 w3-padding'
+id: stark_inschrijvingnieuwsbrief
+theme: stark
+region: secondary_menu
+weight: -9
+provider: null
+plugin: bavocado_block
+settings:
+  id: bavocado_block
+  label: 'Inschrijving nieuwsbrief'
+  provider: bavocado
+  label_display: visible
+visibility: {  }

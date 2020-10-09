@@ -1,0 +1,5 @@
+name: 'Bavocado'
+type: module
+description: 'Een module om in te schrijven voor de nieuwsbrief'
+core_version_requirement: ^8.8 || ^9.0
+package: 'Custom'

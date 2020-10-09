@@ -1,0 +1,36 @@
+uuid: ce7917ff-03a2-4215-807a-6028155fe0d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_euro_norm
+field_name: field_euro_norm
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '0'
+      label: 'Euro 1'
+    -
+      value: '1'
+      label: 'Euro 2'
+    -
+      value: '2'
+      label: 'Euro 3'
+    -
+      value: '3'
+      label: 'Euro 4'
+    -
+      value: '4'
+      label: 'Euro 5'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

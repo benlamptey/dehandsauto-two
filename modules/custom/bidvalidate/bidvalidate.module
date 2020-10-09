@@ -1,0 +1,116 @@
+<?php
+/**
+ * @File
+ * Custom module for Bid validate in Drupal 8.
+ */
+ 
+/**
+ * Implementing hook_menu().
+ */
+
+use \Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_form_ID_alter().
+ */
+function bidvalidate_form_comment_bieden_op_dit_voertuig_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+        $form['field_nieuw_bod']['widget'][0]['value']['#title_display'] = 'none';
+        $form['actions']['submit']['#value'] = 'Bieden';
+        $form['actions']['preview']['#access'] = FALSE;
+        $form['#validate'][] = 'bidvalidate_form_validate';
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function bidvalidate_node_insert($entity) {
+
+  if ($entity->getType() == 'veiling_invoer_particulieren' or $entity->getType() == 'veiling_invoer_handelaren') {
+        $reserve = $entity->get('field_reserve')->value;
+	      $elevation = $entity->get('field_min_elevation')->value;
+	      $min = $reserve - $elevation;
+    //Insert a custom table in the database. For drupal 9 insert from the container in stead of db_insert.$injected_database->
+        $query = \Drupal::database()->insert('custom_bid_data');
+    $query->fields(array(
+    'nid' => $entity
+        ->id(),
+        'min' => $min,
+  ))
+    ->execute();
+  }
+}
+
+/**
+ * Implementing hook_form_alter().
+ */
+//function bidvalidate_form_alter(&$form, $form_state, $form_id) {
+
+  //  if ($form_id == 'comment_bieden_op_dit_voertuig_form'){
+    //  $form['#validate'][] = 'bidvalidate_form_validate';
+    //}
+//}
+
+/**
+ * Implementing hook_form_validate().
+ */
+function bidvalidate_form_validate($form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+  $path = \Drupal::service('path.current')->getPath();
+  
+
+  $query = \Drupal::database()->select('custom_bid_data', 'c')
+  ->fields('c')
+  ->condition('nid', $nid,'=');
+  $results = $query->execute()->fetchAssoc();
+  $last_bid = $results['min'];
+  $nieuw_bod = $form_state->getValue('field_nieuw_bod');
+  $new_bid = $nieuw_bod[0]['value'];
+  $node = \Drupal\node\Entity\Node::load($nid);
+  $min_bid_diffe = $node->field_min_elevation->value;
+
+  $diffe = $new_bid - $last_bid;
+  $diffe_plus = $new_bid + $min_bid_diffe;
+            
+  if ($new_bid > $last_bid && $diffe < $min_bid_diffe) {
+    \Drupal::messenger()->addError('field_nieuw_bod', t(',-  Graag een hoger bod opgaande met minstens €'.$min_bid_diffe));
+  }
+      
+  elseif ($new_bid < $last_bid) {
+    \Drupal::messenger()->addError('field_nieuw_bod', t('Het laatste bod was €'.$last_bid .',-  graag een hoger bod en opgaande met minstens €'.$min_bid_diffe));
+  }
+  
+  else{
+       $query = \Drupal::database()->update('custom_bid_data') 
+        ->fields([
+          'min' => $new_bid,
+        ])
+        ->condition('nid', $nid)
+        ->execute();
+       
+     \Drupal::messenger()->addMessage('field_nieuw_bod', ('Bedankt voor je bod'));
+            
+       
+    }
+  }
+
+function bidvalidate_node_delete($entity) {
+
+  // Delete the entity's entry from a custom table.For drupal 9 delete from the container in stead of db_delete.
+  $query = \Drupal::database()->delete('custom_bid_data');
+    $query->condition('nid', $entity
+          ->id())
+          ->execute();
+}
+
+/**
+ * Implementing hook_node_presave().
+ */
+function bidvalidate_node_presave($entity) {
+   if ($entity->getType() == 'veiling_invoer_particulieren' or $entity->getType() == 'veiling_invoer_handelaren' && $entity->getEntityTypeId() == 'node'){
+    $in = $entity->get('field_expaire_time')->value;
+    $NewDate=Date('Y-m-d\TH:i:s', strtotime("+".$in." days"));
+    $entity->set('field_afteller',$NewDate);
+  }
+}
+
+

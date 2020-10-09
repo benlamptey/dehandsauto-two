@@ -1,0 +1,23 @@
+uuid: 92b4d5f4-72fd-45ec-aab5-938a656dc80f
+langcode: en
+status: true
+dependencies: {  }
+name: views_247_x_140_
+label: 'views  (247 x 140)'
+effects:
+  a041fb67-98d6-46a2-ab35-a811643c3384:
+    uuid: a041fb67-98d6-46a2-ab35-a811643c3384
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 140
+      upscale: true
+  a2fc8233-dbf8-4342-ad43-476d517893c2:
+    uuid: a2fc8233-dbf8-4342-ad43-476d517893c2
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 247
+      height: 140
+      anchor: center-center

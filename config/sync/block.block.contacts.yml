@@ -1,0 +1,29 @@
+uuid: 1653c5ea-34dd-4781-9c0e-c269a8e83585
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:4ec9a9ff-6cef-4879-99f8-f75b3dfbbca5'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: 'about-us contact-footer col-md-3'
+id: contacts
+theme: currus
+region: footer
+weight: -13
+provider: null
+plugin: 'block_content:4ec9a9ff-6cef-4879-99f8-f75b3dfbbca5'
+settings:
+  id: 'block_content:4ec9a9ff-6cef-4879-99f8-f75b3dfbbca5'
+  label: Contacts
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

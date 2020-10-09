@@ -1,0 +1,25 @@
+uuid: 8fd3b1d7-3502-40f6-b783-bc67630e22eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-bottom-links
+  module:
+    - system
+  theme:
+    - currus
+id: footerbottomlinks
+theme: currus
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer-bottom-links'
+settings:
+  id: 'system_menu_block:footer-bottom-links'
+  label: 'Footer bottom links'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

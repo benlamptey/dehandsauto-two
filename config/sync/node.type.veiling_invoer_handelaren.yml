@@ -1,0 +1,29 @@
+uuid: 4d9b15ae-192d-41bf-84b4-4ace91c70f08
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
+name: 'Veiling invoer handelaren'
+type: veiling_invoer_handelaren
+description: 'Professionelen kunnen hier hun wagen aanbieden ter veiling. Om het maximale uit uw verkoopkansen te halen, vul zoveel mogelijk velden in.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

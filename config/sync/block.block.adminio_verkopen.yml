@@ -1,0 +1,29 @@
+uuid: e2c347a1-8f1b-4343-a5c2-71104be6774a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.verkopen
+  module:
+    - block_class
+    - system
+  theme:
+    - adminio
+third_party_settings:
+  block_class:
+    classes: kpvkmenu
+id: adminio_verkopen
+theme: adminio
+region: primary_menu
+weight: -3
+provider: null
+plugin: 'system_menu_block:verkopen'
+settings:
+  id: 'system_menu_block:verkopen'
+  label: Verkopen
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

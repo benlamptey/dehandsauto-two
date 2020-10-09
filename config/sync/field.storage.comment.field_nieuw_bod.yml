@@ -1,0 +1,21 @@
+uuid: a32d8c2f-e33d-417b-ab81-05dc156a6f81
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - opbieden
+id: comment.field_nieuw_bod
+field_name: field_nieuw_bod
+entity_type: comment
+type: opbieden_field_type
+settings:
+  unsigned: false
+  size: normal
+module: opbieden
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

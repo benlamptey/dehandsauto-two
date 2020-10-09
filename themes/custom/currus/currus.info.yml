@@ -1,0 +1,30 @@
+name: currus
+type: theme
+description: 'Een basis maat thema voor 2dehandsauto'
+package: Other
+core_version_requirement: ^8.8 || ^9.0
+
+regions:
+  header_top: 'Header Top'
+  header: 'Header'
+  banner: 'Banner'
+  banner_bottom: 'Banner Bottom'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  content_bottom: 'Content Bottom'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footer_top: 'Footer Top'
+  footer: 'Footer'
+  footer_bottom: 'Footer Bottom'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+  
+libraries:
+  - currus/global-styling
+  - currus/global-js
+ 
+base theme: stable
+

@@ -1,0 +1,33 @@
+uuid: b97a8ff9-d9e6-4f37-b4ce-f5e4c99b8a2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_doe_een_bod
+    - node.type.veiling_invoer_handelaren
+  module:
+    - comment
+id: node.veiling_invoer_handelaren.field_doe_een_bod
+field_name: field_doe_een_bod
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: 'Doe een bod'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 0
+field_type: comment

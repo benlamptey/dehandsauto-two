@@ -1,0 +1,77 @@
+
+<div class="w3-row w3-center headerdiv">
+    <header class="w3-col l2 m2 s12">
+        <div>
+           {{ page.header }}
+        </div>
+    </header>
+    <nav class="w3-col l10 m10 s12">
+        <div class="menusblokken">
+              {{ page.primary_menu }}
+        </div>
+    </nav>
+</div>
+
+        <div>
+            {{ page.highlighted }}
+        </div>
+            
+{# ++++++++++Gebruiker Login+++++++++++++ #} 
+<div class="inloggen-con">
+<div class="inloggen">
+    <h2 class="inloggen-title">{{ title }}</h2>
+     
+        {{ messages }}
+        {{ page.content }}
+        
+</div>
+  </div>
+          
+        <footer class="footerhead">
+            <div class="w3-row">
+                {{ page.secondary_menu }}
+            </div>
+            <div class="w3-row">
+                {{ page.footer }}  
+            </div>
+        </footer>
+  
+  
+
+
+
+
+
+
+  
+  <div id="auth_box" class="reset">
+  <div id="top_part">
+    <h1 id="the_logo">
+      <a href="{{ url('<front>') }}">
+        <img src="{{ logo }}" alt="{{ site_name }}" />
+      </a>
+    </h1>
+  </div>
+
+  <div id="middle_part">
+    <h2 class="title">{{ title }}</h2>
+
+    {{ messages }}
+
+    {{ page.content }}
+  </div>
+
+  <div id="bottom_part">
+    <div class="login_link">
+      <a href="{{ path('user.login') }}">{{ 'Login'|t }}</a>
+    </div>
+
+    <div class="register_link">
+      <a href="{{ path('user.register') }}">{{ 'Register a new account'|t }}</a>
+    </div>
+
+    <div class="back_link">
+      <a href="{{ url('<front>') }}">&larr; {{ 'Back'|t }} {{ site_name }}</a>
+    </div>
+  </div>
+</div>

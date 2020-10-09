@@ -1,0 +1,25 @@
+uuid: cbba0c43-86bf-4e69-b3af-042eb82dbe1e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+  module:
+    - block_content
+  theme:
+    - adminio
+id: adminio_hoofdfoto
+theme: adminio
+region: highlighted
+weight: -10
+provider: null
+plugin: 'block_content:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+settings:
+  id: 'block_content:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
+  label: 'Hoofd Foto'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,75 @@
+/*++++++++++++++++++++++++INLOGGEN++++++++++++++++++++++++*/
+.inloggen-con{background-color:var(--lichte-achtergrond);padding:10%;margin-bottom:16px;}
+.inloggen{background-color:white;padding:10% 0 10% 10%;}
+.inloggen-title{font-size: 19px;font-weight:bold;color:var(--basis-kleur);padding:20px 0px 5px 0px;}
+.inloggen input[type="text"],
+.inloggen input[type="password"]{width:70%;border:1px solid var(--basis-kleur);padding:13px;font-size: 13px;}
+.inloggen input[type="password"]{margin-top: 13px;}
+.inloggen input[type="submit"]{width:27%;background-color:var(--basis-kleur);color:var(--bleketekst);
+                                border:none;padding:7px;margin-top:13px;font-weight:700;}
+/*.inloggen input[type="submit"] a:hover{cursus:pointer;}*/
+.wachtwoord-link a {color: var(--donkeretekst);text-decoration:none;font-size:10px;} 
+.wachtwoord-link p {color:#b3b3b3;font-size:10px;}
+.inloggen-grid{display:grid;grid-template-columns: auto auto auto auto ;padding-bottom: 20px;}
+.wachtwoord-link{margin-top:-13px;margin-left: 0px;}
+.register-link{margin-top:-57px;}
+.register-link a{color:var(--donkeretekst);font-size:17px;font-weight:700;text-decoration:none;}
+#meld_gratis{color: var(--basis-kleur);}
+
+@media screen and (max-width: 750px) {
+      .inloggen-grid{display:grid;grid-template-columns:100%;padding-bottom: 20px;}
+      .inloggen input[type="submit"]{width:25%;}
+      .wachtwoord-link{margin: 0px;}
+      .register-link{margin: 0px;}
+   }
+   
+/*++++++++++++++++++++++WACHTWOORD OPNIEUW INSTELLEN+++++++++++++++++++*/
+.reset-link a {color:var(--donkeretekst);font-size:17px;font-weight:700;text-decoration:none;}
+.reset-link{display:grid;grid-template-columns:auto auto;margin-top:-42px;margin-left:15%;padding-left:4%;}
+
+@media screen and (max-width: 570px) {
+    .reset-link{display:block;margin:0px;padding-top:13px;padding-left:0px;}
+}
+
+/*++++++++++++++++++++ACCOUNT AANMAKEN+++++++++++++++++++*/
+.inloggen input[type="email"]{width:70%;border:1px solid var(--basis-kleur);padding:13px;font-size: 13px;}
+#edit-mail--description,#edit-name--description{font-size:11px;color:#b3b3b3;margin-bottom:13px;margin-left:0;width:70%;}
+#edit-select-roles--wrapper{border:1px solid var(--basis-kleur);padding:13px;font-size: 13px;width:70%;}
+#edit-select-roles--wrapper .fieldset-legend {font-weight: 500;font-size: 16px;color:var(--basis-kleur);}
+.form-item-select-roles{padding:4px;display:inline-block;}
+.captcha summary{color:#3b3b3b;font-size:11px;}
+.captcha{margin:32px 0px 16px;}
+.g-recaptcha div{margin-left:0px;}
+
+@media screen and (max-width: 750px) and (min-width:501px) {
+    .inloggen input[type="submit"]{width:50%;background-color:var(--basis-kleur);color:var(--bleketekst);
+                                border:none;padding:7px;margin-top:13px;font-weight:700;}
+    .g-recaptcha{transform:scale(0.80);-webkit-transform:scale(0.80);transform-origin:0 0;-webkit-transform-origin:0 0;}
+}
+@media screen and (max-width:500px){
+    .inloggen input[type="email"],.inloggen input[type="submit"], #edit-select-roles--wrapper,
+    #edit-name{width:98%;}
+    .g-recaptcha{transform:scale(0.65);-webkit-transform:scale(0.65);transform-origin:0 0;-webkit-transform-origin:0 0;}
+}
+
+/*++++++++++++++++++++++++++Wachtwoord herzetten++++++++++++++++++++++++++*/
+.wachtwoord-reset-link{margin-top:-45px;margin-left:39%;}
+.wachtwoord-reset-link a{color:var(--donkeretekst);font-size:17px;font-weight:700;text-decoration:none;}
+
+@media screen and (max-width:750px){
+    .wachtwoord-reset-link{margin:0px;margin-top:13px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,342 @@
+<?php
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * @file
+ * Functions to support theming in the currus theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function currus_preprocess_html(array &$variables) {
+  /* Add class to html tag */
+  //$variables['html_attributes']->addClass('no-js');
+
+  // Don't display the site name twice on the front page (and potentially others)
+  /*if (isset($variables['head_title_array']['title']) && isset($variables['head_title_array']['name']) && ($variables['head_title_array']['title'] == $variables['head_title_array']['name'])) {
+    $variables['head_title'] = $variables['head_title_array']['name'];
+  }*/
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function currus_page_attachments_alter(array &$page) {
+  // Tell IE to use latest rendering engine (not to use compatibility mode).
+  /*$ie_edge = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+    'http-equiv' => 'X-UA-Compatible',
+    'content' => 'IE=edge',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];*/
+}
+
+/**
+ * Implements hook_preprocess_page() for page.html.twig.
+ */
+function currus_preprocess(array &$variables) {
+  $current_user = \Drupal::currentUser();
+  if($current_user){
+    $variables['user_name'] = $current_user->getAccountname();
+  }
+  $current_path = \Drupal::service('path.current')->getPath();
+  $variables['current_path'] = $current_path;
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function currus_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    $bundle = $node->bundle();
+    $suggestions[] = 'page__node__' . $bundle;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function currus_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  /*$node = $variables['elements']['#node'];
+
+  if ($variables['elements']['#view_mode'] == "full") {
+
+  }*/
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Block document templates.
+ */
+function currus_preprocess_block(array &$variables) {
+  $block = $variables['elements'];
+  if (isset($block['content']['#block_content'])) {
+    /** @var \Drupal\block_content\Entity\BlockContent $block_content */
+    $block_content = $block['content']['#block_content'];
+    if (!empty($block_content) && $block_content->bundle() == 'banner_block') {
+      $image = $block_content->get('field_banner_image')
+        ->first()
+        ->get('entity')
+        ->getTarget()
+        ->getValue();
+
+      // Load image style "thumbnail".
+      $style = ImageStyle::load('banner');
+      // Get URL.
+      $banner_url = $style->buildUrl($image->getFileUri());
+      $title = $block_content->get('field_main_title')->getString();
+      $sub_title = $block_content->get('field_sub_title')->getString();
+
+      if (!empty($banner_url)) {
+        $variables['image_path'] = $banner_url;
+      }
+      if (!empty($title)) {
+        $variables['banner_title'] = $title;
+      }
+      if (!empty($sub_title)) {
+        $variables['sub_title'] = $sub_title;
+      }
+    }
+    if (!empty($block_content) && $block_content->bundle() == 'call_to_action') {
+      $image = $block_content->get('field_image')
+        ->first()
+        ->get('entity')
+        ->getTarget()
+        ->getValue();
+      $image_path = file_create_url($image->getFileUri());
+
+      $field_block_title = $block_content->get('field_block_title')->getValue();
+      if (!empty($image_path)) {
+        $variables['image_path'] = $image_path;
+      }
+      if (!empty($field_block_title)) {
+        $variables['field_block_title'] = $field_block_title[0]['value'];
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_theme_suggestions_block_alter
+ */
+function currus_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  $block = $variables['elements'];
+  if (isset($block['content']['#block_content'])) {
+    /** @var \Drupal\block_content\Entity\BlockContent $block_content */
+    $block_content = $block['content']['#block_content'];
+    if (!empty($block_content)) {
+      if($block_content->bundle() == 'banner_block') {
+        array_splice($suggestions, 1, 0, 'block__' . $block_content->bundle());
+      }else {
+        $suggestions[] = 'block__' . $block_content->bundle();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function currus_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  /*$element = $variables['element'];
+  $suggestions[] = 'field__' . $element['#view_mode'];
+  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];*/
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function currus_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+  $element = $variables['element'];
+  if (isset($element['#attributes']['class']) && in_array('form-composite', $element['#attributes']['class'])) {
+    $suggestions[] = 'fieldset__form_composite';
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function currus_preprocess_node(array &$variables) {
+  $node = $variables['node'];
+  // Get statistics count for current node.
+  $statistics = \Drupal::service('statistics.storage.node')->fetchView($variables['node']->id());
+
+  if ($statistics !== FALSE) {
+    $variables['node_stats'] = \Drupal::translation()->formatPlural($statistics->getTotalCount(), '1 view', '@count keer bekeken');
+  }
+
+  if ($node->bundle() == 'veiling_invoer_handelaren') {
+    $view = \Drupal\views\Views::getView('bod_per_voertuig');
+    $render_array = $view->buildRenderable('block_1');
+    $rendered = \Drupal::service('renderer')->renderRoot($render_array);
+    $variables['comment_bid_block'] = $rendered;
+  }
+
+  }
+  /** @var \Drupal\node\Entity\Node $node */
+  /**$node = $variables['elements']['#node'];
+  $compatible_content_types = [
+    'veiling_invoer_particulieren',
+    'veiling_invoer_handelaren',
+  ];
+    if (in_array($node->bundle(), $compatible_content_types)) {
+    if ($node->hasField('field_foto_s')) {
+      $first_image = $node->get('field_foto_s')->first()->get('entity')->getTarget()->getValue();
+      $style = \Drupal::entityTypeManager()->getStorage('image_style')->load('views_thumps_247_x_140_');
+      $url = $style->buildUrl($first_image->getFileUri());
+
+      $variables['image_path'] = $url;
+    }
+    if ($node->hasField('field_jaar')) {
+      $variables['field_jaar'] = $node->get('field_jaar')->getString();
+    }
+    if ($node->hasField('field_prijs')) {
+      $formatted_field_prijs = number_format($node->get('field_prijs')->getString(), 0, '.', ',');
+      $variables['field_prijs'] = $formatted_field_prijs;
+    }
+    if ($node->hasField('field_km')) {
+      $formatted_numnber = number_format($node->get('field_km')->getString(), 0, '.', ' ');
+      $variables['field_km'] = $formatted_numnber;
+    }
+    }
+  }*/
+
+function currus_preprocess_user(array &$variables) {
+  // Default to turning off byline/submitted.
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  if($user){
+
+    $field_plaats = $user->get('field_plaats')->value;
+    $field_land = $user->get('field_land')->value;
+    $field_postcode = $user->get('field_postcode')->value;
+    $field_telefoonnummer = $user->get('field_telefoonnummer')->value;
+
+    $variables['field_plaats'] = $field_plaats;
+    $variables['field_land'] = $field_land;
+    $variables['field_postcode'] = $field_postcode;
+    $variables['field_telefoonnummer'] = $field_telefoonnummer;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
+function currus_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_form_alter().
+ */
+function currus_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'form__' . $variables['element']['#form_id'];
+}
+
+/**
+ * Implements hook_preprocess_form().
+ */
+function currus_preprocess_form(array &$variables) {
+  //$variables['attributes']['novalidate'] = 'novalidate';
+}
+
+/**
+ * Implements hook_preprocess_select().
+ */
+function currus_preprocess_select(array &$variables) {
+  //$variables['attributes']['class'][] = 'select-chosen';
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function currus_preprocess_field(array &$variables, $hook) {
+  /*switch ($variables['element']['#field_name']) {
+  }*/
+}
+
+/**
+ * Implements hook_preprocess_details().
+ */
+function currus_preprocess_details(array &$variables) {
+  /*$variables['attributes']['class'][] = 'details';
+  $variables['summary_attributes']['class'] = 'summary';*/
+}
+
+/**
+ * Implements hook_theme_suggestions_details_alter().
+ */
+function currus_theme_suggestions_details_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter()
+ */
+function currus_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+  $element = $variables['element'];
+  if (isset($element['#parents'])) {
+    if (in_array('field_kleur_picker_color', $element['#parents'])) {
+      $suggestions[] = 'form_element__field_kleur_picker';
+    }
+    else {
+      $suggestions[] = 'form_element__' . $element['#type'];
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function currus_preprocess_menu_local_task(array &$variables) {
+  //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
+}
+
+function currus_theme($existing, $type, $theme, $path) {
+  return [
+      'node_veiling_invoer_handelaren_form_edit_' => [
+        'render element' => 'form',
+        'template' => 'node-veiling-invoer-handelaren-form-edit',
+        'path' => $path . '/templates',
+      ],
+      'node_veiling_invoer_particulieren_form_edit_' => [
+        'render element' => 'form',
+        'template' => 'node-veiling-invoer-particulieren-form-edit',
+        'path' => $path . '/templates',
+      ],
+      'edit_node_veiling_invoer_particulieren' => [
+        'render element' => 'form',
+        'template' => 'edit-node-veiling-invoer-particulieren',
+        'path' => $path . '/templates',
+      ],
+      'edit_node_veiling_invoer_handelaren' => [
+        'render element' => 'form',
+        'template' => 'edit-node-veiling-invoer-handelaren',
+        'path' => $path . '/templates',
+      ],
+    ];
+}
+
+function currus_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if($form_id == 'node_veiling_invoer_handelaren_form'){
+    $form['#theme'] = ['node_veiling_invoer_handelaren_form_edit_'];
+  }
+  if($form_id == 'node_veiling_invoer_particulieren_form'){
+    $form['#theme'] = ['node_veiling_invoer_particulieren_form_edit_'];
+  }
+  if($form_id == 'node_veiling_invoer_particulieren_edit_form'){
+    $form['#theme'] = ['edit_node_veiling_invoer_particulieren'];
+  }
+  if($form_id == 'node_veiling_invoer_handelaren_edit_form'){
+    $form['#theme'] = ['edit_node_veiling_invoer_handelaren'];
+  }
+}
+
+
+
+

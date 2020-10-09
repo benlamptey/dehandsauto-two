@@ -1,0 +1,22 @@
+uuid: 4c1cc7e2-7d7f-4a19-a6ca-0530383197a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.veiling_invoer_particulieren
+id: node.veiling_invoer_particulieren.promote
+field_name: promote
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

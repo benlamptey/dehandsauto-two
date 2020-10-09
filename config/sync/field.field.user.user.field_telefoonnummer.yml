@@ -1,0 +1,20 @@
+uuid: 3cdef9c7-3f49-4bd7-9993-3b6b62c2dc28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_telefoonnummer
+  module:
+    - user
+id: user.user.field_telefoonnummer
+field_name: field_telefoonnummer
+entity_type: user
+bundle: user
+label: Telefoonnummer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

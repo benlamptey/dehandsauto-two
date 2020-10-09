@@ -1,0 +1,24 @@
+uuid: 4661b704-71b5-4873-af10-2bf59da1ad31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.flagging.rate_node.field_score
+    - flag.flag.rate_node
+_core:
+  default_config_hash: L4uYDfqVLEJSldzBGSRVyJtzQ0D1qLWdXhvkHQ3X8Ok
+id: flagging.rate_node.default
+targetEntityType: flagging
+bundle: rate_node
+mode: default
+content:
+  field_score:
+    weight: 0
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden: {  }

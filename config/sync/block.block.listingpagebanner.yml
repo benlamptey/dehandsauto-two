@@ -1,0 +1,31 @@
+uuid: 26c85bd2-934f-440f-aac3-419803cca131
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_block:63ecc22c-461f-4c00-bda0-d641d54dc132'
+  module:
+    - block_content
+    - system
+  theme:
+    - currus
+id: listingpagebanner
+theme: currus
+region: banner
+weight: 0
+provider: null
+plugin: 'block_content:63ecc22c-461f-4c00-bda0-d641d54dc132'
+settings:
+  id: 'block_content:63ecc22c-461f-4c00-bda0-d641d54dc132'
+  label: 'Listing page banner'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/veiling_alle_voertuigen\r\n/veiling_voertuigen_particulier\r\n/veiling_voertuigen_handelaar"
+    negate: false
+    context_mapping: {  }

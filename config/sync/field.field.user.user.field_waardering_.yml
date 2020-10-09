@@ -1,0 +1,33 @@
+uuid: 64ca4c8f-8fb6-4b2a-94e6-517e234db5e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_waardering_
+  module:
+    - comment
+    - user
+id: user.user.field_waardering_
+field_name: field_waardering_
+entity_type: user
+bundle: user
+label: 'Waardering '
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 5
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

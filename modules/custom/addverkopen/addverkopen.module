@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Contains addverkopen.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function addverkopen_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the addverkopen module.
+    case 'help.page.addverkopen':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module aanpassingen verkoop paginas') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function addverkopen_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    if($form_id == "node_veiling_invoer_handelaren_form" || "node_veiling_invoer_particulieren_form"){
+        $form['title']['widget'][0]['value']['#title'] = 'Titel';  
+        $form['field_maand']['widget']['#options']['_none'] = 'Maand';
+        $form['field_jaar']['widget'][0]['value']['#empty_option'] = 'Jaar';
+        $form['field_brandstof']['widget']['#options']['_none'] = 'Brandstof';
+        $form['field_schakeling']['widget']['#options']['_none'] = 'Schakeling';
+        $form['field_deuren']['widget']['#options']['_none'] = 'Aantal deuren';
+        $form['field_euro_norm']['widget']['#options']['_none'] = 'Euro norm';
+        $form['field_expaire_time']['widget']['#options']['_none'] = 'Looptijd veiling'; 
+        $form['field_foto_s']['widget']['#file_upload_title'] = 'Toevoegen';
+    }
+}
+
+/**
+ * Implements hook_form_ID_alter().
+ */
+function addverkopen_form_node_veiling_invoer_handelaren_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    if($form['#id'] == 'node-veiling-invoer-handelaren-form'){
+        $form['actions']['submit']['#value'] = 'plaats zoekertje';
+        $form['actions']['preview']['#value'] = 'Bekijk hier de voorvertoning';
+        
+    }
+}
+
+/**
+ * Implements hook_form_ID_alter().
+ */
+function addverkopen_form_node_veiling_invoer_particulieren_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    if($form['#id'] == 'node-veiling-invoer-particulieren-form'){
+        $form['actions']['submit']['#value'] = 'plaats zoekertje';
+        $form['actions']['preview']['#value'] = 'Bekijk hier de voorvertoning';
+        
+    }
+}
+
+
+/**
+ * Implements hook_shs_js_settings_alter().
+ */
+function addverkopen_shs_js_settings_alter(&$settings_shs, $bundle, $field_name) {
+  if ($field_name == 'field_merk') {
+    $settings_shs['settings']['anyLabel'] = t(' - Auto merk - ');
+    $settings_shs['display']['animationSpeed'] = 300;
+    $settings_shs['parents']['defaultValue'][0][0] = t(' - Kies een type - ');
+
+  }
+  elseif ($field_name == 'field_regio') {
+    $settings_shs['settings']['anyLabel'] = t(' - Regio - ');
+    $settings_shs['display']['animationSpeed'] = 300;
+  }
+}
+
+

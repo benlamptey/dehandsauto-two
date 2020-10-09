@@ -1,0 +1,49 @@
+<article>
+    <div class="user-content">
+        <div class="container">
+            <div class="row">
+                <div class="main-content-user col-sm-8 mb-130">
+                  <div class="avatar-circle">
+                    {{ content.user_picture }}
+                  </div>
+                    <div class="top-content user-nami-actief">
+                        <span class="nami-user"><h2>{{ user.name.value|capitalize }}</h2></span>
+                    </div>
+                    <div class="bottom-content">
+                        <div class="user-account-profile">
+                            <div class="user-account-profile-items row">
+                                <div class="user-field-label col-md-3">{{ 'Actief sinds' }}</div>
+                                <div class="user-field-value col-md-9">{{ user.created.value|date("d M Y") }}</div>
+                            </div>
+                            <div class="user-account-profile-items row">
+                                <div class="user-field-label col-md-3">{{ 'Plaats' }}</div>
+                                <div class="user-field-value col-md-9"> {{ field_plaats }}</div>
+                            </div>
+                            <div class="user-account-profile-items row">
+                                <div class="user-field-label col-md-3">{{ 'Postcode' }}</div>
+                                <div class="user-field-value col-md-9"> {{ field_postcode }}</div>
+                            </div>
+                            <div class="user-account-profile-items row">
+                                <div class="user-field-label col-md-3">{{ 'Land' }}</div>
+                                <div class="user-field-value col-md-9"> {{ field_land }}</div>
+                            </div>
+                            <div class="user-account-profile-items row">
+                                <div class="user-field-label col-md-3">{{ 'Telefoonnummer' }}</div>
+                                <div class="user-field-value col-md-9"> {{ field_telefoonnummer }}</div>
+                            </div>
+                            <div class="user-account-profile-items row">
+                                <div class="user-field-label col-md-3">{{ 'email' }}</div>
+                                <div class="user-field-value col-md-9"> {{ user.email }}</div>
+                            </div>
+                            <div class="user-account-profile-items row">
+                                <div class="user-field-label col-md-3">{{ 'wachtwoord' }}</div>
+                                <div class="user-field-value col-md-9"> {{ '***********' }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+

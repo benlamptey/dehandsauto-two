@@ -1,0 +1,21 @@
+uuid: 0ec7d92e-1b15-470c-9eac-eb740feeea3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_deuren
+    - node.type.veiling_invoer_particulieren
+  module:
+    - options
+id: node.veiling_invoer_particulieren.field_deuren
+field_name: field_deuren
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Deuren
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

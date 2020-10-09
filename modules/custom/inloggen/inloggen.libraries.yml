@@ -1,0 +1,5 @@
+inloggen_css:
+  version: 1.x
+  css:
+    theme:
+      css/inloggen.css: {}

@@ -1,0 +1,38 @@
+uuid: 97ebddb8-5324-43ea-94a8-9714673272c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag_rating
+    - user
+third_party_settings:
+  flag_rating:
+    score_anonymous_included: 0
+    score_field: field_score
+    score_min: '1'
+    score_max: '10'
+    action_icon: '163'
+id: waardering_verkopers
+label: 'Waardering verkopers'
+bundles: {  }
+entity_type: user
+global: false
+weight: 0
+flag_short: Waardeer
+flag_long: 'Waardeer deze gebruiker op algemene basis.'
+flag_message: 'Dank voor uw mening'
+unflag_short: 'Waardering uitschakelen'
+unflag_long: 'Uw eerder gemaakte waardering ongedaan maken'
+unflag_message: 'Geen waardering meer'
+unflag_denied_text: ''
+flag_type: 'entity:user'
+link_type: ajax_rating
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+  show_on_profile: true
+linkTypeConfig: {  }

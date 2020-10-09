@@ -1,0 +1,19 @@
+uuid: 63c0f1c1-9927-421a-b9f4-56f846bcb4f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_beschrijving
+    - node.type.veiling_invoer_particulieren
+id: node.veiling_invoer_particulieren.field_beschrijving
+field_name: field_beschrijving
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Beschrijving
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

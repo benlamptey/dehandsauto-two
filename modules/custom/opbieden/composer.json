@@ -1,0 +1,14 @@
+{
+  "name": "drupal/opbieden",
+  "type": "drupal-module",
+  "description": "Een opbied veld met instellingen",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/opbieden",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/opbieden",
+    "source": "http://cgit.drupalcode.org/opbieden"
+  },
+  "require": { }
+}

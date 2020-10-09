@@ -1,0 +1,23 @@
+uuid: a2bd2c0d-2dfd-4b31-b1ea-e8a946839a6d
+langcode: en
+status: true
+dependencies: {  }
+name: views_thumps_247_x_140_
+label: 'views thumps (247 x 140)'
+effects:
+  45dc8de2-4ab6-40e5-aa32-27424deb083c:
+    uuid: 45dc8de2-4ab6-40e5-aa32-27424deb083c
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 140
+      upscale: true
+  f9b04527-de39-4e8c-a3ae-ef7344c7b938:
+    uuid: f9b04527-de39-4e8c-a3ae-ef7344c7b938
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 247
+      height: 140
+      anchor: center-center

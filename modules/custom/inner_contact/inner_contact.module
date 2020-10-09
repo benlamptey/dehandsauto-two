@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Contains inner_contact.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function inner_contact_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the inner_contact module.
+    case 'help.page.inner_contact':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Een module voor het aanpassen van het persoonlijk contact formulier, met selectie keuze tussen aanbod wagens') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implementing hook_form_alter().
+ */
+
+function inner_contact_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+    if($form_id == 'contact_message_personal_form'){
+        $form['actions']['submit']['#value'] = ('Verzenden');
+        $form['actions']['preview']['#value'] = ('Bekijken');
+        $form['message']['widget'][0]['value']['#cols'] = 50;
+        $form['subject']['widget'][0]['value']['#title_display'] = ('none');
+        $form['subject']['widget'][0]['value']['#placeholder'] = ('Onderwerp');
+  }
+    if ($form_id == 'contact_message_feedback_form') {
+      $form['name']['#prefix'] = "<div class='col-md-4'>";
+      $form['name']['#suffix'] = "</div>";
+      $form['name']['#attributes']['placeholder'] = \Drupal\Component\Utility\Html::decodeEntities("&#xf007;") . " Name";
+      $form['name']['#attributes']['style'][] = 'font-family:Arial, FontAwesome;';
+
+      $form['mail']['#attributes']['placeholder'] =  \Drupal\Component\Utility\Html::decodeEntities("&#xf0e0;") . " Email";
+      $form['mail']['#prefix'] = "<div class='col-md-4'>";
+      $form['mail']['#suffix'] = "</div>";
+      $form['mail']['#attributes']['style'][] = 'font-family:Arial, FontAwesome;';
+
+      $form['message']['#prefix'] = "<div class='col-md-12 mt-20 mb-40'>";
+      $form['message']['#suffix'] = "</div>";
+      $form['message']['#attributes']['style'][] = 'font-family:Arial, FontAwesome;';
+      $form["message"]["widget"][0]["value"]["#placeholder"] =  \Drupal\Component\Utility\Html::decodeEntities("&#xf27a;") . " Message";
+
+      $form['field_phone']['#attributes']['class'][] = 'col-md-4';
+      $form['field_phone']['#attributes']['style'][] = 'font-family:Arial, FontAwesome;';
+      $form["field_phone"]["widget"][0]["value"]["#placeholder"] = \Drupal\Component\Utility\Html::decodeEntities("&#xf095;") . ' Phone';
+
+      $form["actions"]['#attributes']['class'][] = 'col-md-12';
+      $form['actions']['preview']['#access'] = FALSE;
+    }
+}

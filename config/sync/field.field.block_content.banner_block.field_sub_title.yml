@@ -1,0 +1,19 @@
+uuid: 2181b67c-c2f3-4898-88c9-7640d51d4733
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_block
+    - field.storage.block_content.field_sub_title
+id: block_content.banner_block.field_sub_title
+field_name: field_sub_title
+entity_type: block_content
+bundle: banner_block
+label: 'Sub title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

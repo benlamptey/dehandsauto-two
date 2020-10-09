@@ -1,0 +1,20 @@
+uuid: 78042cb5-7cc4-4378-9f79-e8778d5ab0ef
+langcode: en
+status: true
+dependencies:
+  theme:
+    - adminio
+id: tabs_2
+theme: adminio
+region: highlighted
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  provider: core
+  label_display: '0'
+  primary: false
+  secondary: true
+visibility: {  }

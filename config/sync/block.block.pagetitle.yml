@@ -1,0 +1,23 @@
+uuid: e7263cb2-ec71-40fd-8198-bf8f28bc6f54
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+  theme:
+    - adminio
+third_party_settings:
+  block_class:
+    classes: 'invoer-hand-part w3-center'
+id: pagetitle
+theme: adminio
+region: highlighted
+weight: -9
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

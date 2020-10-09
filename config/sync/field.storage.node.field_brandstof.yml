@@ -1,0 +1,36 @@
+uuid: 4311b1e1-7b69-4123-a596-df2acab0bd56
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_brandstof
+field_name: field_brandstof
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Benzine
+      label: Benzine
+    -
+      value: Diesel
+      label: Diesel
+    -
+      value: Elektrisch
+      label: Elektrisch
+    -
+      value: Gas
+      label: Gas
+    -
+      value: Hybride
+      label: Hybride
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

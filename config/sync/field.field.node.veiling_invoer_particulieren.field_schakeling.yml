@@ -1,0 +1,21 @@
+uuid: ed20d32a-c703-4511-b796-b88184d4db8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_schakeling
+    - node.type.veiling_invoer_particulieren
+  module:
+    - options
+id: node.veiling_invoer_particulieren.field_schakeling
+field_name: field_schakeling
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Schakeling
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

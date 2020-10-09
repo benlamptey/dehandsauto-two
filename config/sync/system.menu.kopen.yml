@@ -1,0 +1,8 @@
+uuid: 4dcd565d-407e-4ee0-ab18-94f02ced23ad
+langcode: en
+status: true
+dependencies: {  }
+id: kopen
+label: Kopen
+description: 'Menu, alle wagens, wagens particulier en wagens handelaar'
+locked: false

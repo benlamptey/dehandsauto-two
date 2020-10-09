@@ -1,0 +1,20 @@
+uuid: e09d2daa-63ed-43c9-88fc-c9a7e82691d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_reserve
+field_name: field_reserve
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

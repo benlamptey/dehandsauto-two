@@ -1,0 +1,20 @@
+uuid: 15142a45-4f48-41c5-865a-9d0c773ee3d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - currus
+id: messages_2
+theme: currus
+region: content
+weight: -8
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }

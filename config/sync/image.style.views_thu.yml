@@ -1,0 +1,7 @@
+uuid: 3a6bd6af-a0bd-4e55-90ef-405f4766f9b6
+langcode: en
+status: true
+dependencies: {  }
+name: views_thu
+label: 'views thu'
+effects: {  }

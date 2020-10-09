@@ -1,0 +1,31 @@
+uuid: 26f44039-17c1-4509-9785-07f8034c49e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vragen_antwoorden
+    - node.type.vraag_antwoord
+    - paragraphs.paragraphs_type.collectie_vragen_en_antwoorden
+  module:
+    - entity_reference_revisions
+id: node.vraag_antwoord.field_vragen_antwoorden
+field_name: field_vragen_antwoorden
+entity_type: node
+bundle: vraag_antwoord
+label: 'Vragen antwoorden'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      collectie_vragen_en_antwoorden: collectie_vragen_en_antwoorden
+    target_bundles_drag_drop:
+      collectie_vragen_en_antwoorden:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

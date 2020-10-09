@@ -1,0 +1,29 @@
+uuid: 7f12413c-8e59-436b-bca5-1617725715a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.actieve_veiling_alle_voertuigen
+  module:
+    - system
+    - views
+  theme:
+    - currus
+id: actieve_veiling_alle_voertuigenpagina_veiling_alle_wagens_sideba
+theme: currus
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:actieve_veiling_alle_voertuigen-pagina_veiling_alle_wagens'
+settings:
+  id: 'views_exposed_filter_block:actieve_veiling_alle_voertuigen-pagina_veiling_alle_wagens'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /veiling_alle_voertuigen
+    negate: false
+    context_mapping: {  }

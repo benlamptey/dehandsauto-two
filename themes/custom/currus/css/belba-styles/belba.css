@@ -1,0 +1,289 @@
+.profile-menu-item {
+  cursor: pointer;
+}
+#registratieformulier-toggle,
+#auteur-inhoud-toggle,
+#waardering-commentaar-toggle,
+#gebruiker-profiel-toggle {
+  display: none;
+}
+
+.avatar-circle{padding:32px;}
+.avatar-circle img{
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .block-banner-exposedform form {
+    display: flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .block-banner-exposedform form .js-form-item.form-item {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .block-banner-exposedform form .js-form-item.form-item {
+    padding: 0 6px;
+    flex: 1;
+  }
+}
+/*.block-banner-exposedform form .js-form-item.form-item .shs-field-container {
+  margin: 0;
+}
+.block-banner-exposedform form .js-form-item.form-item .shs-field-container .shs-widget-container {
+  width: 100%;
+  display: block;
+}
+.block-banner-exposedform form .js-form-item.form-item select {
+  width: 100%;
+  padding: 6px 25px 6px 12px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg fill='%23ffffff' version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 129 129' xmlns:xlink='http://www.w3.org/1999/xlink' enable-background='new 0 0 129 129'%3E%3Cg%3E%3Cpath d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 18px;
+  background-position: center right 10px;
+  background-repeat: no-repeat;
+  height: 40px;
+}*/
+@media screen and (min-width: 768px) {
+  .block-banner-exposedform form .form-actions.form-wrapper {
+    flex: 1;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+/*.block-banner-exposedform form .form-actions.form-wrapper .button.form-submit {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #7d673f;
+  border: 1px solid #ffffff;
+  letter-spacing: .5px;
+  transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+}
+.block-banner-exposedform form .form-actions.form-wrapper .button.form-submit:hover {
+  color: #ffffff;
+  background-color: #494945;
+  border-color: #494945;
+}*/
+/*-------------------------------------------------*/
+.banner {
+  position: relative;
+}
+.block-banner-exposedform {
+  background: #ba9b6c;
+}
+.block-banner-exposedform form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+.block-banner-exposedform form #custom-filter-wrapper {
+  margin: 0 1em !important;
+}
+.block-banner-exposedform form #custom-filter-wrapper label {
+  display: none;
+}
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(3),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(4) {
+  min-width: 120px;
+}
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(6),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(7),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(8),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(9),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(10),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(11),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(12),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(13),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(14),
+.block-banner-exposedform form #custom-filter-wrapper:nth-child(16) {
+  display: none;
+}
+.block-banner-exposedform form #custom-filter-wrapper label {
+  font-size: .75em;
+}
+.block-banner-exposedform form #custom-filter-wrapper label span {
+  margin: 0;
+}
+.block-banner-exposedform form #custom-filter-wrapper .shs-field-container,
+.block-banner-exposedform form #custom-filter-wrapper .shs-widget-container {
+  margin: 0;
+}
+.block-banner-exposedform form #custom-filter-wrapper select {
+  background: #fff;
+  color: #000;
+}
+.block-banner-exposedform form .form-actions input {
+  background: #8c6238 !important;
+  color: #fff !important;
+  text-transform: uppercase;
+  min-height: 50px;
+  border: none;
+  padding: 0 25px;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-items div,
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-selected {
+  display: none;
+}
+
+.node-particulieren h2 {
+  margin: 32px 0px;
+  }
+.afteller .is-countdown{
+  border: none;
+  background-color: transparent;
+  margin-top: 62px;
+  color:#8f8f8f;
+  font-size: 10px;
+  font-weight: bold;
+  box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+.afteller .countdown-show4 .countdown-section{
+  padding:4px 0;
+  padding-left: 5%;
+  padding-right: 10%;
+}
+@media screen and (max-width: 340px) {
+      .afteller .is-countdown{
+      font-size: 8px;
+  }
+  .afteller .countdown-show4 .countdown-section{
+    padding-right: 7%;
+}
+}
+
+.instelprijs{font-family: Verdana;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 27px;
+letter-spacing: 0.01em;
+color: #333333;
+}
+.koop-nu {
+    background: #494847;
+    width: 100%;
+    padding: 15px 0px;
+    border: 1px solid #c5c0bc;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight:500;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+.koop-nu .prijsveld:hover{
+  border-right: 2px solid #b79b6f;
+}
+.koop-nu .prijsveld {
+  border-right: 2px solid #fff;
+  grid-column: 1 / 2;
+  text-align: center;
+}
+ .comment-nu-kopen-form input[type=submit]{
+  background: #494847; 
+  border: 0;
+  display: block;
+  transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+}
+.comment-nu-kopen-form input[type=submit]:hover{
+  color:#7d673f;
+}
+.koop-nu .nu-kopen-veld { grid-column: 2 / 7;
+                          padding-left: 20%;  
+}
+.auteur-tabel, .biedingen-tabel{
+  overflow:scroll;
+  margin-left:auto; 
+  margin-right:auto;
+  margin-bottom: 32px;
+}
+.auteur-tabel table thead, .biedingen-tabel table thead{
+  background-color: #B99A6F;
+}
+.auteur-tabel table thead tr th, .biedingen-tabel table thead tr th{
+  color:#fff;
+  font-size: small;
+  padding: 16px;
+}
+.auteur-tabel table tbody tr:nth-child(odd), .biedingen-tabel table tbody tr:nth-child(odd){
+  background-color: #fafafa;
+}
+.auteur-tabel table tbody td, .biedingen-tabel table tbody td{
+  color:black;
+  padding:8px;
+  font-size: 14px;
+}
+
+.block-bod-voertuig{
+  padding: 15px 0px;
+}
+.block-bod-voertuig .more-link{
+  color:#fff;
+  font-size: 26px;
+  text-align-last: center;
+  border:0px solid transparent;
+  border-radius: 50px;
+  height: 40px;
+  width:40px;
+  background-color:#B99A6F;
+}
+/*.block-bod-voertuig .more-link a{ 
+  color:#fff;
+  border:0px solid transparent;
+  border-radius: 50px;
+  height: 40px;
+  width:40px;
+  background-color:#B99A6F;
+}*/
+.bod-per-voertuig{
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+.bod-per-voertuig .view-bod-per-voertuig{
+  margin: 0 auto;
+  justify-content: center;
+}
+.circle-bod img{
+  border-radius: 50%;
+}
+.naam-bod-per-voertuig{
+  color: #BA853B;
+}
+.bod-nieuw-per-voertuig{
+  color: #3E3E3E;
+}
+
+.oranje-letters{
+  color:#EE964D;
+  text-transform: capitalize;
+}
+
+

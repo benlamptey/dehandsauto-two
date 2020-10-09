@@ -1,0 +1,23 @@
+uuid: cfd8b56e-914a-49f6-b40c-290811fde369
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vermogen
+    - node.type.veiling_invoer_handelaren
+id: node.veiling_invoer_handelaren.field_vermogen
+field_name: field_vermogen
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Vermogen
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 1000
+  prefix: ''
+  suffix: ''
+field_type: integer

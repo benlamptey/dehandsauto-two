@@ -1,0 +1,63 @@
+uuid: 1464af0c-390c-48d7-ab6c-cb984e037e9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_expaire_time
+field_name: field_expaire_time
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: '1 Dag'
+    -
+      value: '2'
+      label: '2 Dagen'
+    -
+      value: '3'
+      label: '3 Dagen'
+    -
+      value: '4'
+      label: '4 Dagen'
+    -
+      value: '5'
+      label: '5 Dagen'
+    -
+      value: '6'
+      label: '6 Dagen'
+    -
+      value: '7'
+      label: '7 Dagen'
+    -
+      value: '8'
+      label: '8 Dagen'
+    -
+      value: '9'
+      label: '9 Dagen'
+    -
+      value: '10'
+      label: '10 Dagen'
+    -
+      value: '11'
+      label: '11 Dagen'
+    -
+      value: '12'
+      label: '12 Dagen'
+    -
+      value: '13'
+      label: '13 Dagen'
+    -
+      value: '14'
+      label: '14 Dagen'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

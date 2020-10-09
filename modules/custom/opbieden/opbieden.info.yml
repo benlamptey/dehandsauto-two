@@ -1,0 +1,5 @@
+name: 'opbieden'
+type: module
+description: 'Een opbied veld met enkel INT invoer. Gebruikt in field_nieuw_bod'
+core_version_requirement: ^8.8 || ^9.0
+package: 'Custom'

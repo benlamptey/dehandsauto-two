@@ -1,0 +1,20 @@
+uuid: bcf4a888-c9cd-4dff-ba5d-5f2cb59187e0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_vermogen
+field_name: field_vermogen
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

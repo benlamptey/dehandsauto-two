@@ -1,0 +1,23 @@
+uuid: a089caa5-89f6-45d0-8a44-69baced2d3ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prijs
+    - node.type.veiling_invoer_particulieren
+id: node.veiling_invoer_particulieren.field_prijs
+field_name: field_prijs
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Prijs
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 1000000
+  prefix: ''
+  suffix: ''
+field_type: integer

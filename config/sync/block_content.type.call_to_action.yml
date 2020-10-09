@@ -1,0 +1,8 @@
+uuid: d4c1adf8-55dd-450d-80e4-ba43ba02d8fe
+langcode: en
+status: true
+dependencies: {  }
+id: call_to_action
+label: 'Call to action'
+revision: 1
+description: ''

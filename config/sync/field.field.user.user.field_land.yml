@@ -1,0 +1,20 @@
+uuid: 8379bbe2-0c34-4466-bc2a-b59bf0d4ec6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_land
+  module:
+    - user
+id: user.user.field_land
+field_name: field_land
+entity_type: user
+bundle: user
+label: Land
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

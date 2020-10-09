@@ -1,0 +1,15 @@
+uuid: 17c530a5-c2c1-42fb-9b6d-f2bb86002724
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.waardering_verkopers
+  module:
+    - flag
+id: flag_action.waardering_verkopers_unflag
+label: 'Waardering uitschakelen'
+type: user
+plugin: 'flag_action:waardering_verkopers_unflag'
+configuration:
+  flag_id: waardering_verkopers
+  flag_action: unflag

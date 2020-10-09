@@ -1,0 +1,8 @@
+uuid: 02a89c44-6f0c-40fa-8c03-731530a79203
+langcode: en
+status: true
+dependencies: {  }
+id: verkopen
+label: Verkopen
+description: 'Menu naar de invoerpagina''s om een voertuig aan te bieden'
+locked: false

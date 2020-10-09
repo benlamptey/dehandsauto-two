@@ -1,0 +1,24 @@
+uuid: d45a023d-bd4a-4492-b4bd-20844db8ae22
+langcode: en
+status: true
+dependencies:
+  module:
+    - bavocado
+    - block_class
+  theme:
+    - bartik
+third_party_settings:
+  block_class:
+    classes: 'footer-nieuwsbrief  w3-col l6 m6 w3-padding'
+id: bartik_inschrijvingnieuwsbrief
+theme: bartik
+region: secondary_menu
+weight: -9
+provider: null
+plugin: bavocado_block
+settings:
+  id: bavocado_block
+  label: 'Inschrijving nieuwsbrief'
+  provider: bavocado
+  label_display: visible
+visibility: {  }

@@ -1,0 +1,9 @@
+
+bavocado.bavocado_form:
+  path: '/bavocado/form/bavocado'
+  defaults:
+    _form: '\Drupal\bavocado\Form\BavocadoForm.php'
+    _title: 'BavocadoForm'
+  requirements:
+    _permission: 'access content'
+  

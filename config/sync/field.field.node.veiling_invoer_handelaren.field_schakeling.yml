@@ -1,0 +1,21 @@
+uuid: 6862f1c4-6ba5-4c2f-98c6-5fb23c9b04ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_schakeling
+    - node.type.veiling_invoer_handelaren
+  module:
+    - options
+id: node.veiling_invoer_handelaren.field_schakeling
+field_name: field_schakeling
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Schakeling
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

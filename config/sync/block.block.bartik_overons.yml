@@ -1,0 +1,29 @@
+uuid: 902a3a36-8726-438d-a69e-ee4e9c642644
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:844ef682-e287-491a-a8f1-fcb06398f351'
+  module:
+    - block_class
+    - block_content
+  theme:
+    - bartik
+third_party_settings:
+  block_class:
+    classes: 'footerdiv w3-col l6 m6 w3-padding'
+id: bartik_overons
+theme: bartik
+region: secondary_menu
+weight: -8
+provider: null
+plugin: 'block_content:844ef682-e287-491a-a8f1-fcb06398f351'
+settings:
+  id: 'block_content:844ef682-e287-491a-a8f1-fcb06398f351'
+  label: 'Over ons'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

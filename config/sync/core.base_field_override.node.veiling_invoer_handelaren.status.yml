@@ -1,0 +1,22 @@
+uuid: 2ee95a6f-96b7-44f7-9102-e7d35f833b04
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.veiling_invoer_handelaren
+id: node.veiling_invoer_handelaren.status
+field_name: status
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

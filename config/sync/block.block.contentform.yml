@@ -1,0 +1,28 @@
+uuid: d4690ce8-eab4-4160-ad2f-e90c16d41749
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - currus
+id: contentform
+theme: currus
+region: content
+weight: -12
+provider: null
+plugin: formblock_node
+settings:
+  id: formblock_node
+  label: 'Content form'
+  provider: node
+  label_display: '0'
+  type: veiling_invoer_handelaren
+  show_help: 0
+visibility:
+  request_path:
+    id: request_path
+    pages: /add/veiling_invoer_handelaren
+    negate: false
+    context_mapping: {  }

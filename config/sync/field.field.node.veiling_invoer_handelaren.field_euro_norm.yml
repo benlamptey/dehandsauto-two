@@ -1,0 +1,21 @@
+uuid: 899d8264-ed50-4cbf-ade2-e3c2072bdceb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_euro_norm
+    - node.type.veiling_invoer_handelaren
+  module:
+    - options
+id: node.veiling_invoer_handelaren.field_euro_norm
+field_name: field_euro_norm
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: 'Euro norm'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

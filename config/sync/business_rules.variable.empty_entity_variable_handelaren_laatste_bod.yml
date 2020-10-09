@@ -1,0 +1,12 @@
+uuid: 6e94a862-2633-4c8d-b160-afcf1ebbe325
+langcode: en
+status: true
+dependencies: {  }
+id: empty_entity_variable_handelaren_laatste_bod
+label: 'Empty Entity variable handelaren laatste bod'
+type: entity_empty_variable
+description: 'Empty Entity variable handelaren laatste bod'
+target_entity_type: node
+target_bundle: veiling_invoer_handelaren
+tags: {  }
+settings: {  }

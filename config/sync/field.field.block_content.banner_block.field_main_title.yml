@@ -1,0 +1,19 @@
+uuid: d8e1c981-a53a-4957-ad8e-ff2f9d53a2c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_block
+    - field.storage.block_content.field_main_title
+id: block_content.banner_block.field_main_title
+field_name: field_main_title
+entity_type: block_content
+bundle: banner_block
+label: 'Main title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

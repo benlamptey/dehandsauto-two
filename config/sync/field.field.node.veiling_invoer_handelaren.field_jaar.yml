@@ -1,0 +1,23 @@
+uuid: a243baa4-de92-4a72-b0bc-d89c87e95fc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_jaar
+    - node.type.veiling_invoer_handelaren
+  module:
+    - yearonly
+id: node.veiling_invoer_handelaren.field_jaar
+field_name: field_jaar
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Jaar
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  yearonly_from: '1991'
+  yearonly_to: now
+field_type: yearonly

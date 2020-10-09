@@ -1,0 +1,31 @@
+add_veiling_invoer_handelaren.form:
+  path: '/add/veiling_invoer_handelaren'
+  defaults:
+    _controller: '\Drupal\auto_be\Controller\CustomController::add_veiling_invoer_handelaren'
+    _title: 'Veiling invoer handelaren'
+  requirements:
+    _role: 'handelaar'
+
+add_veiling_invoer_particulieren.form:
+  path: '/add/veiling_invoer_particulieren'
+  defaults:
+    _controller: '\Drupal\auto_be\Controller\CustomController::add_veiling_invoer_particulieren'
+    _title: 'Veiling invoer particulieren'
+  requirements:
+    _role: 'particulier'
+
+custom.form:
+  path: '/user/account/register'
+  defaults: 
+    _title: 'Account aanmaken'
+    _form: '\Drupal\auto_be\Form\CustomRegistrationForm'
+  requirements:
+    _role: 'anonymous'
+
+user_profile.form:
+ path: '/user/account/profile'
+ defaults:
+   _title: 'Mijn account'
+   _form: '\Drupal\auto_be\Form\UserProfileForm'
+ requirements:
+   _role: 'authenticated'

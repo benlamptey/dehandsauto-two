@@ -1,0 +1,17 @@
+uuid: dbaf34d3-02bf-4636-a074-5feb6f90a13b
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.rate_node
+  module:
+    - flag
+_core:
+  default_config_hash: '-ATFuHfAy9_pK9YZauoJCFAxBOLpH5wl1FV1lD_DGzY'
+id: flag_action.rate_node_unflag
+label: Unrate
+type: node
+plugin: 'flag_action:rate_node_unflag'
+configuration:
+  flag_id: rate_node
+  flag_action: unflag

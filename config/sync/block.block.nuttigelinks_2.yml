@@ -1,0 +1,29 @@
+uuid: 32b126b7-9cad-4b00-a3ea-22ad659c5e87
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.nuttige-links
+  module:
+    - block_class
+    - system
+  theme:
+    - adminio
+third_party_settings:
+  block_class:
+    classes: 'footerdiv w3-col l4 m4 w3-padding '
+id: nuttigelinks_2
+theme: adminio
+region: footer
+weight: -8
+provider: null
+plugin: 'system_menu_block:nuttige-links'
+settings:
+  id: 'system_menu_block:nuttige-links'
+  label: 'Nuttige links'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

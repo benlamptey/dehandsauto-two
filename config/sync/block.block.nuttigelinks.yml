@@ -1,0 +1,29 @@
+uuid: cfd10345-9fc8-4467-83d4-1efc44de0725
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.nuttige-links
+  module:
+    - block_class
+    - system
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: 'nuttigelinks col-md-3'
+id: nuttigelinks
+theme: currus
+region: footer
+weight: -12
+provider: null
+plugin: 'system_menu_block:nuttige-links'
+settings:
+  id: 'system_menu_block:nuttige-links'
+  label: 'Nuttige links'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

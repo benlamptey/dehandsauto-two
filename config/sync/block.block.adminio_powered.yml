@@ -1,0 +1,22 @@
+uuid: a9bb74ae-03a7-435b-baae-4b301984c6c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - adminio
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: adminio_powered
+theme: adminio
+region: footer
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

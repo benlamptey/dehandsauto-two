@@ -1,0 +1,31 @@
+uuid: 18d42fd4-b765-4e77-a49d-303020cdca42
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_block:6ff299c2-dc95-43bc-9c9c-2bfb12906956'
+  module:
+    - block_content
+    - system
+  theme:
+    - currus
+id: contactbannerblock
+theme: currus
+region: banner
+weight: 0
+provider: null
+plugin: 'block_content:6ff299c2-dc95-43bc-9c9c-2bfb12906956'
+settings:
+  id: 'block_content:6ff299c2-dc95-43bc-9c9c-2bfb12906956'
+  label: 'Contact banner block'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /contact
+    negate: false
+    context_mapping: {  }

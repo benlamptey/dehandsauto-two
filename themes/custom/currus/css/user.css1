@@ -1,0 +1,59 @@
+.user-achtergrond{background-color:var(--basis-kleur);}
+.user-achtergrond h2{color:var(--bleketekst);font-weight:900;padding:32px 13px;margin-left:5%;}
+.user-achtergrond a{color:var(--bleketekst);text-decoration:none;letter-spacing:1px;font-weight:700;}
+.user-achtergrond a:hover{text-shadow:0px 2px 1px black;}
+.user-achtergrond a:active{text-shadow:0px 2px 1px darkred;;}
+.user-welkom{color:var(--donkeretekst);word-spacing:8px;}
+.berichtknop-user{border:1px solid var(--bleketekst);padding:12px 24px;float:right;
+                 margin-right:5%;margin-top:7%;}
+.nami-user{font-size:18px;font-weight:700}
+.user-actief{font-size:12px;float:right;}
+.user-nami-actief{padding:16px;border-bottom:1px solid #b3b3b3;width:auto;}
+.user-per-pagina{color:var(--basis-kleur);font-weight:700;padding:16px;border-bottom:1px solid #b3b3b3;
+                 width:auto;}
+.user-acc-type{font-weight:700;}
+.user-profiel{border-bottom:1px solid #b3b3b3;width:220px;float:left;}
+.user-profiel p{font-weight:600;padding:16px 16px;}
+.user-profiel p:hover{cursor:row-resize}
+.user-profiel li{list-style:none;}
+.user-profiel li:first-child{color:var(--basis-kleur);}
+.user-profiel a{text-decoration:none;}
+.pluss-mins{float:right;}
+.toonverdwijn-editmenu{display:none;}
+.user-waarderingen{display:block;}
+.like_dislike .like, .like_dislike .dislike{border:none;}
+.like_dislike .like a, .like_dislike .dislike a{text-decoration:none;}
+.like_dislike .like span{color:green;float:none;}
+.like_dislike .dislike span{color:red;float:none;}
+.waardering-commentaar{padding:8px;}
+.waardering-commentaar textarea{}
+.waardering-commentaar input[type='submit']{border:none;margin:8px 0;display:inline;}
+.waardering-commentaar input[type='submit']:hover{cursor:pointer;}
+.waardering-commentaar input[value='plaatsen']{padding:8px 32px;background-color:var(--basis-kleur);
+                                               color:var(--bleketekst);}
+.waardering-commentaar input[value='plaatsen']:hover{text-shadow:0px 2px 1px black;}
+.waardering-commentaar input[value='plaatsen']:active{text-shadow:0px 2px 1px darkred;}
+.waardering-commentaar input[value='bekijken']{color:var(--basis-kleur);margin-left:7%;
+                                               background-color:transparent;font-size:10px; }
+.waardering-commentaar input[value='bekijken']:hover{}
+.waardering-commentaar input[value='bekijken']:active{}
+.commentaren-handelingen li{display:inline;padding:8px;}
+.commentaren-randinfo{cursor:context-menu;}
+.auteur-tabel{float:left;display:none;}
+.auteur-tabel thead{background-color:var(--basis-kleur);}
+.auteur-tabel th{padding:17px 0px 17px 0px;color:var(--bleketekst);}
+.auteur-tabel td{padding:13px;}
+.auteur-tabel table{border: 1px solid #b3b3b3;border-collapse:collapse;} 
+.auteur-tabel-rij:nth-child(even) {background-color:#DCDCDC;}
+.auteur-tabel-rij:nth-child(odd) {background-color:#FaFaFa;}
+.auteur-tabel-rij{border-bottom:1px solid #b3b3b3;}
+.dropbutton a{text-decoration:none;padding-right:8px;}
+.dropbutton:a:hover{background-color:ivory;padding:0px 6px 7px 0px;}
+.secondary-action a{border-top:1px solid dimgray;}
+.dropbutton{border-right:1px solid dimgray;}
+.dropbutton-widget{background-color:var(--lichte-achtergrond);padding:8px;}
+.dropbutton-widget a:hover{background-color: ghostwhite;}
+.dropbutton-wrapper{left:41px;bottom:3px;}
+@media only screen and (max-width: 600px) {
+  .dropbutton-wrapper{position:relative;bottom:3px;left:1px;}
+}

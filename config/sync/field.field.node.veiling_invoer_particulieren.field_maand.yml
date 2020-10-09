@@ -1,0 +1,21 @@
+uuid: 89b3a5f6-5e25-42f4-9a69-a97af0701bf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_maand
+    - node.type.veiling_invoer_particulieren
+  module:
+    - options
+id: node.veiling_invoer_particulieren.field_maand
+field_name: field_maand
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Maand
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,31 @@
+uuid: 17f2ee04-205d-48f1-adf2-b55eaaccacdc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_block:c4b46a61-3721-4a40-98a1-ac198fff9c43'
+  module:
+    - block_content
+    - system
+  theme:
+    - currus
+id: homepage_banner
+theme: currus
+region: banner
+weight: -11
+provider: null
+plugin: 'block_content:c4b46a61-3721-4a40-98a1-ac198fff9c43'
+settings:
+  id: 'block_content:c4b46a61-3721-4a40-98a1-ac198fff9c43'
+  label: 'Homepage banner'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

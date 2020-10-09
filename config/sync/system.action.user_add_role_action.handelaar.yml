@@ -1,0 +1,14 @@
+uuid: 545087f0-e1c2-4cad-9fd6-6aff3cb4c637
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.handelaar
+  module:
+    - user
+id: user_add_role_action.handelaar
+label: 'Add the Handelaar role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: handelaar

@@ -1,0 +1,5 @@
+name: 'addverkopen'
+type: module
+description: 'Module aanpassingen verkoop paginas'
+core_version_requirement: ^8.8 || ^9.0
+package: 'Custom'

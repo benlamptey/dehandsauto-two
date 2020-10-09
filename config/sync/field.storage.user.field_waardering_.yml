@@ -1,0 +1,20 @@
+uuid: e2cfa606-5048-4349-8a7f-2297ec933973
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - user
+id: user.field_waardering_
+field_name: field_waardering_
+entity_type: user
+type: comment
+settings:
+  comment_type: waardering_verkoper
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+uuid: 19e47ab0-efed-470d-8b7d-7fdc8c54f487
+langcode: en
+status: true
+dependencies:
+  module:
+    - responsive_menu
+  theme:
+    - currus
+id: responsivemenumobileicon
+theme: currus
+region: header_top
+weight: 0
+provider: null
+plugin: responsive_menu_toggle
+settings:
+  id: responsive_menu_toggle
+  label: 'Responsive menu mobile icon'
+  provider: responsive_menu
+  label_display: '0'
+visibility: {  }

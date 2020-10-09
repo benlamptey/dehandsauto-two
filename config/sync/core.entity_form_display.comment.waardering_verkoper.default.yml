@@ -1,0 +1,27 @@
+uuid: 4080adcf-1bb1-4f2c-8c60-03d755055356
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.waardering_verkoper
+    - field.field.comment.waardering_verkoper.field_tekstvak
+id: comment.waardering_verkoper.default
+targetEntityType: comment
+bundle: waardering_verkoper
+mode: default
+content:
+  author:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tekstvak:
+    weight: 1
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  subject: true

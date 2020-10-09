@@ -1,0 +1,14 @@
+{
+  "name": "drupal/inner_contact",
+  "type": "drupal-module",
+  "description": "Een module voor het aanpassen van het persoonlijk contact formulier, met selectie keuze tussen aanbod wagens",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/inner_contact",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/inner_contact",
+    "source": "http://cgit.drupalcode.org/inner_contact"
+  },
+  "require": { }
+}

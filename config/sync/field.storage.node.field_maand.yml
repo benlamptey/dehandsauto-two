@@ -1,0 +1,57 @@
+uuid: 95c2181f-c967-4b3a-9304-840e468a7da4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_maand
+field_name: field_maand
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '01'
+      label: Januari
+    -
+      value: '02'
+      label: Februari
+    -
+      value: '03'
+      label: Maart
+    -
+      value: '04'
+      label: April
+    -
+      value: '05'
+      label: Mei
+    -
+      value: '06'
+      label: Juni
+    -
+      value: '07'
+      label: Juli
+    -
+      value: '08'
+      label: Augustus
+    -
+      value: '09'
+      label: September
+    -
+      value: '10'
+      label: Oktober
+    -
+      value: '11'
+      label: November
+    -
+      value: '12'
+      label: December
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

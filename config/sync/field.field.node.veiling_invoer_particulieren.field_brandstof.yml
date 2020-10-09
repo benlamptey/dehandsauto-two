@@ -1,0 +1,21 @@
+uuid: 46d9ebf1-e073-40c0-a05a-975e6a1bd377
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_brandstof
+    - node.type.veiling_invoer_particulieren
+  module:
+    - options
+id: node.veiling_invoer_particulieren.field_brandstof
+field_name: field_brandstof
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Brandstof
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

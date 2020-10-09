@@ -1,0 +1,21 @@
+uuid: 6bd0154c-05c5-4103-8929-c51ed1fe5373
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_maand
+    - node.type.veiling_invoer_handelaren
+  module:
+    - options
+id: node.veiling_invoer_handelaren.field_maand
+field_name: field_maand
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: Maand
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

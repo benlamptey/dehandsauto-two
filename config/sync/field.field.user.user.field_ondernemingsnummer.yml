@@ -1,0 +1,20 @@
+uuid: 63afab19-61cc-495c-a258-da02f6166d2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ondernemingsnummer
+  module:
+    - user
+id: user.user.field_ondernemingsnummer
+field_name: field_ondernemingsnummer
+entity_type: user
+bundle: user
+label: Ondernemingsnummer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

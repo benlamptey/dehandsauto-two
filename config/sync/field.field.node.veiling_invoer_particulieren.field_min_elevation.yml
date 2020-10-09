@@ -1,0 +1,23 @@
+uuid: 1ab17af6-84b0-4922-b178-0921c623e0d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_min_elevation
+    - node.type.veiling_invoer_particulieren
+id: node.veiling_invoer_particulieren.field_min_elevation
+field_name: field_min_elevation
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Opbod
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: 2500
+  prefix: ''
+  suffix: ''
+field_type: integer

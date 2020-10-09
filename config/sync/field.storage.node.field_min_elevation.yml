@@ -1,0 +1,20 @@
+uuid: ea891ff6-e5cc-49a5-99d7-a63120215bb1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_min_elevation
+field_name: field_min_elevation
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

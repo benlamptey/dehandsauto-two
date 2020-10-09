@@ -1,0 +1,8 @@
+uuid: fea2cded-5a3e-4bb1-9eef-7bf3eba9f646
+langcode: en
+status: true
+dependencies: {  }
+name: 'Regio''s'
+vid: regio_s
+description: 'Indeling van regio''s in België en buurlanden.'
+weight: 0

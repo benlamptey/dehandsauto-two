@@ -1,0 +1,20 @@
+uuid: 28c03b90-d849-4c23-8214-f1fea8f919bf
+langcode: en
+status: true
+dependencies:
+  theme:
+    - currus
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: currus_local_actions
+theme: currus
+region: content
+weight: -13
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

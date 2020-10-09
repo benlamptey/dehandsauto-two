@@ -1,0 +1,785 @@
+.banner-block-wrapper {
+  height: 410px;
+  text-align: center;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-block-wrapper h2 {
+  width: 60%;
+  padding: 5px;
+}
+
+.call-to-action img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .banner-block-wrapper h2 {
+    width: 60%;
+    font-size: 47px;
+  }
+}
+.contact-footer div p {
+  font-size: 16px !important;
+}
+.contact-footer div p .footer-icon {
+  margin-right: 20px;
+  color: #000;
+  font-size: 20px;
+}
+
+#block-sitebranding a img {
+  width: auto;
+  height: 100px;
+}
+
+#block-contentform {
+  margin-bottom: 50px;
+}
+
+.veiling_invoer_handelaren .vehicle-label,
+.veiling_invoer_particulieren .vehicle-label {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #181818;
+}
+.veiling_invoer_handelaren .vehicle-timer,
+.veiling_invoer_particulieren .vehicle-timer {
+  font-size: 11px;
+}
+.veiling_invoer_handelaren .item-caption,
+.veiling_invoer_particulieren .item-caption {
+  margin-bottom: 15px;
+}
+.veiling_invoer_handelaren .vehicle-prijs,
+.veiling_invoer_particulieren .vehicle-prijs {
+  font-weight: bold;
+  font-size: 16px;
+  color: #b88234;
+}
+.veiling_invoer_handelaren .prijs-timer,
+.veiling_invoer_particulieren .prijs-timer {
+  display: flex;
+  justify-content: space-between;
+}
+.veiling_invoer_handelaren .bied-mee-cta,
+.veiling_invoer_particulieren .bied-mee-cta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+.veiling_invoer_handelaren .bied-mee-cta a,
+.veiling_invoer_particulieren .bied-mee-cta a {
+  padding: 10px;
+  line-height: 1;
+  background-color: #b99a6f;
+  font-weight: 700;
+  color: #ffffff;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  -webkit-mask-image: radial-gradient(circle at left, rgba(0, 0, 0, 0) 13px, #7d673f 13px);
+  width: 150px;
+  margin-bottom: 16px;
+}
+
+.footer-bottom {
+  color: #fff;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.footer-bottom ul.footer-bottom-links {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.footer-bottom ul.footer-bottom-links li {
+  list-style: none;
+  margin-left: 40px;
+}
+.footer-bottom ul.footer-bottom-links li a {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+footer a {
+  color: #fff;
+}
+
+.nuttigelinks li {
+  margin-bottom: 5px;
+}
+.nuttigelinks li a {
+  font-size: 15px;
+}
+
+.social-icon-wrapper {
+  background: #32312f;
+  border-radius: 100%;
+  padding: 10px;
+  width: 40px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer-inner ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-inner .nieuwsbrief input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #dd940e;
+  font-size: 14px;
+  padding: 6px 12px 6px 12px;
+  background: unset;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  color: #fff;
+  transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+}
+.footer-inner .nieuwsbrief input::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+.footer-inner .nieuwsbrief .button.form-submit {
+  background-color: #323232;
+  color: #ffffff;
+  border: none;
+  margin: 0;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  margin-top: 20px;
+  border-left: 5px solid #fff;
+}
+.footer-inner .nieuwsbrief .button.form-submit:hover {
+  color: #7d673f;
+}
+
+.bg-dark-brown {
+  background-color: #6e5937;
+}
+
+.container.veiling-back-view .views-wrapper {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.footer-inner {
+  margin-top: 0;
+}
+
+.footer-inner .nieuwsbrief form input.form-email {
+  border-bottom: 1px solid #fff;
+}
+
+.main-content .blok-header {
+  margin-bottom: 0;
+}
+
+.footer-inner h2 {
+  font-size: 22px;
+  text-transform: none;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 35px;
+}
+
+.footer-inner .footer-col p {
+  font-size: 15px;
+}
+
+.call-to-action .right-content h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  max-width: unset;
+}
+
+.call-to-action .right-content a {
+  font-weight: 400;
+}
+
+#header .kpvkmenu > ul > li:hover > ul {
+  z-index: 1;
+}
+#header .kpvkmenu > ul > li:hover > ul li a:hover {
+  color: #b88234;
+}
+
+@media screen and (max-width: 767px) {
+  .top-header {
+    background-color: #fff;
+  }
+}
+@media screen and (max-width: 736px) {
+  .user-profile-menu,
+  .kpvkmenu {
+    display: none;
+  }
+}
+.color_field_widget_box__square {
+  border-radius: 100%;
+  border: 1px solid #cac8c8;
+  box-shadow: unset;
+}
+
+.responsive-menu-toggle-icon:before, .responsive-menu-toggle-icon:after, .responsive-menu-toggle-icon span.icon {
+  background: #b79b6f;
+}
+
+.user-profile-menu ul > li .user-profile {
+  height: 57px;
+}
+
+.node-particulieren {
+  margin-bottom: 100px;
+}
+.node-particulieren .vehicle-since-date {
+  margin-left: 40px;
+}
+.node-particulieren .vehicle-meta {
+  font-size: 16px;
+}
+.node-particulieren .banner-block-wrapper {
+  height: 500px;
+}
+.node-particulieren .right-spec div.vehicle-specs--row:nth-child(even),
+.node-particulieren .left-spec div.vehicle-specs--row:nth-child(even) {
+  background: #f5f5f5;
+}
+.node-particulieren .vehicle-specs {
+  margin-top: 30px;
+  font-size: 17px;
+}
+.node-particulieren .vehicle-specs--row {
+  padding: 10px;
+}
+.node-particulieren .vehicle-content {
+  border: 1px solid #e5e5e5;
+  margin-top: -1px;
+}
+.node-particulieren .tab-item {
+  font-weight: bold;
+  font-size: 17px;
+  padding: 15px;
+}
+.node-particulieren .nav-tabs {
+  margin-top: 40px;
+}
+.node-particulieren .nav-tabs li {
+  margin-right: 5px;
+}
+.node-particulieren .tab-pane {
+  padding: 10px;
+}
+.node-particulieren .nav-tabs li:not(.active) {
+  background: #ededed;
+  border-radius: 4px 4px 0 0;
+}
+
+.color-brown {
+  color: #b79b6f;
+}
+
+.grey-text {
+  color: #888888;
+  font-size: 16px;
+}
+
+.bg-dark-grey {
+  background: #171717;
+  color: #fff;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-40 {
+  margin-right: 40px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-130 {
+  margin-bottom: 130px;
+}
+
+.comment-bieden-op-dit-voertuig-form input[type=number] {
+  background-color: #f2f2f2;
+  border: 1px solid #bcbcbc;
+}
+.comment-bieden-op-dit-voertuig-form input[type=submit] {
+  background-color: #b79b6f;
+  width: 100%;
+  padding: 15px 50px;
+  border: 1px solid #c5c0bc;
+  color: #fff;
+  margin-top: 40px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.contact-title {
+  font-size: 30px;
+  color: #b79b6f;
+  margin-bottom: 30px;
+}
+
+.user-profile-form textarea,
+.user-profile-form input[type='password'],
+.user-profile-form input[type='email'],
+.user-profile-form input[type='text'],
+.user-registration-form textarea,
+.user-registration-form input[type='password'],
+.user-registration-form input[type='email'],
+.user-registration-form input[type='text'],
+.user-login-form textarea,
+.user-login-form input[type='password'],
+.user-login-form input[type='email'],
+.user-login-form input[type='text'],
+.contact-message-feedback-form textarea,
+.contact-message-feedback-form input[type='password'],
+.contact-message-feedback-form input[type='email'],
+.contact-message-feedback-form input[type='text'] {
+  background: #f9f9f9;
+  border: 0;
+  border-bottom: 1px solid #acacac;
+  font-size: 16px;
+}
+.user-profile-form input[type=submit],
+.user-registration-form input[type=submit],
+.user-login-form input[type=submit],
+.contact-message-feedback-form input[type=submit] {
+  background: #323232;
+  border: 0;
+  border-left: 5px solid #b79b6f;
+  display: block;
+  width: 230px;
+  color: #fff;
+  padding: 10px 50px;
+  margin-bottom: 10px;
+  transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+}
+.user-profile-form input[type=submit]:hover,
+.user-registration-form input[type=submit]:hover,
+.user-login-form input[type=submit]:hover,
+.contact-message-feedback-form input[type=submit]:hover {
+  color: #b79b6f;
+}
+
+.user-profile-form input,
+.user-registration-form input {
+  margin-bottom: 20px;
+}
+
+.already-account {
+  margin-bottom: 20px;
+}
+
+.register-desc {
+  color: #868383;
+}
+
+.captcha {
+  margin-top: 20px;
+}
+
+#edit-actions {
+  margin-top: 20px;
+}
+
+.beperkt-zoekvenster form .js-form-item.form-item select {
+  width: 100%;
+  padding: 6px 25px 6px 12px;
+  border: none;
+  color: #080704;
+  background-color: #ffffff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg fill='%7b7a7a' version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 129 129' xmlns:xlink='http://www.w3.org/1999/xlink' enable-background='new 0 0 129 129'%3E%3Cg%3E%3Cpath d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center right 10px;
+  background-repeat: no-repeat;
+  height: 40px;
+  background-size: 10px;
+  border-radius: 0;
+}
+
+.or-login {
+  margin: 20px;
+  text-align: center;
+  color: #b79b6f;
+  font-weight: bold;
+}
+
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  /* remove underline from anchors */
+}
+
+.social-btn:hover {
+  opacity: 1;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.profile-sidebar {
+  background: #fafafa;
+  padding: 20px 25px;
+  margin-right: 20px;
+}
+.profile-sidebar h3 {
+  color: #141414;
+  margin-bottom: 30px;
+}
+.profile-sidebar ul {
+  margin: 0;
+  padding: 0;
+}
+.profile-sidebar ul li {
+  list-style: none;
+  margin-bottom: 25px;
+}
+.profile-sidebar ul li a {
+  color: #6a6a6a;
+}
+.profile-sidebar ul li a:hover {
+  text-decoration: underline;
+  color: #6a6a6a;
+}
+
+.profile-content {
+  border: 1px solid #ccc;
+  padding: 15px 40px;
+}
+
+.user-field-value {
+  font-weight: 800;
+}
+
+.user-account-profile-items {
+  margin-bottom: 15px;
+}
+
+.user-field-label {
+  font-weight: 500;
+}
+
+.comment-waardering-verkoper-form textarea {
+  background: #fafafa;
+  height: 130px;
+}
+.comment-waardering-verkoper-form #edit-actions input[type=submit] {
+  background: #323232;
+  color: #fff;
+  border: 0;
+  border-left: 5px solid #b99a6f;
+  padding: 10px 20px;
+  width: 200px;
+  text-transform: uppercase;
+  transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  margin-right: 20px;
+}
+.comment-waardering-verkoper-form #edit-actions input[type=submit]:hover {
+  color: #b99a6f;
+}
+
+#exposedform_voertuigenpagina_veiling_alle_wagens #edit-actions {
+  margin-top: 0;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-select select {
+  background-color: #8072c7;
+  color: #fff;
+  width: 100% !important;
+  border: 0;
+  padding: 15px 30px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>");
+  background-repeat: no-repeat;
+  background-position: right 5px top 50%;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens input[type=text] {
+  background: #ebebeb;
+  border-radius: 10px;
+  border: 1px solid #c2c2c2;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens #custom-filter-wrapper {
+  margin-bottom: 20px;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-select {
+  position: relative;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-selected {
+  background-color: #8072c7;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-items div, #exposedform_voertuigenpagina_veiling_alle_wagens .select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-items {
+  position: absolute;
+  background-color: #8072c7;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-hide {
+  display: none;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .select-items div:hover, #exposedform_voertuigenpagina_veiling_alle_wagens .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens label:not(.option) {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #434240;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-min-max {
+  font-weight: 400;
+  color: #44403d;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .bef-slider .ui-state-default, #exposedform_voertuigenpagina_veiling_alle_wagens .bef-slider .ui-widget-content .ui-state-default {
+  border: 3px solid #8072c7;
+  background: #fff;
+  font-weight: normal;
+  color: #454545;
+  border-radius: 100%;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .bef-slider .ui-widget-header {
+  background: #bec3c7;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-exposed-form-layout--fields .custom-field-item {
+  margin-bottom: 20px;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens div[class*="form-item-field-kleur-picker-color-"] {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-left: 0;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-color-checkbox label {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-indent: 25px;
+  background-color: green;
+  -webkit-transition: background-color 0.6s;
+  -moz-transition: background-color 0.6s;
+  -o-transition: background-color 0.6s;
+  transition: background-color 0.6s;
+  border: 1px solid #f0eeee;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-dehandsauto-checkbox label {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-indent: 25px;
+  background-color: #ebebeb;
+  -webkit-transition: background-color 0.6s;
+  -moz-transition: background-color 0.6s;
+  -o-transition: background-color 0.6s;
+  transition: background-color 0.6s;
+  border: 1px solid #c2c2c2;
+  border-radius: 6px;
+  color: #686765;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-dehandsauto-checkbox input[type=checkbox]:checked + label {
+  background-color: #8072c7;
+  -webkit-transition: background-color 0.6s;
+  -moz-transition: background-color 0.6s;
+  -o-transition: background-color 0.6s;
+  transition: background-color 0.6s;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-color-checkbox input[type=checkbox] {
+  visibility: hidden;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-dehandsauto-checkbox input[type=checkbox] {
+  visibility: hidden;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-color-checkbox input[type=checkbox]:checked + label:after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .custom-dehandsauto-checkbox input[type=checkbox]:checked + label:after {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens label.custom-color-active {
+  width: 25px;
+  height: 31px;
+  margin-top: -4px;
+  border: 2px solid #8072c7;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .js-form-type-checkbox {
+  margin-bottom: 15px;
+  margin-left: -10px;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .title-label {
+  margin-left: 20px;
+}
+#exposedform_voertuigenpagina_veiling_alle_wagens .shs-widget-container {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#edit-submit-actieve-veiling-handelaar-voertuigen-new.button,
+#edit-submit-actieve-veiling-particulieren-voertuigen-new.button,
+#edit-submit-actieve-veiling-alle-voertuigen.button {
+  background: #8072c7;
+  color: white;
+  border: 0;
+  padding: 10px 40px;
+  width: 100%;
+}
+#edit-submit-actieve-veiling-handelaar-voertuigen-new.button:hover,
+#edit-submit-actieve-veiling-particulieren-voertuigen-new.button:hover,
+#edit-submit-actieve-veiling-alle-voertuigen.button:hover {
+  background: #a39bcc;
+}
+
+.toggle.responsive-menu-toggle-icon {
+  margin-top: 35px;
+}
+
+.veiling-back-view .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.veiling-back-view .views-row {
+  margin-bottom: 50px;
+}
+.veiling-back-view .views-row article.veiling_invoer_handelaren,
+.veiling-back-view .views-row article.veiling_invoer_particulieren {
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-direction: normal;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.veiling-back-view .views-row article.veiling_invoer_handelaren .vehicle-meta-information,
+.veiling-back-view .views-row article.veiling_invoer_particulieren .vehicle-meta-information {
+  color: #616161;
+  font-size: 16px;
+}
+.veiling-back-view .views-row article.veiling_invoer_handelaren .item-img,
+.veiling-back-view .views-row article.veiling_invoer_particulieren .item-img {
+  margin-bottom: 15px;
+}
+.veiling-back-view .views-row article.veiling_invoer_handelaren .item-img img,
+.veiling-back-view .views-row article.veiling_invoer_particulieren .item-img img {
+  width: 100%;
+}
+
+@media screen and (min-width: 767px) {
+  .veiling-back-view .views-row {
+    display: flex;
+    flex: 1 0 25%;
+  }
+
+  .veiling-back-view.particuliere-voertuigen-listing-page .views-row,
+  .veiling-back-view.voertuigen-listing-page .views-row {
+    display: flex;
+    flex: 1 0 33%;
+  }
+}
+#block-exposedformactieve-veiling-handelaar-voertuigen-new,
+#block-exposedformactieve-veiling-particulieren-voertuigen-new,
+#block-actieve-veiling-alle-voertuigenpagina-veiling-alle-wagens-sideba {
+  padding: 20px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
+  margin-bottom: 100px;
+}

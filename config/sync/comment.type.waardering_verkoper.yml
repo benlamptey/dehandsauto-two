@@ -1,0 +1,8 @@
+uuid: 0c9da56a-dc64-4112-95c2-f53edae3230c
+langcode: en
+status: true
+dependencies: {  }
+id: waardering_verkoper
+label: 'Waardering verkoper'
+target_entity_type_id: user
+description: ''

@@ -1,0 +1,44 @@
+uuid: 619ae720-850d-40cd-b9d8-935730c8c962
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.collectie_vragen_en_antwoorden.field_antwoord
+    - field.field.paragraph.collectie_vragen_en_antwoorden.field_faq_like_dislike
+    - field.field.paragraph.collectie_vragen_en_antwoorden.field_vraag
+    - paragraphs.paragraphs_type.collectie_vragen_en_antwoorden
+  module:
+    - field_formatter_class
+    - like_dislike
+    - text
+id: paragraph.collectie_vragen_en_antwoorden.default
+targetEntityType: paragraph
+bundle: collectie_vragen_en_antwoorden
+mode: default
+content:
+  field_antwoord:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: text_default
+    region: content
+  field_faq_like_dislike:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: like_dislike_formatter
+    region: content
+  field_vraag:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

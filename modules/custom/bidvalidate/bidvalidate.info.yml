@@ -1,0 +1,5 @@
+name: Biedvalidatie module
+type: module
+description: 'Bied module met validatie'
+core_version_requirement: ^8.8 || ^9.0
+package: Custom

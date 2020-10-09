@@ -1,0 +1,24 @@
+uuid: e21e88af-066f-4329-80aa-611e159268d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - bavocado
+    - block_class
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: 'col-md-3 nieuwsbrief '
+id: inschrijvingnieuwsbrief
+theme: currus
+region: footer
+weight: -11
+provider: null
+plugin: bavocado_block
+settings:
+  id: bavocado_block
+  label: 'Inschrijving nieuwsbrief'
+  provider: bavocado
+  label_display: visible
+visibility: {  }

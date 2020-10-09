@@ -1,0 +1,23 @@
+uuid: 47fcd7dd-1281-44ae-a2a8-4ef6fa8be28a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_km
+    - node.type.veiling_invoer_particulieren
+id: node.veiling_invoer_particulieren.field_km
+field_name: field_km
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: KM
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 1000000
+  prefix: ''
+  suffix: ''
+field_type: integer

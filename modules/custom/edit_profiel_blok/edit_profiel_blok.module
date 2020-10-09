@@ -1,0 +1,32 @@
+<?php
+/**
+ * @File
+ *custom module for Drupal 8.
+ * @author Belba
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Field\FieldConfigInterface;
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function edit_profiel_blok_entity_type_build(array &$entity_types) {
+  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+  $entity_types['user']
+    ->setFormClass('simple', 'Drupal\user\ProfileForm');
+  $entity_types['user']
+    ->setFormClass('additional', 'Drupal\user\ProfileForm');
+}
+
+/**
+ * Implements hook_form_id_alter().
+ */
+function edit_profiel_blok_form_alter(&$form, $form_state, $form_id) {
+  if($form_id == "user_additional_details") {
+    unset($form['user_picture']['#description']);
+    $form['actions']['submit']['#value'] = 'Aanvullen';
+    $form['user_picure']['#title'] = '';
+  }
+}

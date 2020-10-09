@@ -1,0 +1,165 @@
+*{box-sizing: border-box;max-width:1070px;height:auto;margin:auto;font-family:'arial', sans-serif;}
+  
+
+:root{/*donker bruin*/
+      --donkeretekst:#4E4946;
+      /*--donkeretekst:#695530;*//*w3 theme suggestion*/
+      --bleketekst:ivory;
+     /*+++++++hoofdkleur views biedknoppen, filters achtergrond, publi+++++++*/
+     --basis-kleur:#695530;
+     /*achtergronden, header, footer..*/
+     --lichte-achtergrond:#f9f2ec;
+	  
+	 }   
+         
+.admn-menusblokken{max-width:100%;margin:auto;font-family: 'arial', sans-serif; }
+.admn-headerdiv{background-color:var(--lichte-achtergrond)}
+/*+++++++++++++++++Menu inloggen, registreren, account+++++++++++++++++++*/
+.admn-accountmenu{padding:5px;display:inline-block;background-color:var(--donkeretekst);}
+.admn-accountmenu li{color:var(--bleketekst);list-style-type:none;display:inline;font-size:9px;
+               text-align:center; }
+.admn-accountmenu a{text-decoration:none;}
+.admn-accountmenu a:hover{}
+.admn-accountmenu a:active{}
+
+/*+++++++++++++++++++++Menu home, kopen, verkopen++++++++++++++++*/
+.admn-kpvkmenu{display:inline-block;}
+.admn-hoofdnav li,p{list-style:none;font-size:8px;letter-spacing:1px;font-weight:700;}
+.admn-hoofdnav a:link{text-decoration:none;}
+.admn-hoofdnav a:hover{}
+.admn-hoofdnav a:active{}
+
+/*+++++++++++++++++Positie logo bij groot scherm++++++++++++++++*/
+.admn-autologo{max-width:100%;margin:auto}
+
+@media(min-width:700px){
+.admn-menusblokken{padding-left:47%;}
+.admn-accountmenu{display:inline-block;background-color:var(--donkeretekst);padding:2%;margin-top:0px;
+            margin-left:10%;margin-right: 7px}
+.admn-accountmenu li{color:var(--bleketekst);list-style-type:none;display:inline;padding:13px;font-size:10px;}
+.admn-accountmenu a{text-decoration:none;}
+.admn-accountmenu a:hover{}
+.admn-accountmenu a:active{}
+
+.admn-kpvkmenu{display:inline-block;margin-top:50px;padding-right:5%;}
+.admn-hoofdnav li,p{list-style:none;font-size:10px;letter-spacing:3px;font-weight:800;}
+.admn-hoofdnav a:link{text-decoration:none;}
+.admn-hoofdnav a:hover{}
+.admn-hoofdnav a:active{}
+
+.admn-autologo{margin:0px;}
+}
+
+
+/*++++++++++++++++INVOER WAGENS+++++++++++++++*/
+
+.invoer-formulier{background-color:var(--lichte-achtergrond);}
+.invoer-sec-wagens{background-color:var(--bleketekst);}
+.invoer-filter{background-color:var(--lichte-achtergrond);}
+.invoer-sec-veiling{margin-top:3%;background-color:var(--bleketekst);}
+
+/*+++++++++++++++++++++++++++++++RADIO BUTTONS KLEUR+++++++++++++++++++++++++++++*/
+#edit-field-kleur{display:flex;flex-flow:row wrap;}
+
+#edit-field-kleur-wit, #edit-field-kleur-zwart, #edit-field-kleur-grijs,
+#edit-field-kleur-bruin, #edit-field-kleur-zilver, #edit-field-kleur-goud, #edit-field-kleur-blauw,
+#edit-field-kleur-rood, #edit-field-kleur-geel, #edit-field-kleur-groen, #edit-field-kleur-oranje, 
+#edit-field-kleur-roze, #edit-field-kleur-paars{-webkit-appearance:none;-moz-appearance:none;
+                                                appearance:none;display: inline-block;position: relative;
+                                                background-color:white;top:5px;height:15px;width:15px;
+                                                border:1px solid grey;border-radius:50px;cursor:pointer;
+                                                margin-right:7px;outline:none;}
+
+#edit-field-kleur-zwart{background-color:black;border:none;}
+#edit-field-kleur-grijs{background-color:grey;border:none;}
+#edit-field-kleur-bruin{background-color:brown;border:none;}
+#edit-field-kleur-zilver{background-color:silver;border:none;}
+#edit-field-kleur-goud{background-color:gold;border:none;}
+#edit-field-kleur-blauw{background-color:blue;border:none;}
+#edit-field-kleur-rood{background-color:red;border:none;}
+#edit-field-kleur-geel{background-color:yellow;border:none;}
+#edit-field-kleur-groen{background-color:green;border:none;}
+#edit-field-kleur-oranje{background-color:orange;border:none;}
+#edit-field-kleur-roze{background-color:pink;border:none;}
+#edit-field-kleur-paars{background-color:purple;border:none;}
+#edit-field-kleur-none{display:none;}
+
+#edit-field-kleur-wit:checked::before, #edit-field-kleur-zwart:checked::before,
+#edit-field-kleur-grijs:checked::before,#edit-field-kleur-bruin:checked::before,
+#edit-field-kleur-zilver:checked::before, #edit-field-kleur-goud:checked::before,
+#edit-field-kleur-blauw:checked::before, #edit-field-kleur-rood:checked::before,
+#edit-field-kleur-geel:checked::before, #edit-field-kleur-groen:checked::before,
+#edit-field-kleur-oranje:checked::before, #edit-field-kleur-roze:checked::before,
+#edit-field-kleur-paars:checked::before{position:absolute;left:3px;bottom:-2px;content:'\02143';
+                                      transform: rotate(50deg);color:white;}
+#edit-field-kleur-wit:checked::before{color:black;}
+
+#edit-field-kleur-wit:hover, #edit-field-kleur-zwart:hover, #edit-field-kleur-grijs:hover,
+#edit-field-kleur-bruin:hover, #edit-field-kleur-zilver:hover, #edit-field-kleur-goud:hover, 
+#edit-field-kleur-blauw:hover, #edit-field-kleur-rood:hover, #edit-field-kleur-geel:hover,
+#edit-field-kleur-groen:hover, #edit-field-kleur-oranje:hover, #edit-field-kleur-roze:hover,
+#edit-field-kleur-paars:hover{-moz-box-shadow: 2px 2px 4px rgba(0, 0, 0,0.7);
+                              -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
+                              box-shadow: 2px 2px 4px rgba(0, 0, 0, .7);}
+
+label[for="edit-field-kleur-wit"], label[for="edit-field-kleur-none"], label[for="edit-field-kleur-zwart"],
+label[for="edit-field-kleur-grijs"], label[for="edit-field-kleur-bruin"],label[for="edit-field-kleur-zilver"],
+label[for="edit-field-kleur-goud"], label[for="edit-field-kleur-blauw"], label[for="edit-field-kleur-rood"],
+label[for="edit-field-kleur-geel"], label[for="edit-field-kleur-groen"], label[for="edit-field-kleur-oranje"],
+label[for="edit-field-kleur-roze"], label[for="edit-field-kleur-paars"]{display:none;} 
+
+/*+++++++++++++++++++++Stijl SELECT, INPUT, SUBMIT++++++++++++++++++++++++++*/
+.invoer-hand-part{background-color:var(--basis-kleur);}
+.invoer-hand-part h1{color:var(--bleketekst);}
+
+.invoer-padding{padding-right:5%;padding-bottom: 64px;padding-top:64px;}
+.invoer-formulier select{border:1px solid var(--basis-kleur); width:100%;padding:12px 8px;position:relative;
+                        box-shadow:0 5px 11px rgba(0,0,0,.3);background:none;margin:8px;}
+.invoer-formulier input{border:1px solid var(--basis-kleur); width:100%;padding:12px 8px;background:none;
+                        box-shadow:0 5px 11px rgba(0,0,0,.3);margin:8px;}
+.invoer-formulier input[name='field_kleur']{padding:8px;}
+#edit-field-foto-s-ajax-wrapper details{border:1px solid var(--basis-kleur);
+                                        background-color:var(--bleketekst);}
+.fiu-add-element label{background-color:var(--lichte-achtergrond);}
+
+.downpijl{position:relative;}
+.downpijl::after{content:"";position:absolute;pointer-events:none;right:11%;;top:59px;
+                 border:2px solid var(--basis-kleur);border-width: 0 1px 1px 0;padding:5px;
+                 transform:rotate(45deg);}
+.shs-widget-container{position:relative;}
+.shs-widget-container[data-shs-level="0"]::after, .shs-widget-container[data-shs-level="1"]::after,
+.shs-widget-container[data-shs-level="2"]::after{content:"";position:absolute;right:10px;bottom:29px;
+                                                 pointer-events:none;border:2px solid black;
+                                                 border-width: 0 1px 1px 0;padding:5px;
+                                                 transform:rotate(45deg);}
+
+#edit-field-merk-shs-0-1{margin-left:10%}
+.shs-widget-container{width:31%;}
+#edit-field-maand, #edit-field-jaar-0-value, #edit-field-brandstof, #edit-field-schakeling,
+#edit-field-euro-norm,#edit-field-deuren, #edit-field-expaire-time, #edit-field-merk-shs-0-0,
+#edit-field-merk-shs-0-1, #edit-field-regio-shs-0-0, #edit-field-regio-shs-0-1,
+#edit-field-regio-shs-0-2{color:#CBA69F;}
+#edit-field-maand option, #edit-field-jaar-0-value option, #edit-field-brandstof option,
+#edit-field-schakeling option, #edit-field-euro-norm option, #edit-field-deuren option,
+#edit-field-expaire-time option, #edit-field-merk-shs-0-0 option, #edit-field-merk-shs-0-1 option,
+#edit-field-regio-shs-0-0 option, #edit-field-regio-shs-0-1 option,
+#edit-field-regio-shs-0-2 option{color:brown;}
+
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+#edit-field-beschrijving-0-value{background-color:var(--bleketekst);border:1px solid var(--basis-kleur);
+                                 width:100%;box-shadow:0 5px 11px rgba(0,0,0,.3);}
+.invoer-formulier input[type ='submit']{background-color:var(--basis-kleur);margin:13px 0px;
+                                        color:var(--bleketekst);font-size: 18px;}
+.invoer-formulier input[type ='submit'] :hover{box-shadow:inset 0px 0px 11px var(--bleketekst); border-color:none;
+                                               background-image:none;background-color:none;}
+.invoer-formulier input[type ='submit'] :active{background-color:orange;border-color:none;}
+.invoer-formulier input[type ='submit'] :focus{background-color:orange;border-color:none;
+                                               background-image:none;}
+input#edit-submit {padding: 16px;}
+input#edit-preview {background: none;border: none;box-shadow: none;color: var(--donkeretekst);
+                    padding-top: 26px;font-size:11px;margin-left:4px;}
+.shs-widget-container[data-shs-level="0"]{margin-right:1%;}
+.shs-widget-container[data-shs-level="1"]{margin-right:1%;}
+#basicclr{color:var(--basis-kleur);}
+.invoer-formulier h2{font-weight:900;}

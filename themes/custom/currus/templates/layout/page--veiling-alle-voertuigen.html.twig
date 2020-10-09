@@ -1,0 +1,17 @@
+{% extends "page.html.twig" %}
+
+{% block content %}
+    <h2 class="listing-page-title text-center mb-40 mt-60">{{ 'Volledig aanbod voertuigen' | t }}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                {{ page.sidebar_first }}
+            </div>
+            <div class="col-md-9">
+                <div class="main-content">
+                    {{ page.content }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+uuid: cfd4867f-ef36-4a93-9c0b-ef029ec09dc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_expaire_time
+    - node.type.veiling_invoer_handelaren
+  module:
+    - options
+id: node.veiling_invoer_handelaren.field_expaire_time
+field_name: field_expaire_time
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: 'Looptijd Veiling'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,8 @@
+uuid: 44027a19-2850-40a9-80e6-ffa7fbff477c
+langcode: en
+status: true
+dependencies: {  }
+id: meer-info
+label: 'Meer Info'
+description: 'Menu, algemene voorwaarde, adverteren en sitemap'
+locked: false

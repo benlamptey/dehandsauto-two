@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Contains bavocado.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bavocado_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the bavocado module.
+    case 'help.page.bavocado':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Een module met een formulier voor nieuwsbrief in een blok') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+    
+/**
+ * Implements hook_theme().
+ */
+function bavocado_theme() {
+   return [
+     'bavocado' => [
+       'render element' => 'children',
+     ],
+  ];
+}
+
+/**
+ * Implements hook_mail().
+ */
+function bavocado_mail($key, &$message, $params) {
+    $options = array(
+        'langcode' => 'nl'
+    );
+
+    switch ($key) {
+      case 'Nieuwe inschrijving nieuwsbrief':
+        $from = \Drupal::config('system.site')->get('mail');
+        $message['subject'] = $params['subject'];
+        $message['body'][] = $params['body'];
+		
+     break;
+	}	  
+}
