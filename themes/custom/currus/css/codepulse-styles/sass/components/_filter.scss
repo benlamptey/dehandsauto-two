@@ -192,13 +192,18 @@
   }
 }
 #edit-submit-actieve-veiling-handelaar-voertuigen-new.button,
+#edit-submit-actieve-veiling-handelaar-voertuigen-new--2.button,
 #edit-submit-actieve-veiling-particulieren-voertuigen-new.button,
+#edit-submit-actieve-veiling-particulieren-voertuigen-new--2.button,
+#edit-submit-actieve-veiling-alle-voertuigen--2.button,
 #edit-submit-actieve-veiling-alle-voertuigen.button {
   background: #8072c7;
   color: white;
   border: 0;
   padding: 10px 40px;
   width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   &:hover {
     background: #a39bcc;

@@ -1,4 +1,4 @@
-uuid: 9b27c768-ca33-41b4-8408-ebc59ad9e426
+uuid: d38f572e-1dc8-4331-ab9b-4242db376d09
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - views
   theme:
     - currus
-id: exposedform_veiling_handelaar_voertuigen
+id: exposedformactieve_veiling_handelaar_voertuigen_new
 theme: currus
 region: sidebar_first
 weight: 0
@@ -24,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/veiling_voertuigen_handelaar\r\n/veiling-handelaren-simpele-filter"
+    pages: /veiling_voertuigen_handelaar
     negate: false
     context_mapping: {  }

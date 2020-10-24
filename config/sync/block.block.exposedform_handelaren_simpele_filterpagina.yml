@@ -28,6 +28,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/veiling_voertuigen_handelaar\r\n/veiling-handelaren-simpele-filter"
+    pages: /veiling-handelaren-simpele-filter
     negate: false
     context_mapping: {  }

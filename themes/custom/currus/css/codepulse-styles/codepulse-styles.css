@@ -258,8 +258,6 @@ footer a {
 }
 .node-particulieren .vehicle-meta {
   font-size: 16px;
-  display:grid;
-  grid-template-columns: auto auto;
 }
 .node-particulieren .banner-block-wrapper {
   height: 500px;
@@ -292,12 +290,6 @@ footer a {
 }
 .node-particulieren .tab-pane {
   padding: 10px;
-  margin: 32px 0 0 16px;
-  
-}
-.node-particulieren .tab-pane p{
-  padding: 10px;
-  line-height: 19px;
 }
 .node-particulieren .nav-tabs li:not(.active) {
   background: #ededed;
@@ -360,6 +352,7 @@ footer a {
   padding: 15px 50px;
   border: 1px solid #c5c0bc;
   color: #fff;
+  margin-top: 40px;
   font-size: 18px;
   font-weight: normal;
 }
@@ -370,42 +363,18 @@ footer a {
   margin-bottom: 30px;
 }
 
-@media screen and (min-width: 777px) {
-  .extra-container {
-    padding-left: 20%;} 
-  }
-
-.account-verwijderen-form input[type='password'],
 .user-profile-form textarea,
 .user-profile-form input[type='password'],
-.user-additional-form input[type='password'],
-.user-additional-form input[type='email'],
 .user-profile-form input[type='email'],
-.user-form input[type='password'],
-.user-form input[type='email'],
-.user-pass input[type='email'],
 .user-profile-form input[type='text'],
-.user-additional-form input[type='text'],
-.user-pass input[type='text'],
-.user-form input[type='text'],
-.simple-first-registration-form textarea,
-.user-register-form textarea,
-.user-form textarea,
-.simple-first-registration-form input[type='password'],
-.user-register-form input[type='password'],
-.simple-first-registration-form input[type='email'],
-.user-register-form input[type='email'],
-.simple-first-registration-form input[type='text'],
-.user-register-form input[type='text'],
+.user-registration-form textarea,
+.user-registration-form input[type='password'],
+.user-registration-form input[type='email'],
+.user-registration-form input[type='text'],
 .user-edit-registration-form textarea,
-.user-edit-register-form textarea,
-.user-pass textarea,
 .user-edit-registration-form input[type='password'],
-.user-edit-register-form[type='password'],
 .user-edit-registration-form input[type='email'],
-.user-edit-register-form input[type='email'],
 .user-edit-registration-form input[type='text'],
-.user-edit-register-form input[type='text'],
 .user-login-form textarea,
 .user-login-form input[type='password'],
 .user-login-form input[type='email'],
@@ -420,15 +389,9 @@ footer a {
   font-size: 16px;
 }
 .user-profile-form input[type=submit],
-.account-verwijderen-form input[type=submit],
-.simple-first-registration-form input[type=submit],
-.user-additional-form input[type=submit],
-.user-edit-register-form input[type=submit],
-.user-register-form input[type=submit],
+.user-registration-form input[type=submit],
 .user-edit-registration-form input[type=submit],
 .user-login-form input[type=submit],
-.user-pass input[type=submit],
-.user-form input[type=submit],
 .contact-message-feedback-form input[type=submit] {
   background: #323232;
   border: 0;
@@ -445,38 +408,18 @@ footer a {
   -webkit-transition: all 0.25s ease-in-out;
 }
 .user-profile-form input[type=submit]:hover,
-.account-verwijderen-form input[type=submit]:hover,
-.simple-first-registration-form input[type=submit]:hover,
-.user-additional-form input[type=submit]:hover,
+.user-registration-form input[type=submit]:hover,
 .user-edit-registration-form input[type=submit]:hover,
-.user-edit-register-form input[type=submit]:hover,
-.user-register-form input[type=submit]:hover,
 .user-login-form input[type=submit]:hover,
-.user-pass input[type=submit]:hover,
-.user-form input[type=submit]:hover,
 .contact-message-feedback-form input[type=submit]:hover {
   color: #b79b6f;
 }
 
 .user-profile-form input,
-.account-verwijderen-form input,
 .user-edit-registration-form input,
-.user-edit-register-form input,
-.user-additional-form input,
-.user-register-form input,
-.simple-first-registration-form input {
+.user-registration-form input {
   margin-bottom: 20px;
 }
-
-.account-verwijderen-form input[type='checkbox']{
-  
-}
-
-.user-form input[type=file]{padding:8px 0;}
-.user-form img{padding:8px;}
-
-/*Hide the cancel account button, because there is a seperate link for it*/
-.user-additional-form input[value="Cancel account"]{display:none;}
 
 .already-account {
   margin-bottom: 20px;
@@ -579,15 +522,7 @@ footer a {
 }
 
 .user-field-value {
-  font-weight: 550;
-  font-size: 20px;
-  color:black;
-}
-
-.nami-user h2{
-  color:black;
-  font-weight: 500;
-  padding:0 0 64px 64px;
+  font-weight: 800;
 }
 
 .user-account-profile-items {
@@ -596,7 +531,6 @@ footer a {
 
 .user-field-label {
   font-weight: 500;
-  color:black;
 }
 
 .comment-waardering-verkoper-form textarea {
@@ -782,16 +716,24 @@ footer a {
 }
 
 #edit-submit-actieve-veiling-handelaar-voertuigen-new.button,
+#edit-submit-actieve-veiling-handelaar-voertuigen-new--2.button,
 #edit-submit-actieve-veiling-particulieren-voertuigen-new.button,
+#edit-submit-actieve-veiling-particulieren-voertuigen-new--2.button,
+#edit-submit-actieve-veiling-alle-voertuigen--2.button,
 #edit-submit-actieve-veiling-alle-voertuigen.button {
   background: #8072c7;
   color: white;
   border: 0;
   padding: 10px 40px;
   width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 #edit-submit-actieve-veiling-handelaar-voertuigen-new.button:hover,
+#edit-submit-actieve-veiling-handelaar-voertuigen-new--2.button:hover,
 #edit-submit-actieve-veiling-particulieren-voertuigen-new.button:hover,
+#edit-submit-actieve-veiling-particulieren-voertuigen-new--2.button:hover,
+#edit-submit-actieve-veiling-alle-voertuigen--2.button:hover,
 #edit-submit-actieve-veiling-alle-voertuigen.button:hover {
   background: #a39bcc;
 }
@@ -806,7 +748,6 @@ footer a {
 }
 .veiling-back-view .views-row {
   margin-bottom: 50px;
-  max-width: 247px;
 }
 .veiling-back-view .views-row article.veiling_invoer_handelaren,
 .veiling-back-view .views-row article.veiling_invoer_particulieren {
@@ -828,8 +769,6 @@ footer a {
 .veiling-back-view .views-row article.veiling_invoer_particulieren .vehicle-meta-information {
   color: #616161;
   font-size: 16px;
-  display: grid;
-  grid-template-columns: auto auto;
 }
 .veiling-back-view .views-row article.veiling_invoer_handelaren .item-img,
 .veiling-back-view .views-row article.veiling_invoer_particulieren .item-img {
