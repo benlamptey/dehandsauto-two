@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6413e4699b776b840b310175ea2d3de8",
+    "content-hash": "dd38d3c9fe13d938c34dde6f19bbcea8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -121,6 +121,15 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "bgrins/spectrum",
+            "version": "v1.8.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/bgrins/spectrum/archive/master.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -1377,6 +1386,15 @@
                 "resolver"
             ],
             "time": "2012-10-28T21:08:28+00:00"
+        },
+        {
+            "name": "dimsemenov/photoswipe",
+            "version": "v4.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/dimsemenov/PhotoSwipe/archive/v4.1.0.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -6792,6 +6810,42 @@
             "time": "2018-12-11T22:56:31+00:00"
         },
         {
+            "name": "fengyuanchen/cropper",
+            "version": "v4.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/fengyuanchen/cropper/archive/master.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
+            "name": "fotorama_gallery/fotorama",
+            "version": "v4.6.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/artpolikarpov/fotorama/releases/download/4.6.4/fotorama-4.6.4.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
+            "name": "frdh/mmenu",
+            "version": "v8.5.19",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/FrDH/mmenu-js/archive/v8.5.19.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
+            "name": "furf/jquery-ui-touch-punch",
+            "version": "v1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/furf/jquery-ui-touch-punch/archive/master.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
             "name": "google/recaptcha",
             "version": "1.2.4",
             "source": {
@@ -7121,6 +7175,27 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "jackmoore/colorbox",
+            "version": "1.6.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/jackmoore/colorbox/archive/master.zip"
+            },
+            "type": "drupal-library",
+            "extra": {
+                "installer-name": "colorbox"
+            }
+        },
+        {
+            "name": "joeldbirch/superfish",
+            "version": "v1.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joeldbirch/superfish/zipball"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -8756,6 +8831,15 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "recurser/jquery-simple-color",
+            "version": "v1.2.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/recurser/jquery-simple-color/archive/develop.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "stack/builder",

@@ -12,11 +12,124 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "jackmoore/colorbox",
+                "version": "1.6.4",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "colorbox"
+                },
+                "dist": {
+                    "url": "https://github.com/jackmoore/colorbox/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fotorama_gallery/fotorama",
+                "version": "v4.6.4",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/artpolikarpov/fotorama/releases/download/4.6.4/fotorama-4.6.4.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fengyuanchen/cropper",
+                "version": "v4.1.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/fengyuanchen/cropper/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "furf/jquery-ui-touch-punch",
+                "version": "v1.0.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/furf/jquery-ui-touch-punch/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "dimsemenov/photoswipe",
+                "version": "v4.1.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/dimsemenov/PhotoSwipe/archive/v4.1.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "frdh/mmenu",
+                "version": "v8.5.19",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/FrDH/mmenu-js/archive/v8.5.19.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "recurser/jquery-simple-color",
+                "version": "v1.2.3",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/recurser/jquery-simple-color/archive/develop.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "bgrins/spectrum",
+                "version": "v1.8.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/bgrins/spectrum/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "joeldbirch/superfish",
+                "version": "v1.0.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://api.github.com/repos/joeldbirch/superfish/zipball",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
+        "bgrins/spectrum": "^1.8",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
+        "dimsemenov/photoswipe": "^4.1",
         "drupal/admin_toolbar": "^2.3",
         "drupal/backup_migrate": "^5.0",
         "drupal/better_exposed_filters": "^5.0@beta",
@@ -83,7 +196,14 @@
         "drupal/view_custom_table": "1.x-dev",
         "drupal/views_slideshow": "^4.7",
         "drupal/yearonly": "^9.0",
-        "drush/drush": "^10.3"
+        "drush/drush": "^10.3",
+        "fengyuanchen/cropper": "^4.1",
+        "fotorama_gallery/fotorama": "^4.6",
+        "frdh/mmenu": "^8.5",
+        "furf/jquery-ui-touch-punch": "^1.0",
+        "jackmoore/colorbox": "^1.6",
+        "joeldbirch/superfish": "^1.0",
+        "recurser/jquery-simple-color": "^1.2"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -104,7 +224,7 @@
         "drupal/menu_per_role": {
             "Menu per role, superadmin select for hide register": "https://www.drupal.org/files/issues/2019-12-26/menu_per_role-admin_bypass_option-1.patch"
        },
-       
+
         "drupal/core": {
             "Exposed filters, undefined index min": "https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch"
        }

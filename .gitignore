@@ -65,6 +65,7 @@ modules/contrib/
 themes/contrib/
 profiles/contrib/
 libraries/
+libraries-bkp/
 
 # Ignore sensitive information
 sites/*/settings.php
