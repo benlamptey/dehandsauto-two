@@ -3,10 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_afteller
+    - field.storage.node.field_foto_s
+    - field.storage.node.field_laatste_bod
     - field.storage.node.field_merk
     - field.storage.node.field_prijs
+    - image.style.mini_thumbnail_65_x_65_
+    - node.type.veiling_invoer_handelaren
+    - node.type.veiling_invoer_particulieren
   module:
     - comment
+    - image
+    - jstimer
     - node
     - user
 id: inhoud_per_auteur
@@ -49,9 +57,8 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: some
+        type: none
         options:
-          items_per_page: null
           offset: 0
       style:
         type: table
@@ -239,6 +246,49 @@ display:
           entity_type: node
           plugin_id: entity_link
       filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            veiling_invoer_handelaren: veiling_invoer_handelaren
+            veiling_invoer_particulieren: veiling_invoer_particulieren
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
         status:
           value: '1'
           table: node_field_data
@@ -281,49 +331,30 @@ display:
           admin_label: ''
           empty: true
           plugin_id: messages
-      relationships: {  }
-      arguments:
-        uid_touch:
-          id: uid_touch
+      relationships:
+        uid:
+          id: uid
           table: node_field_data
-          field: uid_touch
+          field: uid
           relationship: none
           group_type: group
-          admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: user
-          default_argument_options:
-            user: false
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
+          admin_label: author
+          required: false
           entity_type: node
-          plugin_id: argument_comment_user_uid
+          entity_field: uid
+          plugin_id: standard
+      arguments: {  }
       display_extenders: {  }
+      css_class: 'auteur-tabel '
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -397,7 +428,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Mark/Type
           exclude: false
           alter:
             alter_text: true
@@ -453,14 +484,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_prijs:
-          id: field_prijs
-          table: node__field_prijs
-          field: field_prijs
+        field_foto_s:
+          id: field_foto_s
+          table: node__field_foto_s
+          field: field_foto_s
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Foto''s'
           exclude: false
           alter:
             alter_text: false
@@ -493,7 +524,138 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: mini_thumbnail_65_x_65_
+            image_link: ''
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 1
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Post datum'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: datum_kort
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: created
+          plugin_id: field
+        field_laatste_bod:
+          id: field_laatste_bod
+          table: node__field_laatste_bod
+          field: field_laatste_bod
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Laatste bod'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -504,7 +666,7 @@ display:
           click_sort_column: value
           type: number_integer
           settings:
-            thousand_separator: .
+            thousand_separator: "\t"
             prefix_suffix: true
           group_column: value
           group_columns: {  }
@@ -517,15 +679,15 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        delete_node:
-          id: delete_node
-          table: node
-          field: delete_node
+        field_afteller:
+          id: field_afteller
+          table: node__field_afteller
+          field: field_afteller
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: true
+          label: 'Resterende tijd'
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -557,7 +719,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -565,64 +727,22 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: delete
-          output_url_as_text: false
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link_delete
-        edit_node:
-          id: edit_node
-          table: node
-          field: edit_node
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: edit
-          output_url_as_text: false
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link_edit
+          click_sort_column: value
+          type: jstimer_jst_timer
+          settings:
+            dir: down
+            format_txt: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         operations:
           id: operations
           table: node
@@ -630,7 +750,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Bewerken
           exclude: false
           alter:
             alter_text: false
@@ -676,29 +796,133 @@ display:
           plugin_id: entity_operations
       defaults:
         fields: false
+        filters: false
+        filter_groups: false
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            veiling_invoer_handelaren: veiling_invoer_handelaren
+            veiling_invoer_particulieren: veiling_invoer_particulieren
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        uid_current:
+          id: uid_current
+          table: users
+          field: uid_current
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: user
+          plugin_id: user_current
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_afteller'
+        - 'config:field.storage.node.field_foto_s'
+        - 'config:field.storage.node.field_laatste_bod'
         - 'config:field.storage.node.field_merk'
-        - 'config:field.storage.node.field_prijs'
-  block_2:
+  blok_inhoud_verkoper:
     display_plugin: block
-    id: block_2
+    id: blok_inhoud_verkoper
     display_title: 'Block 2'
     position: 3
     display_options:
       display_extenders: {  }
       arguments:
-        uid:
-          id: uid
+        uid_touch:
+          id: uid_touch
           table: users_field_data
-          field: uid
+          field: uid_touch
           relationship: uid
           group_type: group
           admin_label: ''
@@ -709,8 +933,9 @@ display:
             title: All
           title_enable: false
           title: ''
-          default_argument_type: current_user
-          default_argument_options: {  }
+          default_argument_type: user
+          default_argument_options:
+            user: true
           default_argument_skip_url: false
           summary_options:
             base_path: ''
@@ -726,27 +951,13 @@ display:
             type: none
             fail: 'not found'
           validate_options: {  }
-          break_phrase: false
-          not: false
           entity_type: user
-          entity_field: uid
-          plugin_id: user_uid
+          plugin_id: argument_comment_user_uid
       defaults:
         arguments: false
-        relationships: false
+        relationships: true
         fields: false
-      relationships:
-        uid:
-          id: uid
-          table: node_field_revision
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: User
-          required: false
-          entity_type: node
-          entity_field: uid
-          plugin_id: standard
+        title: false
       fields:
         field_merk:
           id: field_merk
@@ -755,8 +966,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: true
+          label: Merk/type
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -799,7 +1010,7 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: false
+            link: true
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -811,18 +1022,18 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        view_node:
-          id: view_node
-          table: node
-          field: view_node
+        field_foto_s:
+          id: field_foto_s
+          table: node__field_foto_s
+          field: field_foto_s
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Foto''s'
           exclude: false
           alter:
-            alter_text: true
-            text: '{{ field_merk }}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -847,23 +1058,34 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: strong
+          element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: ''
-          output_url_as_text: false
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: mini_thumbnail_65_x_65_
+            image_link: content
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 1
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_prijs:
           id: field_prijs
           table: node__field_prijs
@@ -871,7 +1093,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Prijs
           exclude: false
           alter:
             alter_text: false
@@ -928,16 +1150,71 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Bieden
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+      block_description: 'Inhoud per verkoper'
+      title: 'Blok inhoud per verkoper'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_foto_s'
         - 'config:field.storage.node.field_merk'
         - 'config:field.storage.node.field_prijs'
   page_1:
@@ -953,7 +1230,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:

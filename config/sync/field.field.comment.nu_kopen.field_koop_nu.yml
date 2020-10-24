@@ -1,0 +1,23 @@
+uuid: 34ad2d6e-3d52-4a4b-be21-af1252a26304
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.nu_kopen
+    - field.storage.comment.field_koop_nu
+id: comment.nu_kopen.field_koop_nu
+field_name: field_koop_nu
+entity_type: comment
+bundle: nu_kopen
+label: 'Koop nu'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 1000000
+  prefix: €
+  suffix: ''
+field_type: integer

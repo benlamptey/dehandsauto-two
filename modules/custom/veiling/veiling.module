@@ -37,19 +37,21 @@ function veiling_node_insert($entity) {
 function veiling_form_comment_bieden_op_dit_voertuig_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
   $current_user = \Drupal::currentUser();
   $node = \Drupal::routeMatch()->getParameter('node');
-  // Lets find out if this user has already commented on this node.
-  $query = \Drupal::entityQuery('comment')
-    ->condition('entity_id', $node->id())
-    ->condition('uid', $current_user->id())
-    ->execute();
+  if ($node) {
+    // Lets find out if this user has already commented on this node.
+    $query = \Drupal::entityQuery('comment')
+      ->condition('entity_id', $node->id())
+      ->condition('uid', $current_user->id())
+      ->execute();
 
-  if (!empty($query)) {
-    $form['field_nieuw_bod']['#access'] = FALSE;
-    $form['already_bid'] = [
-      '#type' => 'markup',
-      '#markup' => t('You have already placed a bid.')
-    ];
-    $form['actions']['#access'] = FALSE;
+    if (!empty($query)) {
+      $form['field_nieuw_bod']['#access'] = FALSE;
+      $form['already_bid'] = [
+        '#type' => 'markup',
+        '#markup' => t('You have already placed a bid.')
+      ];
+      $form['actions']['#access'] = FALSE;
+    }
   }
 
         $form['field_nieuw_bod']['widget'][0]['value']['#title_display'] = 'none';

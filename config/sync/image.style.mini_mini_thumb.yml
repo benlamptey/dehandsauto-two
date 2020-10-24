@@ -1,0 +1,14 @@
+uuid: 338418e7-5c0e-43bd-a582-871d9ad0911a
+langcode: en
+status: true
+dependencies: {  }
+name: mini_mini_thumb
+label: 'Mini mini thumb( 40 x 40 )'
+effects:
+  a338469a-04e7-49bf-a5db-eb8762229faf:
+    uuid: a338469a-04e7-49bf-a5db-eb8762229faf
+    id: image_resize
+    weight: 2
+    data:
+      width: 40
+      height: 40

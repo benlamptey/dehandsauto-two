@@ -12,7 +12,7 @@ dependencies:
 id: registerblock
 theme: currus
 region: banner
-weight: 0
+weight: -15
 provider: null
 plugin: 'block_content:8959346d-3a1e-4beb-b5fd-ca6c418a4821'
 settings:
@@ -26,6 +26,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /user/account/register
+    pages: "/account/aanmaken\r\n/user/password"
     negate: false
     context_mapping: {  }

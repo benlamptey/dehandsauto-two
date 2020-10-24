@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.veiling_invoer_handelaren.field_beschrijving
     - field.field.node.veiling_invoer_handelaren.field_brandstof
     - field.field.node.veiling_invoer_handelaren.field_deuren
+    - field.field.node.veiling_invoer_handelaren.field_direct_kopen
     - field.field.node.veiling_invoer_handelaren.field_doe_een_bod
     - field.field.node.veiling_invoer_handelaren.field_euro_norm
     - field.field.node.veiling_invoer_handelaren.field_expaire_time
@@ -47,6 +48,7 @@ hidden:
   field_beschrijving: true
   field_brandstof: true
   field_deuren: true
+  field_direct_kopen: true
   field_doe_een_bod: true
   field_euro_norm: true
   field_expaire_time: true

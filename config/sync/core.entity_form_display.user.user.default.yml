@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_land
-    - field.field.user.user.field_like
     - field.field.user.user.field_ondernemingsnummer
     - field.field.user.user.field_plaats
     - field.field.user.user.field_postcode
@@ -15,7 +14,6 @@ dependencies:
   module:
     - comment
     - image
-    - like_dislike
     - user
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
@@ -25,7 +23,7 @@ bundle: user
 mode: default
 content:
   account:
-    weight: 0
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -35,36 +33,6 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_land:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_like:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: like_dislike_widget
-    region: content
-  field_ondernemingsnummer:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_plaats:
-    weight: 5
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_postcode:
     weight: 6
     settings:
       size: 60
@@ -72,7 +40,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_telefoonnummer:
+  field_ondernemingsnummer:
     weight: 8
     settings:
       size: 60
@@ -80,19 +48,43 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_waardering_:
+  field_plaats:
     weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_postcode:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_telefoonnummer:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_waardering_:
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   user_picture:
-    type: image_image
+    weight: 0
     settings:
-      preview_image_style: thumbnail
       progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: 1
+    type: image_image
     region: content
 hidden:
   language: true

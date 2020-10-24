@@ -1,0 +1,25 @@
+uuid: 9d081fd0-3c6f-4fa9-97c2-a13cc81fd4fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.avatar_crop
+  module:
+    - crop
+name: avatar_foto_150_x_150_
+label: 'Avatar foto (130 X 130)'
+effects:
+  69e6d6ca-a9b5-48dc-a9f9-607dee3154be:
+    uuid: 69e6d6ca-a9b5-48dc-a9f9-607dee3154be
+    id: image_scale
+    weight: -9
+    data:
+      width: 130
+      height: 130
+      upscale: true
+  34c8654d-8bee-4d55-88c4-26c18d89a1a8:
+    uuid: 34c8654d-8bee-4d55-88c4-26c18d89a1a8
+    id: crop_crop
+    weight: -10
+    data:
+      crop_type: avatar_crop

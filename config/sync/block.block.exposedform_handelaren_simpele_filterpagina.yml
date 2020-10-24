@@ -1,0 +1,33 @@
+uuid: 8b32d2d9-1bb3-4e13-9890-09633b548df9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.veiling_handelaren_simpele_filter
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: block-banner-exposedform
+id: exposedform_handelaren_simpele_filterpagina
+theme: currus
+region: banner
+weight: -11
+provider: null
+plugin: 'views_exposed_filter_block:veiling_handelaren_simpele_filter-pagina_veiling_simple_filter_handelaren'
+settings:
+  id: 'views_exposed_filter_block:veiling_handelaren_simpele_filter-pagina_veiling_simple_filter_handelaren'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: "/veiling_voertuigen_handelaar\r\n/veiling-handelaren-simpele-filter"
+    negate: false
+    context_mapping: {  }

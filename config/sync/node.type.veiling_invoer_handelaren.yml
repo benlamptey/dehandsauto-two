@@ -17,9 +17,11 @@ third_party_settings:
     publish_required: false
     publish_revision: false
     publish_touch: false
-    unpublish_enable: true
+    unpublish_enable: false
     unpublish_required: false
     unpublish_revision: false
+    publish_past_date_created: false
+    show_message_after_update: true
 name: 'Veiling invoer handelaren'
 type: veiling_invoer_handelaren
 description: 'Professionelen kunnen hier hun wagen aanbieden ter veiling. Om het maximale uit uw verkoopkansen te halen, vul zoveel mogelijk velden in.'

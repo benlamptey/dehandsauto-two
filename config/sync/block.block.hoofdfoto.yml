@@ -11,7 +11,7 @@ dependencies:
 id: hoofdfoto
 theme: currus
 region: banner
-weight: -10
+weight: -9
 provider: null
 plugin: 'block_content:f0683bc4-2198-4e3a-a208-e790aa6e1a52'
 settings:

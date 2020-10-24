@@ -1,13 +1,10 @@
 uuid: 7b7a60a3-1ec4-4ff4-9c85-051fdc3e8c33
 langcode: en
-status: true
+status: false
 dependencies:
-  config:
-    - field.storage.comment.field_nieuw_bod
   module:
     - comment
     - node
-    - opbieden
     - user
 id: hoogste_bod_per_voertuig
 label: 'Hoogste bod per voertuig'
@@ -69,70 +66,6 @@ display:
           group_type: group
           admin_label: Content
       fields:
-        field_nieuw_bod:
-          id: field_nieuw_bod
-          table: comment__field_nieuw_bod
-          field: field_nieuw_bod
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: opbieden_formatter_type
-          settings:
-            thousand_separator: "\t"
-            prefix_suffix: 1
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         nothing:
           id: nothing
           table: views
@@ -271,12 +204,10 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user.permissions
-      tags:
-        - 'config:field.storage.comment.field_nieuw_bod'
+      tags: {  }
   page_1:
     display_plugin: page
     id: page_1
@@ -288,9 +219,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user.permissions
-      tags:
-        - 'config:field.storage.comment.field_nieuw_bod'
+      tags: {  }

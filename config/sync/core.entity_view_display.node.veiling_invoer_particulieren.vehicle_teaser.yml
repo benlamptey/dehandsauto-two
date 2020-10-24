@@ -9,11 +9,13 @@ dependencies:
     - field.field.node.veiling_invoer_particulieren.field_beschrijving
     - field.field.node.veiling_invoer_particulieren.field_brandstof
     - field.field.node.veiling_invoer_particulieren.field_deuren
+    - field.field.node.veiling_invoer_particulieren.field_direct_kopen
     - field.field.node.veiling_invoer_particulieren.field_doe_een_bod
     - field.field.node.veiling_invoer_particulieren.field_euro_norm
     - field.field.node.veiling_invoer_particulieren.field_expaire_time
     - field.field.node.veiling_invoer_particulieren.field_foto_s
     - field.field.node.veiling_invoer_particulieren.field_jaar
+    - field.field.node.veiling_invoer_particulieren.field_kleur_picker
     - field.field.node.veiling_invoer_particulieren.field_km
     - field.field.node.veiling_invoer_particulieren.field_laatste_bod
     - field.field.node.veiling_invoer_particulieren.field_maand
@@ -24,12 +26,13 @@ dependencies:
     - field.field.node.veiling_invoer_particulieren.field_reserve
     - field.field.node.veiling_invoer_particulieren.field_schakeling
     - field.field.node.veiling_invoer_particulieren.field_vermogen
-    - image.style.individueel_voertuig
+    - image.style.views_thumps_247_x_140_
     - node.type.veiling_invoer_particulieren
   module:
     - comment
-    - field_timer
-    - fotorama_gallery
+    - field_formatter_class
+    - image
+    - jstimer
     - options
     - shs
     - user
@@ -43,17 +46,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      type: auto
-      regional: nl
-      format: dHMS
-      layout: ''
-      significant: 0
-      timeSeparator: ':'
-      compact: false
-      padZeroes: false
-      use_system_language: false
+      dir: down
+      format_txt: ''
     third_party_settings: {  }
-    type: field_timer_countdown
+    type: jstimer_jst_timer
     region: content
   field_beschrijving:
     weight: 21
@@ -103,41 +99,12 @@ content:
     weight: 7
     label: hidden
     settings:
-      image_style: individueel_voertuig
-      dimensions:
-        ratio: ''
-        width: ''
-        maxwidth: ''
-        minwidth: ''
-        height: ''
-        maxheight: null
-        minheight: false
-        percent_width: 0
-        percent_maxwidth: 0
-        percent_minwidth: 0
-        percent_height: 0
-        percent_maxheight: 0
-        percent_minheight: 0
-      others:
-        fit: 1
-        arrows: 1
-        click: true
-        loop: false
-        shuffle: false
-        keyboard: false
-        swipe: false
-        trackpad: false
-      navigation:
-        nav: 1
-        navposition: 0
-      transition:
-        transition: 0
-        clicktransition: false
-      autoplay:
-        stopautoplayontouch: false
-      image_link: ''
-    third_party_settings: {  }
-    type: fotorama_gallery
+      image_style: views_thumps_247_x_140_
+      image_link: content
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: image
     region: content
   field_jaar:
     weight: 9
@@ -240,4 +207,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_direct_kopen: true
+  field_kleur_picker: true

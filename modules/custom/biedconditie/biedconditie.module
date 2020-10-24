@@ -48,34 +48,34 @@ function biedconditie_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implementing hook_form_id_alter().
  */
-function biedconditie_form_views_exposed_form_alter(&$form, $form_state, $form_id){
-    if($form['#id'] = 'exposedform_voertuigenpagina_veiling_alle_wagens' ){
+function biedconditie_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+  if ($form['#id'] = 'exposedform_voertuigenpagina_veiling_alle_wagens') {
 
-         $children_fields = \Drupal\Core\Render\Element::children($form);
-     // $form['#theme'] = 'custom-exposed-form';
-         foreach ($children_fields as $id => $children_field) {
-           if (isset($form[$children_field]['#attached']["drupalSettings"]) && isset($form[$children_field]['#attached']["drupalSettings"]['better_exposed_filters']) && isset($form[$children_field]['#attached']["drupalSettings"]['better_exposed_filters']['slider_options'])) {
-            $slider_options = $form[$children_field]['#attached']["drupalSettings"]['better_exposed_filters']['slider_options'][$children_field];
-            $id = $slider_options['id'];
-            $min = $slider_options['min'];
-            $max = $slider_options['max'];
+    $children_fields = \Drupal\Core\Render\Element::children($form);
+    // $form['#theme'] = 'custom-exposed-form';
+    foreach ($children_fields as $id => $children_field) {
+      if (isset($form[$children_field]['#attached']["drupalSettings"]) && isset($form[$children_field]['#attached']["drupalSettings"]['better_exposed_filters']) && isset($form[$children_field]['#attached']["drupalSettings"]['better_exposed_filters']['slider_options'])) {
+        $slider_options = $form[$children_field]['#attached']["drupalSettings"]['better_exposed_filters']['slider_options'][$children_field];
+        $id = $slider_options['id'];
+        $min = $slider_options['min'];
+        $max = $slider_options['max'];
 
-          // Hide the input fields as we will now be using the custom markup
-          // to display the values.
-          $form[$children_field]['min']['#attributes']['style'] = ['display: none;'];
-          $form[$children_field]['max']['#attributes']['style'] = ['display: none;'];
+        // Hide the input fields as we will now be using the custom markup
+        // to display the values.
+        $form[$children_field]['min']['#attributes']['style'] = ['display: none;'];
+        $form[$children_field]['max']['#attributes']['style'] = ['display: none;'];
 
-          // Hide the "AND" label for the max field
-          unset($form[$children_field]['max']['#title']);
+        // Hide the "AND" label for the max field
+        unset($form[$children_field]['max']['#title']);
 
-          $form[$children_field]['min_custom'] = ['#markup' => "<span id='$id-custom-min' class='custom-min-max'>$min</span>"];
-          $form[$children_field]['max_custom'] = ['#markup' => " - <span id='$id-custom-max' class='custom-min-max'>$max</span>"];
+        $form[$children_field]['min_custom'] = ['#markup' => "<span id='$id-custom-min' class='custom-min-max'>$min</span>"];
+        $form[$children_field]['max_custom'] = ['#markup' => " - <span id='$id-custom-max' class='custom-min-max'>$max</span>"];
 
         $form[$children_field]['#prefix'] = "<div id='custom-filter-wrapper'>";
         $form[$children_field]['#suffix'] = "</div>";
       }
     }
-    }
+  }
 }
 
 

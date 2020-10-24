@@ -1,0 +1,22 @@
+uuid: aa7ae15d-31af-401d-9366-5c96f396b69c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kleur_picker
+    - node.type.veiling_invoer_particulieren
+  module:
+    - color_field
+id: node.veiling_invoer_particulieren.field_kleur_picker
+field_name: field_kleur_picker
+entity_type: node
+bundle: veiling_invoer_particulieren
+label: Kleur
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

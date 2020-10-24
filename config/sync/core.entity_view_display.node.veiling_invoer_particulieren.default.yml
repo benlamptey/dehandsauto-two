@@ -8,11 +8,13 @@ dependencies:
     - field.field.node.veiling_invoer_particulieren.field_beschrijving
     - field.field.node.veiling_invoer_particulieren.field_brandstof
     - field.field.node.veiling_invoer_particulieren.field_deuren
+    - field.field.node.veiling_invoer_particulieren.field_direct_kopen
     - field.field.node.veiling_invoer_particulieren.field_doe_een_bod
     - field.field.node.veiling_invoer_particulieren.field_euro_norm
     - field.field.node.veiling_invoer_particulieren.field_expaire_time
     - field.field.node.veiling_invoer_particulieren.field_foto_s
     - field.field.node.veiling_invoer_particulieren.field_jaar
+    - field.field.node.veiling_invoer_particulieren.field_kleur_picker
     - field.field.node.veiling_invoer_particulieren.field_km
     - field.field.node.veiling_invoer_particulieren.field_laatste_bod
     - field.field.node.veiling_invoer_particulieren.field_maand
@@ -26,6 +28,7 @@ dependencies:
     - image.style.individueel_voertuig
     - node.type.veiling_invoer_particulieren
   module:
+    - color_field
     - comment
     - field_formatter_class
     - field_timer
@@ -43,16 +46,18 @@ content:
     weight: 0
     label: hidden
     settings:
-      type: auto
-      regional: nl
+      use_system_language: false
+      regional: en
       format: dHMS
       layout: ''
+      compact: false
       significant: 0
       timeSeparator: ':'
-      compact: false
       padZeroes: false
-      use_system_language: false
-    third_party_settings: {  }
+      type: auto
+    third_party_settings:
+      field_formatter_class:
+        class: ''
     type: field_timer_countdown
     region: content
   field_beschrijving:
@@ -75,6 +80,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
+  field_direct_kopen:
+    weight: 24
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
     region: content
   field_doe_een_bod:
     weight: 5
@@ -106,22 +120,22 @@ content:
       image_style: individueel_voertuig
       dimensions:
         ratio: ''
-        width: 100%
-        maxwidth: 100%
-        minwidth: 100%
+        width: ''
+        maxwidth: ''
+        minwidth: ''
         height: ''
         maxheight: null
         minheight: false
       others:
-        fit: 1
-        allowfullscreen: 0
+        fit: 0
+        allowfullscreen: 1
+        loop: true
+        shuffle: true
+        keyboard: true
         arrows: 1
         click: true
-        loop: false
-        shuffle: false
-        keyboard: false
-        swipe: false
-        trackpad: false
+        swipe: true
+        trackpad: true
       navigation:
         nav: 1
         navposition: 0
@@ -142,6 +156,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: yearonly_default
+    region: content
+  field_kleur_picker:
+    weight: 23
+    label: above
+    settings:
+      opacity: true
+      shape: square
+      width: '50'
+      height: '50'
+      data_attribute: false
+    third_party_settings: {  }
+    type: color_field_formatter_swatch_options
     region: content
   field_km:
     weight: 11

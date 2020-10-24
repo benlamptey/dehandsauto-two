@@ -63,15 +63,115 @@ display:
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
           text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: basic_html
           bef:
             general:
-              allow_secondary: false
-              secondary_label: 'Advanced options'
               autosubmit: false
               autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
               autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Advanced options'
+              secondary_open: false
+            filter:
+              field_merk_target_id:
+                plugin_id: default
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_prijs_value:
+                plugin_id: bef_sliders
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+                min: '0'
+                max: '50000'
+                step: '500'
+                animate: none
+                animate_ms: '0'
+                orientation: horizontal
+              field_km_value:
+                plugin_id: bef_sliders
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+                min: '0'
+                max: '250000'
+                step: '5000'
+                animate: none
+                animate_ms: '0'
+                orientation: horizontal
+              field_jaar_value:
+                plugin_id: bef_sliders
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+                min: '1993'
+                max: '2020'
+                step: '1'
+                animate: none
+                animate_ms: '0'
+                orientation: horizontal
+              field_schakeling_value:
+                plugin_id: default
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_brandstof_value:
+                plugin_id: default
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_regio_target_id:
+                plugin_id: default
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_kleur_picker_color:
+                plugin_id: bef
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: 0
+              field_deuren_value:
+                plugin_id: default
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
+              field_vermogen_value:
+                plugin_id: bef_sliders
+                advanced:
+                  collapsible: false
+                  is_secondary: false
+                min: '0'
+                max: '1000'
+                step: '25'
+                animate: none
+                animate_ms: '0'
+                orientation: horizontal
+              field_euro_norm_value:
+                plugin_id: default
+                advanced:
+                  rewrite:
+                    filter_rewrite_values: ''
+                  collapsible: false
+                  is_secondary: false
             field_prijs_value:
               bef_format: bef_slider
               slider_options:
@@ -168,7 +268,7 @@ display:
                 is_secondary: false
                 rewrite:
                   filter_rewrite_values: ''
-          text_input_required_format: basic_html
+          input_required: false
       pager:
         type: mini
         options:
@@ -791,6 +891,55 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_merk_target_id:
+          id: field_merk_target_id
+          table: node__field_merk
+          field: field_merk_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_merk_target_id_op
+            label: Merk
+            description: ''
+            use_operator: false
+            operator: field_merk_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_merk_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              particulier: '0'
+              handelaar: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: shs
+          limit: true
+          vid: automerken
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
         field_prijs_value:
           id: field_prijs_value
           table: node__field_prijs
@@ -800,8 +949,8 @@ display:
           admin_label: ''
           operator: between
           value:
-            min: '10000'
-            max: '100000'
+            min: ''
+            max: ''
             value: ''
           group: 1
           exposed: true
@@ -857,6 +1006,110 @@ display:
                 operator: '='
                 value:
                   value: ''
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+        field_km_value:
+          id: field_km_value
+          table: node__field_km
+          field: field_km_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_km_value_op
+            label: KM
+            description: ''
+            use_operator: false
+            operator: field_km_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_km_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              particulier: '0'
+              handelaar: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: field_km_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: '-/= 25.000Km'
+                operator: '<='
+                value:
+                  value: '25000'
+                  min: ''
+                  max: ''
+              2:
+                title: '-/= 50.000Km'
+                operator: '<='
+                value:
+                  value: '50000'
+                  min: '25001'
+                  max: '50000'
+              3:
+                title: '-/= 75.000Km'
+                operator: '<='
+                value:
+                  value: '75000'
+                  min: '50001'
+                  max: '75000'
+              4:
+                title: '-/= 100.000Km'
+                operator: '<='
+                value:
+                  value: '100000'
+                  min: '75001'
+                  max: '10000'
+              5:
+                title: '-/= 125.000Km'
+                operator: '<='
+                value:
+                  value: '125000'
+                  min: '100001'
+                  max: '125000'
+              6:
+                title: '-/= 150.000Km'
+                operator: '<='
+                value:
+                  value: '150000'
+                  min: '125001'
+                  max: '150000'
+              7:
+                title: '-/= 175.000Km'
+                operator: '<='
+                value:
+                  value: '175000'
+                  min: ''
+                  max: ''
+              8:
+                title: '-/= 200.000Km'
+                operator: '<='
+                value:
+                  value: '200000'
                   min: ''
                   max: ''
           plugin_id: numeric
@@ -985,162 +1238,10 @@ display:
                   min: ''
                   max: ''
           plugin_id: numeric
-        field_km_value:
-          id: field_km_value
-          table: node__field_km
-          field: field_km_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: between
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_km_value_op
-            label: KM
-            description: ''
-            use_operator: false
-            operator: field_km_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_km_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              particulier: '0'
-              handelaar: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: field_km_value
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: '-/= 25.000Km'
-                operator: '<='
-                value:
-                  value: '25000'
-                  min: ''
-                  max: ''
-              2:
-                title: '-/= 50.000Km'
-                operator: '<='
-                value:
-                  value: '50000'
-                  min: '25001'
-                  max: '50000'
-              3:
-                title: '-/= 75.000Km'
-                operator: '<='
-                value:
-                  value: '75000'
-                  min: '50001'
-                  max: '75000'
-              4:
-                title: '-/= 100.000Km'
-                operator: '<='
-                value:
-                  value: '100000'
-                  min: '75001'
-                  max: '10000'
-              5:
-                title: '-/= 125.000Km'
-                operator: '<='
-                value:
-                  value: '125000'
-                  min: '100001'
-                  max: '125000'
-              6:
-                title: '-/= 150.000Km'
-                operator: '<='
-                value:
-                  value: '150000'
-                  min: '125001'
-                  max: '150000'
-              7:
-                title: '-/= 175.000Km'
-                operator: '<='
-                value:
-                  value: '175000'
-                  min: ''
-                  max: ''
-              8:
-                title: '-/= 200.000Km'
-                operator: '<='
-                value:
-                  value: '200000'
-                  min: ''
-                  max: ''
-          plugin_id: numeric
-        field_vermogen_value:
-          id: field_vermogen_value
-          table: node__field_vermogen
-          field: field_vermogen_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: between
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_vermogen_value_op
-            label: Vermogen
-            description: ''
-            use_operator: false
-            operator: field_vermogen_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_vermogen_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              particulier: '0'
-              handelaar: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
-        field_euro_norm_value:
-          id: field_euro_norm_value
-          table: node__field_euro_norm
-          field: field_euro_norm_value
+        field_schakeling_value:
+          id: field_schakeling_value
+          table: node__field_schakeling
+          field: field_schakeling_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -1149,17 +1250,17 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_euro_norm_value_op
-            label: 'Euro norm'
+            operator_id: field_schakeling_value_op
+            label: Schakeling
             description: ''
             use_operator: false
-            operator: field_euro_norm_value_op
+            operator: field_schakeling_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_euro_norm_value
+            identifier: field_schakeling_value
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -1181,10 +1282,10 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
-        field_merk_target_id:
-          id: field_merk_target_id
-          table: node__field_merk
-          field: field_merk_target_id
+        field_brandstof_value:
+          id: field_brandstof_value
+          table: node__field_brandstof
+          field: field_brandstof_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -1193,17 +1294,17 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_merk_target_id_op
-            label: Merk
+            operator_id: field_brandstof_value_op
+            label: Brandstof
             description: ''
             use_operator: false
-            operator: field_merk_target_id_op
+            operator: field_brandstof_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_merk_target_id
+            identifier: field_brandstof_value
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
@@ -1224,12 +1325,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: shs
-          limit: true
-          vid: automerken
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
+          plugin_id: list_field
         field_regio_target_id:
           id: field_regio_target_id
           table: node__field_regio
@@ -1324,50 +1420,6 @@ display:
             group_items: {  }
           reduce_duplicates: 0
           plugin_id: string
-        field_brandstof_value:
-          id: field_brandstof_value
-          table: node__field_brandstof
-          field: field_brandstof_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_brandstof_value_op
-            label: Brandstof
-            description: ''
-            use_operator: false
-            operator: field_brandstof_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_brandstof_value
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              particulier: '0'
-              handelaar: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          plugin_id: list_field
         field_deuren_value:
           id: field_deuren_value
           table: node__field_deuren
@@ -1412,10 +1464,58 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
-        field_schakeling_value:
-          id: field_schakeling_value
-          table: node__field_schakeling
-          field: field_schakeling_value
+        field_vermogen_value:
+          id: field_vermogen_value
+          table: node__field_vermogen
+          field: field_vermogen_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_vermogen_value_op
+            label: Vermogen
+            description: ''
+            use_operator: false
+            operator: field_vermogen_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_vermogen_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              particulier: '0'
+              handelaar: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        field_euro_norm_value:
+          id: field_euro_norm_value
+          table: node__field_euro_norm
+          field: field_euro_norm_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -1424,17 +1524,17 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_schakeling_value_op
-            label: Schakeling
+            operator_id: field_euro_norm_value_op
+            label: 'Euro norm'
             description: ''
             use_operator: false
-            operator: field_schakeling_value_op
+            operator: field_euro_norm_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_schakeling_value
+            identifier: field_euro_norm_value
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'

@@ -1,0 +1,1229 @@
+uuid: 5d19741b-593d-4126-8fae-d2b73ab78c5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.vehicle_teaser
+    - field.storage.node.field_afteller
+    - field.storage.node.field_foto_s
+    - field.storage.node.field_jaar
+    - field.storage.node.field_km
+    - field.storage.node.field_merk
+    - field.storage.node.field_prijs
+    - image.style.views_thumps_247_x_140_
+    - node.type.veiling_invoer_particulieren
+    - taxonomy.vocabulary.automerken
+    - taxonomy.vocabulary.regio_s
+  module:
+    - image
+    - jstimer
+    - node
+    - taxonomy
+    - user
+    - yearonly
+id: _actieve_veiling_particulieren_simpele_filter
+label: ' Actieve veiling particulieren simpele filter'
+module: views
+description: 'View to render the second simple filter, only particulieren'
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Resultaten
+          reset_button: true
+          reset_button_label: Herzet
+          exposed_sorts_label: 'Sorteer volgens'
+          expose_sort_order: false
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: mini
+        options:
+          items_per_page: 28
+          offset: 0
+          id: 0
+          total_pages: null
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      style:
+        type: default
+        options:
+          row_class: 'col-xs-12  col-sm-4'
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: vehicle_teaser
+      fields:
+        field_merk:
+          id: field_merk
+          table: node__field_merk
+          field: field_merk
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 20
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: true
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: 'bied mee'
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+        view_node_1:
+          id: view_node_1
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ field_merk }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: ''
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+        field_foto_s:
+          id: field_foto_s
+          table: node__field_foto_s
+          field: field_foto_s
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: views_thumps_247_x_140_
+            image_link: content
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 1
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_km:
+          id: field_km
+          table: node__field_km
+          field: field_km
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: "\t"
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_jaar:
+          id: field_jaar
+          table: node__field_jaar
+          field: field_jaar
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: yearonly_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prijs:
+          id: field_prijs
+          table: node__field_prijs
+          field: field_prijs
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: "\t"
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_afteller:
+          id: field_afteller
+          table: node__field_afteller
+          field: field_afteller
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: jstimer_jst_timer
+          settings:
+            dir: down
+            format_txt: ' <b>%days%:</b>%hours%:<b>%mins%:</b>%secs% '
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<div class=\"item-box white-bg\">\r\n    <div class=\"item-img\">\r\n      {{ field_foto_s }}\r\n    </div>\r\n    <div class=\"item-caption\">\r\n      <div class=\"item-title\">\r\n              {{ view_node_1 }}\r\n      </div>\r\n      <div class=\"info-first\">\r\n        <span class=\"gebouwdejaar\">\r\n          {{ field_jaar }}\r\n        </span>\r\n        <span class=\"kilometertjes\">\r\n          {{ field_km }}\r\n        </span>\r\n      </div>\r\n      <div class=\"info-second\">\r\n          {% if  field_prijs %}\r\n             <div class=\"grijzewaas1\"><img class=\"bodicoon\" alt=\"biedhamer\" src=\"https://img.icons8.com/dotty/18/7a7a52/auction.png\"><b>{{ field_prijs }},-</b></div> \r\n          {% else %} \r\n             <div class=\"grijzewaas1\"><img class=\"bodicoon\" alt=\"biedhamer\" src=\"https://img.icons8.com/dotty/18/7a7a52/auction.png\"><b>{{ field_reserve }},-</b></div>\r\n          {% endif %}\r\n          <div class=\"grijzewaas2\"><img class=\"klokicoon\" alt=\"stopklok\" src=\"https://img.icons8.com/ios/18/7a7a52/time.png\">{{ field_afteller }}</div>\r\n      </div> \r\n      <div class=\"link\">{{ view_node }}</div>\r\n    </div>\r\n</div>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            veiling_invoer_particulieren: veiling_invoer_particulieren
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_merk_target_id:
+          id: field_merk_target_id
+          table: node__field_merk
+          field: field_merk_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_merk_target_id_op
+            label: Merk
+            description: ''
+            use_operator: false
+            operator: field_merk_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: merk
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              particulier: '0'
+              handelaar: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: shs
+          limit: true
+          vid: automerken
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_jaar_value:
+          id: field_jaar_value
+          table: node__field_jaar
+          field: field_jaar_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_jaar_value_op
+            label: Jaar
+            description: ''
+            use_operator: false
+            operator: field_jaar_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_jaar_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              particulier: '0'
+              handelaar: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'Jaar '
+            description: ''
+            identifier: jaar
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: '+25 jaar oud'
+                operator: '<='
+                value:
+                  value: '1995'
+                  min: ''
+                  max: ''
+              2:
+                title: '25-15 jaar oud'
+                operator: between
+                value:
+                  value: ''
+                  min: '1995'
+                  max: '2005'
+              3:
+                title: '10-15 jaar oud'
+                operator: between
+                value:
+                  value: ''
+                  min: '2005'
+                  max: '2010'
+              4:
+                title: '10 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2010'
+                  min: ''
+                  max: ''
+              5:
+                title: '9 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2011'
+                  min: ''
+                  max: ''
+              6:
+                title: '8 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2012'
+                  min: ''
+                  max: ''
+              7:
+                title: '7 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2013'
+                  min: ''
+                  max: ''
+              8:
+                title: '6 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2014'
+                  min: ''
+                  max: ''
+              9:
+                title: '5 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2015'
+                  min: ''
+                  max: ''
+              10:
+                title: '4 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2016'
+                  min: ''
+                  max: ''
+              11:
+                title: '3 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2017'
+                  min: ''
+                  max: ''
+              12:
+                title: '2 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2018'
+                  min: ''
+                  max: ''
+              13:
+                title: '1 jaar of jonger'
+                operator: '>='
+                value:
+                  value: '2019'
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+        field_km_value:
+          id: field_km_value
+          table: node__field_km
+          field: field_km_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_km_value_op
+            label: KM
+            description: ''
+            use_operator: false
+            operator: field_km_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_km_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              particulier: '0'
+              handelaar: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: KM
+            description: ''
+            identifier: km
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 0-5000km
+                operator: between
+                value:
+                  value: ''
+                  min: '0'
+                  max: '5000'
+              2:
+                title: 5001-25000km
+                operator: between
+                value:
+                  value: ''
+                  min: '5001'
+                  max: '25000'
+              3:
+                title: 25001-50000km
+                operator: between
+                value:
+                  value: ''
+                  min: '25001'
+                  max: '50000'
+              4:
+                title: 50001-75000km
+                operator: between
+                value:
+                  value: ''
+                  min: '50001'
+                  max: '75000'
+              5:
+                title: 75001-100000km
+                operator: between
+                value:
+                  value: ''
+                  min: '75001'
+                  max: '100000'
+              6:
+                title: 100001-125000km
+                operator: between
+                value:
+                  value: ''
+                  min: '100001'
+                  max: '125000'
+              7:
+                title: 125001-150000km
+                operator: between
+                value:
+                  value: ''
+                  min: '125001'
+                  max: '150000'
+              8:
+                title: '150001'
+                operator: between
+                value:
+                  value: ''
+                  min: '150001'
+                  max: '200000'
+              9:
+                title: +200.000km
+                operator: '>'
+                value:
+                  value: '200000'
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+        field_regio_target_id:
+          id: field_regio_target_id
+          table: node__field_regio
+          field: field_regio_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_regio_target_id_op
+            label: Regio
+            description: ''
+            use_operator: false
+            operator: field_regio_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: regio
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              particulier: '0'
+              handelaar: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: shs
+          limit: true
+          vid: regio_s
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_prijs_value:
+          id: field_prijs_value
+          table: node__field_prijs
+          field: field_prijs_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: '10000'
+            max: '100000'
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_prijs_value_op
+            label: Prijs
+            description: ''
+            use_operator: false
+            operator: field_prijs_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_prijs_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              particulier: '0'
+              handelaar: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'Prijs '
+            description: ''
+            identifier: prijs
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: '- €5000'
+                operator: '<='
+                value:
+                  value: '5000'
+                  min: '10000'
+                  max: '100000'
+              2:
+                title: €5000-€7500
+                operator: between
+                value:
+                  value: ''
+                  min: '5000'
+                  max: '7500'
+              3:
+                title: €7500-€10000
+                operator: between
+                value:
+                  value: ''
+                  min: '7500'
+                  max: '10000'
+              4:
+                title: €10000-€12500
+                operator: between
+                value:
+                  value: ''
+                  min: '10000'
+                  max: '12500'
+              5:
+                title: €12500-€15000
+                operator: between
+                value:
+                  value: ''
+                  min: '12500'
+                  max: '15000'
+              6:
+                title: €15000-€20000
+                operator: between
+                value:
+                  value: ''
+                  min: '15000'
+                  max: '20000'
+              7:
+                title: €20000-€25000
+                operator: between
+                value:
+                  value: ''
+                  min: '20000'
+                  max: '25000'
+              8:
+                title: €25000-€30000
+                operator: between
+                value:
+                  value: ''
+                  min: '25000'
+                  max: '30000'
+              9:
+                title: €30000-€40000
+                operator: between
+                value:
+                  value: ''
+                  min: '30000'
+                  max: '40000'
+              10:
+                title: €40000-€50000
+                operator: between
+                value:
+                  value: ''
+                  min: '40000'
+                  max: '50000'
+              11:
+                title: '+ €50000'
+                operator: '>='
+                value:
+                  value: '50000'
+                  min: '10000'
+                  max: '100000'
+          plugin_id: numeric
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          order: DESC
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+      title: 'Actieve veiling simpele filter, particulieren'
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      use_ajax: false
+      css_class: 'veiling-back-view voertuigen-listing-page'
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_afteller'
+        - 'config:field.storage.node.field_foto_s'
+        - 'config:field.storage.node.field_jaar'
+        - 'config:field.storage.node.field_km'
+        - 'config:field.storage.node.field_merk'
+        - 'config:field.storage.node.field_prijs'
+  pagina_veiling_simple_filter_particulieren:
+    display_plugin: page
+    id: pagina_veiling_simple_filter_particulieren
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: veiling-particulieren-simpele-filter
+      exposed_block: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_afteller'
+        - 'config:field.storage.node.field_foto_s'
+        - 'config:field.storage.node.field_jaar'
+        - 'config:field.storage.node.field_km'
+        - 'config:field.storage.node.field_merk'
+        - 'config:field.storage.node.field_prijs'

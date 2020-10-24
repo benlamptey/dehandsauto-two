@@ -1,0 +1,31 @@
+uuid: 15161e27-3597-4f81-a58f-c77a0d0778e2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_block:658f4cec-bdcb-40f9-9644-49bfd4e27ecb'
+  module:
+    - block_content
+    - system
+  theme:
+    - currus
+id: banneraccountaanvullendeinformatie
+theme: currus
+region: banner
+weight: -10
+provider: null
+plugin: 'block_content:658f4cec-bdcb-40f9-9644-49bfd4e27ecb'
+settings:
+  id: 'block_content:658f4cec-bdcb-40f9-9644-49bfd4e27ecb'
+  label: 'Banner account aanvullende informatie'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /additional-details
+    negate: false
+    context_mapping: {  }

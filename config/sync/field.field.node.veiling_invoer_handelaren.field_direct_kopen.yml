@@ -1,0 +1,33 @@
+uuid: ecd05b36-7ecd-4e6f-bd83-1c1c104afd73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_direct_kopen
+    - node.type.veiling_invoer_handelaren
+  module:
+    - comment
+id: node.veiling_invoer_handelaren.field_direct_kopen
+field_name: field_direct_kopen
+entity_type: node
+bundle: veiling_invoer_handelaren
+label: 'Direct kopen'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 1
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

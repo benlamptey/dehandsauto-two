@@ -1,6 +1,6 @@
 uuid: 27d489d7-a3af-46d8-a569-7586b3b198c9
 langcode: en
-status: true
+status: false
 dependencies:
   content:
     - 'block_content:banner_block:fcddd399-34df-4e7a-8857-44ac43838c7d'
@@ -12,7 +12,7 @@ dependencies:
 id: userprofile
 theme: currus
 region: banner
-weight: 0
+weight: -8
 provider: null
 plugin: 'block_content:fcddd399-34df-4e7a-8857-44ac43838c7d'
 settings:

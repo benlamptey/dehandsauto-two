@@ -1,24 +1,23 @@
 module:
   select_registration_roles: -5
+  action: 0
   addverkopen: 0
   admin_toolbar: 0
   admin_toolbar_links_access_filter: 0
+  admin_toolbar_search: 0
   admin_toolbar_tools: 0
-  auto2cutom: 0
   auto_be: 0
   automated_cron: 0
   backup_migrate: 0
   bavocado: 0
   better_exposed_filters: 0
-  bidvalidate: 0
   biedconditie: 0
-  big_pipe: 0
   block: 0
   block_class: 0
   block_content: 0
   breakpoint: 0
-  business_rules: 0
   captcha: 0
+  change_pwd_page: 0
   ckeditor: 0
   color: 0
   color_field: 0
@@ -28,14 +27,16 @@ module:
   contact: 0
   content_moderation: 0
   contextual: 0
+  crop: 0
   ctools: 0
   ctools_block: 0
   ctools_views: 0
   datetime: 0
   dblog: 0
-  dbug: 0
+  devel_generate: 0
   dynamic_page_cache: 0
   easy_install: 0
+  edit_profiel_blok: 0
   editor: 0
   entity_reference_revisions: 0
   field: 0
@@ -45,9 +46,9 @@ module:
   field_ui: 0
   file: 0
   filter: 0
-  fiu: 0
   flag: 0
-  flag_rating: 0
+  flag_bookmark: 0
+  flag_follower: 0
   fontawesome: 0
   fontawesome_menu_icons: 0
   formblock: 0
@@ -56,15 +57,19 @@ module:
   history: 0
   honeypot: 0
   image: 0
+  image_widget_crop: 0
   inline_form_errors: 0
   inloggen: 0
   inner_contact: 0
   jquery_countdown_timer: 0
+  jquery_ui: 0
+  jquery_ui_datepicker: 0
+  jquery_ui_slider: 0
+  jquery_ui_touch_punch: 0
   jst_clock: 0
   jst_timer: 0
   jstimer: 0
   libraries: 0
-  like_dislike: 0
   link: 0
   menu_per_role: 0
   menu_ui: 0
@@ -84,10 +89,12 @@ module:
   shs: 0
   simple_fb_connect: 0
   simple_sitemap: 0
+  simple_sitemap_engines: 0
   social_api: 0
   social_auth: 0
   social_auth_google: 0
   social_login: 0
+  statistics: 0
   system: 0
   taxonomy: 0
   taxonomy_manager: 0
@@ -96,10 +103,11 @@ module:
   toolbar: 0
   tour: 0
   twig_tweak: 0
+  twig_vardumper: 0
   update: 0
   user: 0
+  veiling: 0
   views_ui: 0
-  votingapi: 0
   workflows: 0
   yearonly: 0
   menu_link_content: 1

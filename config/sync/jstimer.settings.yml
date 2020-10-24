@@ -2,8 +2,8 @@ jstimer_output_format: '<em>(%dow% %moy%%day%)</em><br/>%days% days + %hours%:%m
 jstimer_output_format_1: 'Only %days% days, %hours% hours, %mins% minutes and %secs% seconds left'
 jstimer_output_format_2: '%days% shopping days left'
 jstimer_output_format_3: '<em>(%dow% %moy%%day%)</em><br/>%days% days + %hours%:%mins%:%secs%'
-jst_timer_complete_message: '<em>Timer Completed</em>'
-jst_timer_complete_alert_message: ''
+jst_timer_complete_message: '<em>Veiling afgelopen</em>'
+jst_timer_complete_alert_message: AFGELOPEN
 jstimer_highlight: 'style="color:red"'
 jstimer_highlight_threshold: '5'
 jstimer_highlight_down: 1

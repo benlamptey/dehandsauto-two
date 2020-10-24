@@ -1,0 +1,8 @@
+uuid: 53304679-4b92-4259-938e-a7863fb4fd50
+langcode: en
+status: true
+dependencies: {  }
+id: datum_kort
+label: 'Datum kort'
+locked: false
+pattern: d/m/Y

@@ -11,13 +11,13 @@ entity_type: node
 bundle: veiling_invoer_handelaren
 label: Prijs
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   min: 1
   max: 1000000
-  prefix: ''
-  suffix: ''
+  prefix: €
+  suffix: '-'
 field_type: integer

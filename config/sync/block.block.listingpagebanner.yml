@@ -12,7 +12,7 @@ dependencies:
 id: listingpagebanner
 theme: currus
 region: banner
-weight: 0
+weight: -16
 provider: null
 plugin: 'block_content:63ecc22c-461f-4c00-bda0-d641d54dc132'
 settings:
@@ -26,6 +26,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/veiling_alle_voertuigen\r\n/veiling_voertuigen_particulier\r\n/veiling_voertuigen_handelaar"
+    pages: "/veiling_alle_voertuigen\r\n/veiling_voertuigen_particulier\r\n/veiling_voertuigen_handelaar\r\n/veiling-alle-voertuigen-simpele-filter"
     negate: false
     context_mapping: {  }

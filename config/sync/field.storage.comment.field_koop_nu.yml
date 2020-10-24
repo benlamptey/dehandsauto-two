@@ -1,0 +1,20 @@
+uuid: b26d4919-7b3b-4bbb-81fe-2f33e6b1829c
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+id: comment.field_koop_nu
+field_name: field_koop_nu
+entity_type: comment
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

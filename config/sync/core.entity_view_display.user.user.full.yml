@@ -1,0 +1,96 @@
+uuid: 6183ecab-1406-4787-a924-e3797d315407
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.waardering_verkoper.default
+    - core.entity_view_mode.user.full
+    - field.field.user.user.field_land
+    - field.field.user.user.field_ondernemingsnummer
+    - field.field.user.user.field_plaats
+    - field.field.user.user.field_postcode
+    - field.field.user.user.field_telefoonnummer
+    - field.field.user.user.field_waardering_
+    - field.field.user.user.user_picture
+    - image.style.avatar_foto_150_x_150_
+  module:
+    - comment
+    - field_formatter_class
+    - image
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.full
+targetEntityType: user
+bundle: user
+mode: full
+content:
+  field_land:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ondernemingsnummer:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_plaats:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_postcode:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_waardering_:
+    weight: 2
+    label: above
+    settings:
+      pager_id: 0
+      view_mode: default
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  flag_following:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_waardering_verkopers:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  member_for:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: avatar_foto_150_x_150_
+      image_link: content
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    label: hidden
+hidden:
+  field_telefoonnummer: true

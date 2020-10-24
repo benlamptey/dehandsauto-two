@@ -9,7 +9,7 @@ dependencies:
 id: responsivemenumobileicon
 theme: currus
 region: header_top
-weight: 0
+weight: -18
 provider: null
 plugin: responsive_menu_toggle
 settings:

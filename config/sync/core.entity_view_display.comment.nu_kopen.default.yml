@@ -1,0 +1,19 @@
+uuid: a5afa3b2-97c3-4eea-949b-470a119b488d
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.nu_kopen
+    - field.field.comment.nu_kopen.field_koop_nu
+id: comment.nu_kopen.default
+targetEntityType: comment
+bundle: nu_kopen
+mode: default
+content:
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_koop_nu: true

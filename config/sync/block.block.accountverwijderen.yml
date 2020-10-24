@@ -1,0 +1,31 @@
+uuid: 1147bc45-a3e4-40e3-9969-40889a745d7b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner_block:0a633cef-ff65-4cd5-9e11-37f9a19f190a'
+  module:
+    - block_content
+    - system
+  theme:
+    - currus
+id: accountverwijderen
+theme: currus
+region: banner
+weight: 0
+provider: null
+plugin: 'block_content:0a633cef-ff65-4cd5-9e11-37f9a19f190a'
+settings:
+  id: 'block_content:0a633cef-ff65-4cd5-9e11-37f9a19f190a'
+  label: 'Account verwijderen'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: /account/verwijderen
+    negate: false
+    context_mapping: {  }

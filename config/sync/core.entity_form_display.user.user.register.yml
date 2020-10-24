@@ -1,0 +1,39 @@
+uuid: 2445b39a-40db-4f14-b07c-5e5b0b99b072
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.field_land
+    - field.field.user.user.field_ondernemingsnummer
+    - field.field.user.user.field_plaats
+    - field.field.user.user.field_postcode
+    - field.field.user.user.field_telefoonnummer
+    - field.field.user.user.field_waardering_
+    - field.field.user.user.user_picture
+  module:
+    - user
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  contact: true
+  field_land: true
+  field_ondernemingsnummer: true
+  field_plaats: true
+  field_postcode: true
+  field_telefoonnummer: true
+  field_waardering_: true
+  language: true
+  path: true
+  timezone: true
+  user_picture: true

@@ -13,28 +13,28 @@ id: user.user.user_picture
 field_name: user_picture
 entity_type: user
 bundle: user
-label: Picture
+label: Afbeelding
 description: 'Your virtual face or picture.'
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_extensions: 'png gif jpg jpeg'
   file_directory: 'pictures/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
-  alt_field: false
-  title_field: false
   max_resolution: ''
   min_resolution: ''
-  default_image:
-    uuid: null
-    alt: ''
-    title: ''
-    width: null
-    height: null
+  alt_field: false
   alt_field_required: false
+  title_field: false
   title_field_required: false
+  default_image:
+    uuid: 909e27be-e077-4683-a1a9-aee2ff5bb945
+    alt: '2dehandsauto user default picture'
+    title: '2dehandsauto user default picture'
+    width: 648
+    height: 635
   handler: 'default:file'
   handler_settings: {  }
 field_type: image

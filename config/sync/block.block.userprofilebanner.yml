@@ -13,7 +13,7 @@ dependencies:
 id: userprofilebanner
 theme: currus
 region: banner
-weight: 0
+weight: -14
 provider: null
 plugin: 'block_content:b5f769b1-c348-4bc0-967a-b4780b36fa5a'
 settings:

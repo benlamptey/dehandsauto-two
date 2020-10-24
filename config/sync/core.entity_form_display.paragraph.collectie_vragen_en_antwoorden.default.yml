@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.collectie_vragen_en_antwoorden.field_antwoord
-    - field.field.paragraph.collectie_vragen_en_antwoorden.field_faq_like_dislike
     - field.field.paragraph.collectie_vragen_en_antwoorden.field_vraag
     - paragraphs.paragraphs_type.collectie_vragen_en_antwoorden
   module:
@@ -32,5 +31,4 @@ content:
     region: content
 hidden:
   created: true
-  field_faq_like_dislike: true
   status: true

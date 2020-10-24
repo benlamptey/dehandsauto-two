@@ -8,11 +8,13 @@ dependencies:
     - field.field.node.veiling_invoer_particulieren.field_beschrijving
     - field.field.node.veiling_invoer_particulieren.field_brandstof
     - field.field.node.veiling_invoer_particulieren.field_deuren
+    - field.field.node.veiling_invoer_particulieren.field_direct_kopen
     - field.field.node.veiling_invoer_particulieren.field_doe_een_bod
     - field.field.node.veiling_invoer_particulieren.field_euro_norm
     - field.field.node.veiling_invoer_particulieren.field_expaire_time
     - field.field.node.veiling_invoer_particulieren.field_foto_s
     - field.field.node.veiling_invoer_particulieren.field_jaar
+    - field.field.node.veiling_invoer_particulieren.field_kleur_picker
     - field.field.node.veiling_invoer_particulieren.field_km
     - field.field.node.veiling_invoer_particulieren.field_laatste_bod
     - field.field.node.veiling_invoer_particulieren.field_maand
@@ -58,11 +60,13 @@ hidden:
   field_beschrijving: true
   field_brandstof: true
   field_deuren: true
+  field_direct_kopen: true
   field_doe_een_bod: true
   field_euro_norm: true
   field_expaire_time: true
   field_foto_s: true
   field_jaar: true
+  field_kleur_picker: true
   field_laatste_bod: true
   field_maand: true
   field_merk: true

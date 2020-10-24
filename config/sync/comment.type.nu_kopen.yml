@@ -1,0 +1,8 @@
+uuid: 7c213935-203a-4b06-8e68-5bd0c76bf621
+langcode: en
+status: true
+dependencies: {  }
+id: nu_kopen
+label: 'Nu kopen'
+target_entity_type_id: node
+description: 'Nu kopen formulier'

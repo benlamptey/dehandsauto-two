@@ -1,0 +1,33 @@
+uuid: e17f0dd6-6167-43aa-923d-c2b79877f065
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.actieve_veiling_simpele_filter
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: block-banner-exposedform
+id: exposedformactieve_veiling_simpele
+theme: currus
+region: banner
+weight: -13
+provider: null
+plugin: 'views_exposed_filter_block:actieve_veiling_simpele_filter-pagina_veiling_simple_filter'
+settings:
+  id: 'views_exposed_filter_block:actieve_veiling_simpele_filter-pagina_veiling_simple_filter'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/veiling_alle_voertuigen\r\n"
+    negate: false
+    context_mapping: {  }

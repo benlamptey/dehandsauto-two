@@ -33,7 +33,11 @@
                 <div class="buffer mt-30"></div>
                 {{ content.field_doe_een_bod }}
                 <div class="buffer mt-30"></div>
-                <div class="block-bod-voertuig"><span>Laatste biedingen : </span>{{ comment_bid_block }}</div>
+                <div class="koop-nu">
+                  <div class="prijsveld">{{ content.field_prijs }}</div>
+                  <div class="nu-kopen-veld">{{ content.field_direct_kopen }}</div>
+                </div>
+                <div class="block-bod-voertuig"><span>Laatste biedingen : </span>{{ drupal_view('bod_per_voertuig', 'block') }}</div>
             </div>
 
             </div>

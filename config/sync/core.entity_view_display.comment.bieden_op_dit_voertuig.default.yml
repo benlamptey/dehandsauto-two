@@ -5,8 +5,6 @@ dependencies:
   config:
     - comment.type.bieden_op_dit_voertuig
     - field.field.comment.bieden_op_dit_voertuig.field_nieuw_bod
-  module:
-    - opbieden
 id: comment.bieden_op_dit_voertuig.default
 targetEntityType: comment
 bundle: bieden_op_dit_voertuig
@@ -19,7 +17,7 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: opbieden_formatter_type
+    type: number_integer
     region: content
   links:
     weight: 100

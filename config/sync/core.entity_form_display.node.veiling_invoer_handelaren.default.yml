@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.veiling_invoer_handelaren.field_beschrijving
     - field.field.node.veiling_invoer_handelaren.field_brandstof
     - field.field.node.veiling_invoer_handelaren.field_deuren
+    - field.field.node.veiling_invoer_handelaren.field_direct_kopen
     - field.field.node.veiling_invoer_handelaren.field_doe_een_bod
     - field.field.node.veiling_invoer_handelaren.field_euro_norm
     - field.field.node.veiling_invoer_handelaren.field_expaire_time
@@ -27,7 +28,7 @@ dependencies:
     - node.type.veiling_invoer_handelaren
   module:
     - color_field
-    - fiu
+    - image
     - scheduler
     - shs
     - yearonly
@@ -63,18 +64,18 @@ content:
     type: options_select
     region: content
   field_expaire_time:
-    weight: 17
+    weight: 16
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_foto_s:
-    weight: 15
+    weight: 14
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: fine_image
+    type: image_image
     region: content
   field_jaar:
     weight: 4
@@ -83,9 +84,9 @@ content:
     type: yearonly_default
     region: content
   field_kleur_picker:
-    weight: 12
+    weight: 11
     settings:
-      default_colors: '#FFFFFF,#B2B0AF,#000000,#595BF0,#F50909,#18AA23,#FBF81F,#D841C6,#A141D8,#F07B07'
+      default_colors: '#ac725e,#d06b64,#f83a22,#fa573c,#ff7537,#ffad46,#42d692,#16a765,#7bd148'
     third_party_settings: {  }
     type: color_field_widget_box
     region: content
@@ -113,7 +114,7 @@ content:
     type: options_shs
     region: content
   field_min_elevation:
-    weight: 18
+    weight: 17
     settings:
       placeholder: 'Opbod  €'
     third_party_settings: {  }
@@ -127,7 +128,7 @@ content:
     type: number
     region: content
   field_regio:
-    weight: 14
+    weight: 13
     settings:
       force_deepest: true
       create_new_items: false
@@ -137,7 +138,7 @@ content:
     type: options_shs
     region: content
   field_reserve:
-    weight: 16
+    weight: 15
     settings:
       placeholder: 'Instelprijs €'
     third_party_settings: {  }
@@ -150,7 +151,7 @@ content:
     type: options_select
     region: content
   field_vermogen:
-    weight: 13
+    weight: 12
     settings:
       placeholder: PK
     third_party_settings: {  }
@@ -158,18 +159,18 @@ content:
     region: content
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 21
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 19
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 22
+    weight: 21
     region: content
     settings:
       display_label: true
@@ -184,13 +185,14 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 20
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
   field_afteller: true
+  field_direct_kopen: true
   field_doe_een_bod: true
   field_laatste_bod: true
   moderation_state: true

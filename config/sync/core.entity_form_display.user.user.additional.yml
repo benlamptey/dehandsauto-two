@@ -1,0 +1,86 @@
+uuid: 8a145882-f981-4ad9-91cd-d1dd9527ed5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.additional
+    - field.field.user.user.field_land
+    - field.field.user.user.field_ondernemingsnummer
+    - field.field.user.user.field_plaats
+    - field.field.user.user.field_postcode
+    - field.field.user.user.field_telefoonnummer
+    - field.field.user.user.field_waardering_
+    - field.field.user.user.user_picture
+    - image.style.avatar_foto_150_x_150_
+  module:
+    - image_widget_crop
+    - user
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.additional
+targetEntityType: user
+bundle: user
+mode: additional
+content:
+  field_land:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ondernemingsnummer:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_plaats:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_postcode:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_telefoonnummer:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  user_picture:
+    weight: 0
+    settings:
+      show_crop_area: true
+      show_default_crop: true
+      preview_image_style: avatar_foto_150_x_150_
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - avatar_crop
+      progress_indicator: throbber
+      crop_types_required: {  }
+      warn_multiple_usages: false
+    third_party_settings: {  }
+    type: image_widget_crop
+    region: content
+hidden:
+  account: true
+  contact: true
+  field_waardering_: true
+  language: true
+  path: true
+  timezone: true

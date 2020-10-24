@@ -1,0 +1,15 @@
+uuid: 231e6855-ddcc-4e3f-a956-7a08f5d36a7b
+langcode: en
+status: true
+dependencies: {  }
+name: mini_thumbnail_65_x_65_
+label: 'Mini thumbnail (65 x 65)'
+effects:
+  369fcd0a-b9ee-4201-b0e8-049f9687e6bf:
+    uuid: 369fcd0a-b9ee-4201-b0e8-049f9687e6bf
+    id: image_scale
+    weight: 1
+    data:
+      width: 65
+      height: 65
+      upscale: true

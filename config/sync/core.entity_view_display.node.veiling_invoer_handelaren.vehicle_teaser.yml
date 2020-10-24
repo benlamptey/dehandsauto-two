@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.veiling_invoer_handelaren.field_beschrijving
     - field.field.node.veiling_invoer_handelaren.field_brandstof
     - field.field.node.veiling_invoer_handelaren.field_deuren
+    - field.field.node.veiling_invoer_handelaren.field_direct_kopen
     - field.field.node.veiling_invoer_handelaren.field_doe_een_bod
     - field.field.node.veiling_invoer_handelaren.field_euro_norm
     - field.field.node.veiling_invoer_handelaren.field_expaire_time
@@ -25,12 +26,13 @@ dependencies:
     - field.field.node.veiling_invoer_handelaren.field_reserve
     - field.field.node.veiling_invoer_handelaren.field_schakeling
     - field.field.node.veiling_invoer_handelaren.field_vermogen
-    - image.style.individueel_voertuig
+    - image.style.views_thumps_247_x_140_
     - node.type.veiling_invoer_handelaren
   module:
     - comment
-    - field_timer
-    - fotorama_gallery
+    - field_formatter_class
+    - image
+    - jstimer
     - options
     - user
     - yearonly
@@ -40,44 +42,39 @@ bundle: veiling_invoer_handelaren
 mode: vehicle_teaser
 content:
   field_afteller:
-    weight: 120
+    weight: 17
     label: hidden
     settings:
-      type: auto
-      regional: nl
-      format: dHMS
-      layout: ''
-      significant: 0
-      timeSeparator: ':'
-      compact: false
-      padZeroes: false
-      use_system_language: false
-    third_party_settings: {  }
-    type: field_timer_countdown
+      dir: down
+      format_txt: ''
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: jstimer_jst_timer
     region: content
   field_beschrijving:
-    weight: 121
+    weight: 18
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_brandstof:
-    weight: 107
+    weight: 6
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_deuren:
-    weight: 102
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_doe_een_bod:
-    weight: 118
+    weight: 15
     label: hidden
     settings:
       view_mode: default
@@ -86,68 +83,39 @@ content:
     type: comment_default
     region: content
   field_euro_norm:
-    weight: 117
+    weight: 14
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_expaire_time:
-    weight: 114
+    weight: 12
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_foto_s:
-    weight: 119
+    weight: 16
     label: hidden
     settings:
-      image_style: individueel_voertuig
-      dimensions:
-        ratio: ''
-        width: ''
-        maxwidth: ''
-        minwidth: ''
-        height: ''
-        maxheight: null
-        minheight: false
-        percent_width: 0
-        percent_maxwidth: 0
-        percent_minwidth: 0
-        percent_height: 0
-        percent_maxheight: 0
-        percent_minheight: 0
-      others:
-        fit: 1
-        arrows: 1
-        click: true
-        loop: false
-        shuffle: false
-        keyboard: false
-        swipe: false
-        trackpad: false
-      navigation:
-        nav: 1
-        navposition: 0
-      transition:
-        transition: 1
-        clicktransition: true
-      autoplay:
-        stopautoplayontouch: false
-      image_link: ''
-    third_party_settings: {  }
-    type: fotorama_gallery
+      image_style: views_thumps_247_x_140_
+      image_link: content
+    third_party_settings:
+      field_formatter_class:
+        class: ''
+    type: image
     region: content
   field_jaar:
-    weight: 106
+    weight: 5
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: yearonly_default
     region: content
   field_km:
-    weight: 104
+    weight: 3
     label: hidden
     settings:
       thousand_separator: ''
@@ -156,7 +124,7 @@ content:
     type: number_integer
     region: content
   field_laatste_bod:
-    weight: 122
+    weight: 19
     label: hidden
     settings:
       thousand_separator: ''
@@ -165,14 +133,14 @@ content:
     type: number_integer
     region: content
   field_maand:
-    weight: 105
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_key
     region: content
   field_merk:
-    weight: 103
+    weight: 2
     label: hidden
     settings:
       link: false
@@ -180,7 +148,7 @@ content:
     type: entity_reference_label
     region: content
   field_min_elevation:
-    weight: 115
+    weight: 13
     label: hidden
     settings:
       thousand_separator: ''
@@ -189,7 +157,7 @@ content:
     type: number_integer
     region: content
   field_prijs:
-    weight: 110
+    weight: 8
     label: hidden
     settings:
       thousand_separator: ''
@@ -198,7 +166,7 @@ content:
     type: number_integer
     region: content
   field_regio:
-    weight: 109
+    weight: 7
     label: hidden
     settings:
       link: false
@@ -206,7 +174,7 @@ content:
     type: entity_reference_label
     region: content
   field_reserve:
-    weight: 113
+    weight: 11
     label: hidden
     settings:
       thousand_separator: ''
@@ -215,14 +183,14 @@ content:
     type: number_integer
     region: content
   field_schakeling:
-    weight: 111
+    weight: 9
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_vermogen:
-    weight: 112
+    weight: 10
     label: hidden
     settings:
       thousand_separator: ''
@@ -236,9 +204,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_direct_kopen: true
   field_kleur_picker: true

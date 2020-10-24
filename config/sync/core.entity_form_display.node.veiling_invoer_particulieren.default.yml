@@ -7,11 +7,13 @@ dependencies:
     - field.field.node.veiling_invoer_particulieren.field_beschrijving
     - field.field.node.veiling_invoer_particulieren.field_brandstof
     - field.field.node.veiling_invoer_particulieren.field_deuren
+    - field.field.node.veiling_invoer_particulieren.field_direct_kopen
     - field.field.node.veiling_invoer_particulieren.field_doe_een_bod
     - field.field.node.veiling_invoer_particulieren.field_euro_norm
     - field.field.node.veiling_invoer_particulieren.field_expaire_time
     - field.field.node.veiling_invoer_particulieren.field_foto_s
     - field.field.node.veiling_invoer_particulieren.field_jaar
+    - field.field.node.veiling_invoer_particulieren.field_kleur_picker
     - field.field.node.veiling_invoer_particulieren.field_km
     - field.field.node.veiling_invoer_particulieren.field_laatste_bod
     - field.field.node.veiling_invoer_particulieren.field_maand
@@ -25,8 +27,9 @@ dependencies:
     - image.style.thumbnail
     - node.type.veiling_invoer_particulieren
   module:
+    - color_field
     - comment
-    - fiu
+    - image
     - scheduler
     - shs
     - yearonly
@@ -57,7 +60,7 @@ content:
     region: content
   field_doe_een_bod:
     type: comment_default
-    weight: 22
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -68,24 +71,31 @@ content:
     type: options_select
     region: content
   field_expaire_time:
-    weight: 16
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_foto_s:
-    weight: 14
+    weight: 13
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: fine_image
+    type: image_image
     region: content
   field_jaar:
     weight: 4
     settings: {  }
     third_party_settings: {  }
     type: yearonly_default
+    region: content
+  field_kleur_picker:
+    weight: 22
+    settings:
+      default_colors: '#ac725e,#d06b64,#f83a22,#fa573c,#ff7537,#ffad46,#42d692,#16a765,#7bd148'
+    third_party_settings: {  }
+    type: color_field_widget_box
     region: content
   field_km:
     weight: 6
@@ -111,7 +121,7 @@ content:
     type: options_shs
     region: content
   field_min_elevation:
-    weight: 17
+    weight: 16
     settings:
       placeholder: Opbod
     third_party_settings: {  }
@@ -125,7 +135,7 @@ content:
     type: number
     region: content
   field_regio:
-    weight: 13
+    weight: 12
     settings:
       force_deepest: true
       create_new_items: false
@@ -135,7 +145,7 @@ content:
     type: options_shs
     region: content
   field_reserve:
-    weight: 15
+    weight: 14
     settings:
       placeholder: Instelprijs
     third_party_settings: {  }
@@ -148,7 +158,7 @@ content:
     type: options_select
     region: content
   field_vermogen:
-    weight: 12
+    weight: 11
     settings:
       placeholder: PK
     third_party_settings: {  }
@@ -156,12 +166,12 @@ content:
     region: content
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 19
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 18
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -169,7 +179,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 21
+    weight: 20
     region: content
     third_party_settings: {  }
   title:
@@ -182,13 +192,14 @@ content:
     third_party_settings: {  }
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 20
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
   field_afteller: true
+  field_direct_kopen: true
   field_laatste_bod: true
   moderation_state: true
   path: true

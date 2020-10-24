@@ -12,7 +12,7 @@ dependencies:
 id: contactbannerblock
 theme: currus
 region: banner
-weight: 0
+weight: -18
 provider: null
 plugin: 'block_content:6ff299c2-dc95-43bc-9c9c-2bfb12906956'
 settings:

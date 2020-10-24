@@ -1,0 +1,33 @@
+uuid: e1b81c75-0d68-40e4-ac7f-158d61fadc85
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view._actieve_veiling_particulieren_simpele_filter
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - currus
+third_party_settings:
+  block_class:
+    classes: block-banner-exposedform
+id: exposedform_particulieren_simpele_filterpagina
+theme: currus
+region: banner
+weight: -12
+provider: null
+plugin: 'views_exposed_filter_block:_actieve_veiling_particulieren_simpele_filter-pagina_veiling_simple_filter_particulieren'
+settings:
+  id: 'views_exposed_filter_block:_actieve_veiling_particulieren_simpele_filter-pagina_veiling_simple_filter_particulieren'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: /veiling-alle-voertuigen-simpele-filter
+    negate: false
+    context_mapping: {  }

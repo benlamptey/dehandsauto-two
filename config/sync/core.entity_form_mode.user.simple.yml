@@ -1,0 +1,10 @@
+uuid: a2286e6b-91d3-49a1-bedb-ecbac4ed6448
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.simple
+label: Simple
+targetEntityType: user
+cache: true

@@ -1,0 +1,12 @@
+uuid: bba21b94-7bc9-468a-8aee-745d1254eccf
+langcode: en
+status: true
+dependencies: {  }
+id: avatar_crop
+label: 'Avatar crop'
+description: 'Instellingen voor de crop widget. Gebruikt in de account profiel.'
+aspect_ratio: '1:1'
+soft_limit_width: 150
+soft_limit_height: 150
+hard_limit_width: 50
+hard_limit_height: 50
