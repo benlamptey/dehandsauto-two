@@ -123,6 +123,54 @@
                     "type": "zip"
                 }
             }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "hilios/jquery.countdown",
+                "version": "v2.2.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/hilios/jQuery.countdown/releases/download/2.2.0/jquery.countdown-2.2.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "county/county",
+                "version": "v1.0.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://www.egrappler.com/county/county.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fontawesome/fontawesome",
+                "version": "v5.15.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/FortAwesome/Font-Awesome/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "itsjavi/fontawesome-iconpicker",
+                "version": "v1.0.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/itsjavi/fontawesome-iconpicker/archive/master.zip",
+                    "type": "zip"
+                }
+            }
         }
     ],
     "require": {
@@ -198,9 +246,12 @@
         "drupal/yearonly": "^9.0",
         "drush/drush": "^10.3",
         "fengyuanchen/cropper": "^4.1",
+        "fontawesome/fontawesome": "^5.15",
         "fotorama_gallery/fotorama": "^4.6",
         "frdh/mmenu": "^8.5",
         "furf/jquery-ui-touch-punch": "^1.0",
+        "hilios/jquery.countdown": "^2.2",
+        "itsjavi/fontawesome-iconpicker": "^3.2",
         "jackmoore/colorbox": "^1.6",
         "joeldbirch/superfish": "^1.0",
         "recurser/jquery-simple-color": "^1.2"

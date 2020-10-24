@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd38d3c9fe13d938c34dde6f19bbcea8",
+    "content-hash": "557ed6c9f829e670eba565de65cdaed2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -6819,6 +6819,15 @@
             "type": "drupal-library"
         },
         {
+            "name": "fontawesome/fontawesome",
+            "version": "v5.15.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/FortAwesome/Font-Awesome/archive/master.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
             "name": "fotorama_gallery/fotorama",
             "version": "v4.6.4",
             "dist": {
@@ -7175,6 +7184,52 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "hilios/jquery.countdown",
+            "version": "v2.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/hilios/jQuery.countdown/releases/download/2.2.0/jquery.countdown-2.2.0.zip"
+            },
+            "type": "drupal-library"
+        },
+        {
+            "name": "itsjavi/fontawesome-iconpicker",
+            "version": "3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/farbelous/fontawesome-iconpicker.git",
+                "reference": "ca4d2f2b03140af422ea9e15160494e887844d39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/farbelous/fontawesome-iconpicker/zipball/ca4d2f2b03140af422ea9e15160494e887844d39",
+                "reference": "ca4d2f2b03140af422ea9e15160494e887844d39",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Javi Aguilar",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Font Awesome Icon Picker plugin for Twitter Bootstrap",
+            "homepage": "https://farbelous.github.io/fontawesome-iconpicker/",
+            "keywords": [
+                "FontAwesome",
+                "bootstrap",
+                "iconpicker",
+                "picker",
+                "popover"
+            ],
+            "abandoned": true,
+            "time": "2018-11-04T00:40:48+00:00"
         },
         {
             "name": "jackmoore/colorbox",
