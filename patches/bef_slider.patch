@@ -1,0 +1,70 @@
+Index: modules/contrib/better_exposed_filters/js/bef_sliders.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- js/bef_sliders.js	(date 1603577678551)
++++ js/bef_sliders.js	(date 1603577678551)
+@@ -11,6 +11,8 @@
+       if (drupalSettings.better_exposed_filters.slider) {
+         $.each(drupalSettings.better_exposed_filters.slider_options, function (i, sliderOptions) {
+           var data_selector = 'edit-' + sliderOptions.dataSelector;
++          var static_id_min = "span#" + sliderOptions.id + "-custom-min";
++          var static_id_max = "span#" + sliderOptions.id + "-custom-max";
+
+           // Collect all possible input fields for this filter.
+           var $inputs = $("input[data-drupal-selector=" + data_selector + "], input[data-drupal-selector=" + data_selector + "-max], input[data-drupal-selector=" + data_selector + "-min]", context).once('slider-filter');
+@@ -63,15 +65,19 @@
+             // This is an in-between or not-in-between filter. Use a range
+             // filter and tie the min and max into the two input elements.
+             var $min = $($inputs[0]),
+-                $max = $($inputs[1]),
+-                // Get the default values. We use slider min & max if there are
+-                // no defaults.
+-                defaultMin = parseFloat(($min.val() == '') ? sliderOptions.min : $min.val()),
+-                defaultMax = parseFloat(($max.val() == '') ? sliderOptions.max : $max.val());
++              $max = $($inputs[1]),
++              $static_min = $(static_id_min),
++              $static_max = $(static_id_max),
++              // Get the default values. We use slider min & max if there are
++              // no defaults.
++              defaultMin = parseFloat(($min.val() == '') ? sliderOptions.min : $min.val()),
++              defaultMax = parseFloat(($max.val() == '') ? sliderOptions.max : $max.val());
+
+             // Set the element value in case we are using the slider min & max.
+             $min.val(defaultMin);
+             $max.val(defaultMax);
++            $static_min.text(defaultMin);
++            $static_max.text(defaultMax);
+
+             var slider = $('<div class="bef-slider"></div>').slider({
+               range: true,
+@@ -85,6 +91,8 @@
+               slide: function (event, ui) {
+                 $min.val(ui.values[0]);
+                 $max.val(ui.values[1]);
++                $static_min.text(ui.values[0]);
++                $static_max.text(ui.values[1]);
+               },
+               // This fires when the value is set programmatically or the
+               // stop event fires. This takes care of the case that a user
+@@ -95,6 +103,8 @@
+               change: function (event, ui) {
+                 $min.val(ui.values[0]);
+                 $max.val(ui.values[1]);
++                $static_min.text(ui.values[0]);
++                $static_max.text(ui.values[1]);
+               },
+               // Attach stop listeners.
+               stop: function (event, ui) {
+@@ -140,8 +150,8 @@
+    */
+   function befUpdateSlider($el, valIndex, sliderOptions) {
+     var val = parseFloat($el.val()),
+-        currentMin = $el.parents('div.views-widget').next('.bef-slider').slider('values', 0),
+-        currentMax = $el.parents('div.views-widget').next('.bef-slider').slider('values', 1);
++      currentMin = $el.parents('div.views-widget').next('.bef-slider').slider('values', 0),
++      currentMax = $el.parents('div.views-widget').next('.bef-slider').slider('values', 1);
+
+     // If we have a range slider.
+     if (valIndex != null) {

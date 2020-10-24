@@ -278,8 +278,10 @@
 
         "drupal/core": {
             "Exposed filters, undefined index min": "https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch"
-       }
-
+       },
+        "drupal/better_exposed_filters": {
+            "Update custom slider digits": "./patches/bef_slider.patch"
+        }
      },
         "installer-paths": {
             "core": [
