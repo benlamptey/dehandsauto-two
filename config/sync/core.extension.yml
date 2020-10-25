@@ -11,6 +11,7 @@ module:
   backup_migrate: 0
   bavocado: 0
   better_exposed_filters: 0
+  bidvalidate: 0
   biedconditie: 0
   block: 0
   block_class: 0
