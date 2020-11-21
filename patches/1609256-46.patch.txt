@@ -1,0 +1,17 @@
+diff --git a/core/modules/comment/src/CommentForm.php b/core/modules/comment/src/CommentForm.php
+index 48c72712df..329faee23f 100644
+--- a/core/modules/comment/src/CommentForm.php
++++ b/core/modules/comment/src/CommentForm.php
+@@ -115,12 +115,6 @@ public function form(array $form, FormStateInterface $form_state) {
+       $form['#attributes']['data-user-info-from-browser'] = TRUE;
+     }
+ 
+-    // If not replying to a comment, use our dedicated page callback for new
+-    // Comments on entities.
+-    if (!$comment->id() && !$comment->hasParentComment()) {
+-      $form['#action'] = Url::fromRoute('comment.reply', ['entity_type' => $entity->getEntityTypeId(), 'entity' => $entity->id(), 'field_name' => $field_name])->toString();
+-    }
+-
+     $comment_preview = $form_state->get('comment_preview');
+     if (isset($comment_preview)) {
+       $form += $comment_preview;

@@ -18,7 +18,7 @@ function bidvalidate_form_comment_bieden_op_dit_voertuig_form_alter(&$form, \Dru
         $form['field_nieuw_bod']['widget'][0]['value']['#title_display'] = 'none';
         $form['actions']['submit']['#value'] = 'Bieden';
         $form['actions']['preview']['#access'] = FALSE;
-        $form['#validate'][] = 'bidvalidate_form_validate';
+//        $form['#validate'][] = 'bidvalidate_form_validate';
 }
 
 /**
@@ -45,59 +45,78 @@ function bidvalidate_node_insert($entity) {
  * Implementing hook_form_alter().
  */
 function bidvalidate_form_alter(&$form, $form_state, $form_id) {
+  if ($form_id == 'comment_bieden_op_dit_voertuig_form') {
+    $current_user = \Drupal::currentUser();
+    $node = \Drupal::routeMatch()->getParameter('node');
 
-    if ($form_id == 'comment_bieden_op_dit_voertuig_form'){
+    if ($node) {
+      $form['node_id'] = [
+        '#type' => 'hidden',
+        '#value' => $node->id(),
+      ];
 
-      $form['#validate'][] = 'bidvalidate_form_validate';
+      // Lets find out if this user has already commented on this node.
+      $query = \Drupal::entityQuery('comment')
+        ->condition('entity_id', $node->id())
+        ->condition('uid', $current_user->id())
+        ->execute();
+
+      if (!empty($query)) {
+        $form['field_nieuw_bod']['#access'] = FALSE;
+        $form['already_bid'] = [
+          '#type' => 'markup',
+          '#markup' => t('You have already placed a bid.')
+        ];
+        $form['actions']['#access'] = FALSE;
+      }
     }
+
+    $form['field_nieuw_bod']['widget'][0]['value']['#title_display'] = 'none';
+    $form['actions']['submit']['#value'] = 'Bieden';
+    $form['actions']['preview']['#access'] = FALSE;
+    $form['#validate'][] = 'bidvalidate_form_validate';
+  }
 }
 
 /**
  * Implementing hook_form_validate().
  */
 function bidvalidate_form_validate($form, \Drupal\Core\Form\FormStateInterface &$form_state) {
-  $node = \Drupal::routeMatch()->getParameter('entity');
-  if ($node instanceof \Drupal\node\NodeInterface) {
-    // You can get nid and anything else you need from the node object.
+  $nid = $form_state->getValue('node_id');
+  if ($nid) {
+    $node = \Drupal\node\Entity\Node::load($nid);
+
     $nid = $node->id();
-  }
-  else {
-    $nid = $node;
-  }
-  $query = \Drupal::database()->select('custom_bid_data', 'c')
-  ->fields('c')
-  ->condition('nid', $nid,'=');
-  $results = $query->execute()->fetchAssoc();
-  $last_bid = $results['min'];
-  $nieuw_bod = $form_state->getValue('field_nieuw_bod');
-  $new_bid = $nieuw_bod[0]['value'];
-  $node = \Drupal\node\Entity\Node::load($nid);
-  $min_bid_diffe = $node->field_min_elevation->value;
 
-  $diffe = $new_bid - $last_bid;
-  $diffe_plus = $new_bid + $min_bid_diffe;
 
-  if ($new_bid > $last_bid && $diffe < $min_bid_diffe) {
-    $form_state->setErrorByName('field_nieuw_bod', t(',-  Graag een hoger bod opgaande met minstens €'.$min_bid_diffe));
-  }
+    $query = \Drupal::database()->select('custom_bid_data', 'c')
+      ->fields('c')
+      ->condition('nid', $nid, '=');
+    $results = $query->execute()->fetchAssoc();
+    $last_bid = $results['min'];
+    $nieuw_bod = $form_state->getValue('field_nieuw_bod');
+    $new_bid = $nieuw_bod[0]['value'];
+    $min_bid_diffe = $node->field_min_elevation->value;
 
-  elseif ($new_bid < $last_bid) {
-    $form_state->setErrorByName('field_nieuw_bod', t('Het laatste bod was €'.$last_bid .',-  graag een hoger bod en opgaande met minstens €'.$min_bid_diffe));
+    $diffe = $new_bid - $last_bid;
+    $diffe_plus = $new_bid + $min_bid_diffe;
 
-  }
-
-  else{
-       $query = \Drupal::database()->update('custom_bid_data')
+    if ($new_bid > $last_bid && $diffe < $min_bid_diffe) {
+      $form_state->setErrorByName('field_nieuw_bod', t(',-  Graag een hoger bod opgaande met minstens €' . $min_bid_diffe));
+    } elseif ($new_bid < $last_bid) {
+      $form_state->setErrorByName('field_nieuw_bod', t('Het laatste bod was €' . $last_bid . ',-  graag een hoger bod en opgaande met minstens €' . $min_bid_diffe));
+    } else {
+      $query = \Drupal::database()->update('custom_bid_data')
         ->fields([
           'min' => $new_bid,
         ])
         ->condition('nid', $nid)
         ->execute();
 
-     \Drupal::messenger()->addMessage('field_nieuw_bod', ('Bedankt voor je bod'));
-
+      \Drupal::messenger()->addMessage('€' . $new_bid . 'Bedankt voor je bod');
     }
   }
+}
 
 function bidvalidate_node_delete($entity) {
 
@@ -119,14 +138,3 @@ function bidvalidate_node_presave($entity) {
   }
 }
 
-
-/**
- * Implements hook_entity_bundle_field_info_alter().
- */
-function bidvalidate_entity_bundle_field_info_alter(&$fields, \Drupal\Core\Entity\EntityTypeInterface $entity_type, $bundle) {
-  if ($entity_type->id() === 'comment' && $bundle === 'bieden_op_dit_voertuig') {
-    if (isset($fields['field_nieuw_bod'])) {
-//      $fields['field_nieuw_bod']->addConstraint('BidValidator', []);
-    }
-  }
-}
