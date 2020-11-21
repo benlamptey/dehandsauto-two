@@ -19,6 +19,7 @@ settings:
   provider: node
   label_display: '0'
   type: veiling_invoer_particulieren
+  form_mode: default
   show_help: 0
 visibility:
   request_path:
