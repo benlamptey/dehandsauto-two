@@ -30,9 +30,9 @@ dependencies:
     - node.type.veiling_invoer_particulieren
   module:
     - comment
+    - datetime
     - field_formatter_class
     - image
-    - jstimer
     - options
     - shs
     - user
@@ -43,13 +43,13 @@ bundle: veiling_invoer_particulieren
 mode: vehicle_teaser
 content:
   field_afteller:
-    weight: 0
-    label: hidden
+    weight: 23
+    label: above
     settings:
-      dir: down
-      format_txt: ''
+      format_type: medium
+      timezone_override: ''
     third_party_settings: {  }
-    type: jstimer_jst_timer
+    type: datetime_default
     region: content
   field_beschrijving:
     weight: 21

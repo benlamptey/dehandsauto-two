@@ -1,0 +1,8 @@
+uuid: c2cc79d4-1ed2-4982-9299-666a6d185622
+langcode: en
+status: true
+dependencies: {  }
+id: afteller
+label: Afteller
+locked: false
+pattern: 'd:H:i:s'
