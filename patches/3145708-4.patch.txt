@@ -1,0 +1,353 @@
+diff --git a/modules/simple_fb_connect_rules/simple_fb_connect_rules.info.yml b/modules/simple_fb_connect_rules/simple_fb_connect_rules.info.yml
+index ef68817..fb45d80 100755
+--- a/modules/simple_fb_connect_rules/simple_fb_connect_rules.info.yml
++++ b/modules/simple_fb_connect_rules/simple_fb_connect_rules.info.yml
+@@ -3,6 +3,7 @@ type: module
+ description: 'Integrates Simple FB Connect with Rules.'
+ package: Authentication
+ core: 8.x
++core_version_requirement: ^8 || ^9
+ dependencies:
+   - simple_fb_connect
+   - rules
+diff --git a/simple_fb_connect.info.yml b/simple_fb_connect.info.yml
+index f79fd72..5cc315a 100644
+--- a/simple_fb_connect.info.yml
++++ b/simple_fb_connect.info.yml
+@@ -3,4 +3,5 @@ type: module
+ description: 'Allows users to authenticate with their Facebook accounts.'
+ package: Authentication
+ core: 8.x
++core_version_requirement: ^8 || ^9
+ configure: simple_fb_connect.settings_form
+diff --git a/simple_fb_connect.services.yml b/simple_fb_connect.services.yml
+index 04ed4c7..0f4e28f 100644
+--- a/simple_fb_connect.services.yml
++++ b/simple_fb_connect.services.yml
+@@ -20,6 +20,7 @@ services:
+       - '@token'
+       - '@transliteration'
+       - '@language_manager'
++      - '@file_system'
+ 
+   simple_fb_connect.post_login_manager:
+     class: Drupal\simple_fb_connect\SimpleFbConnectPostLoginManager
+diff --git a/src/Controller/SimpleFbConnectController.php b/src/Controller/SimpleFbConnectController.php
+index b3fead8..8998001 100644
+--- a/src/Controller/SimpleFbConnectController.php
++++ b/src/Controller/SimpleFbConnectController.php
+@@ -69,7 +69,7 @@ class SimpleFbConnectController extends ControllerBase {
+   public function redirectToFb() {
+     // Try to get an instance of Facebook service.
+     if (!$facebook = $this->fbFactory->getFbService()) {
+-      drupal_set_message($this->t('Simple FB Connect is not configured properly. Please contact site administrator.'), 'error');
++      $this->messenger()->addMessage($this->t('Simple FB Connect is not configured properly. Please contact site administrator.'), 'error');
+       return $this->redirect('user.login');
+     }
+ 
+@@ -100,7 +100,7 @@ class SimpleFbConnectController extends ControllerBase {
+   public function returnFromFb() {
+     // Try to get an instance of Facebook service.
+     if (!$facebook = $this->fbFactory->getFbService()) {
+-      drupal_set_message($this->t('Simple FB Connect is not configured properly. Please contact site administrator.'), 'error');
++      $this->messenger()->addMessage($this->t('Simple FB Connect is not configured properly. Please contact site administrator.'), 'error');
+       return $this->redirect('user.login');
+     }
+ 
+@@ -109,17 +109,17 @@ class SimpleFbConnectController extends ControllerBase {
+ 
+     // Read user's access token from Facebook.
+     if (!$access_token = $this->fbManager->getAccessTokenFromFb()) {
+-      drupal_set_message($this->t('Facebook login failed.'), 'error');
++      $this->messenger()->addMessage($this->t('Facebook login failed.'), 'error');
+       return $this->redirect('user.login');
+     }
+ 
+     // Check that user authorized our app to access user's email address.
+     if (!$this->fbManager->checkPermission('email')) {
+       if ($site_name = $this->config('system.site')->get('name')) {
+-        drupal_set_message($this->t('Facebook login failed. @site_name requires permission to get your email address from Facebook. Please try again and give the permission.', ['@site_name' => $site_name]), 'error');
++        $this->messenger()->addMessage($this->t('Facebook login failed. @site_name requires permission to get your email address from Facebook. Please try again and give the permission.', ['@site_name' => $site_name]), 'error');
+       }
+       else {
+-        drupal_set_message($this->t('Facebook login failed. This site requires permission to get your email address from Facebook. Please try again and give the permission.'), 'error');
++        $this->messenger()->addMessage($this->t('Facebook login failed. This site requires permission to get your email address from Facebook. Please try again and give the permission.'), 'error');
+       }
+       $this->persistentDataHandler->set('reprompt', TRUE);
+       return $this->redirect('user.login');
+@@ -127,13 +127,13 @@ class SimpleFbConnectController extends ControllerBase {
+ 
+     // Get user's FB profile from Facebook API.
+     if (!$fb_profile = $this->fbManager->getFbProfile()) {
+-      drupal_set_message($this->t('Facebook login failed, Facebook profile could not be loaded. Please contact site administrator.'), 'error');
++      $this->messenger()->addMessage($this->t('Facebook login failed, Facebook profile could not be loaded. Please contact site administrator.'), 'error');
+       return $this->redirect('user.login');
+     }
+ 
+     // Get user's email from the FB profile.
+     if (!$email = $this->fbManager->getEmail($fb_profile)) {
+-      drupal_set_message($this->t('Facebook login failed. This site requires an email address. Please add one in your Facebook profile and try again.'), 'error');
++      $this->messenger()->addMessage($this->t('Facebook login failed. This site requires an email address. Please add one in your Facebook profile and try again.'), 'error');
+       return $this->redirect('user.login');
+     }
+ 
+@@ -162,7 +162,7 @@ class SimpleFbConnectController extends ControllerBase {
+       if ($this->userManager->loginUser($drupal_user)) {
+         // Check if new users should be redirected to Drupal user form.
+         if ($this->postLoginManager->getRedirectNewUsersToUserFormSetting()) {
+-          drupal_set_message($this->t("Please take a moment to confirm your account details. Since you logged in with Facebook, you don't need to update your password."));
++          $this->messenger()->addMessage($this->t("Please take a moment to confirm your account details. Since you logged in with Facebook, you don't need to update your password."));
+           return new RedirectResponse($this->postLoginManager->getPathToUserForm($drupal_user));
+         }
+ 
+@@ -174,7 +174,7 @@ class SimpleFbConnectController extends ControllerBase {
+         // New user was created but the account is pending approval.
+         // Unset access token from session.
+         $this->persistentDataHandler->set('access_token', NULL);
+-        drupal_set_message($this->t('You will receive an email when a site administrator activates your account.'), 'warning');
++        $this->messenger()->addMessage($this->t('You will receive an email when a site administrator activates your account.'), 'warning');
+         return $this->redirect('user.login');
+       }
+     }
+diff --git a/src/SimpleFbConnectUserManager.php b/src/SimpleFbConnectUserManager.php
+index e0973cb..6dbae86 100644
+--- a/src/SimpleFbConnectUserManager.php
++++ b/src/SimpleFbConnectUserManager.php
+@@ -17,13 +17,15 @@ use Drupal\Core\Transliteration\PhpTransliteration;
+ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+ use Symfony\Component\EventDispatcher\GenericEvent;
+ use Drupal\Core\Entity\EntityStorageException;
+-use Drupal\Component\Utility\Unicode;
++use Drupal\Core\File\FileSystemInterface;
++use Drupal\Core\Messenger\MessengerTrait;
+ 
+ /**
+  * Contains all logic that is related to Drupal user management.
+  */
+ class SimpleFbConnectUserManager {
+   use StringTranslationTrait;
++  use MessengerTrait;
+ 
+   protected $configFactory;
+   protected $loggerFactory;
+@@ -33,6 +35,7 @@ class SimpleFbConnectUserManager {
+   protected $token;
+   protected $transliteration;
+   protected $languageManager;
++  protected $fileSystem;
+ 
+   /**
+    * Constructor.
+@@ -55,8 +58,10 @@ class SimpleFbConnectUserManager {
+    *   Used for user picture directory and file transiliteration.
+    * @param \Drupal\Core\Language\LanguageManagerInterface $language_manager
+    *   Used for detecting the current UI language.
++   * @param \Drupal\Core\File\FileSystemInterface $file_system
++   *   Provides helpers to operate on files and stream wrappers.
+    */
+-  public function __construct(ConfigFactoryInterface $config_factory, LoggerChannelFactoryInterface $logger_factory, TranslationInterface $string_translation, EventDispatcherInterface $event_dispatcher, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $entity_field_manager, Token $token, PhpTransliteration $transliteration, LanguageManagerInterface $language_manager) {
++  public function __construct(ConfigFactoryInterface $config_factory, LoggerChannelFactoryInterface $logger_factory, TranslationInterface $string_translation, EventDispatcherInterface $event_dispatcher, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $entity_field_manager, Token $token, PhpTransliteration $transliteration, LanguageManagerInterface $language_manager, FileSystemInterface $file_system) {
+     $this->configFactory      = $config_factory;
+     $this->loggerFactory      = $logger_factory;
+     $this->stringTranslation  = $string_translation;
+@@ -66,6 +71,7 @@ class SimpleFbConnectUserManager {
+     $this->token              = $token;
+     $this->transliteration    = $transliteration;
+     $this->languageManager    = $language_manager;
++    $this->fileSystem         = $file_system;
+   }
+ 
+   /**
+@@ -188,7 +194,7 @@ class SimpleFbConnectUserManager {
+ 
+     // Validate the new user.
+     $violations = $new_user->validate();
+-    if (count($violations) > 0) {
++    if (!is_null($violations) && count($violations) > 0) {
+       $property = $violations[0]->getPropertyPath();
+       $msg      = $violations[0]->getMessage();
+       $this->drupalSetMessage($this->t('Error while creating user account. Please contact site administrator.'), 'error');
+@@ -312,7 +318,7 @@ class SimpleFbConnectUserManager {
+     // Truncate to max length. We use hard coded length because using
+     // USERNAME_MAX_LENGTH cause unit tests to fail.
+     $max_length = 60;
+-    $fb_name = Unicode::substr($fb_name, 0, $max_length);
++    $fb_name = mb_substr($fb_name, 0, $max_length);
+ 
+     // Add a trailing number if needed to make username unique.
+     $base = $fb_name;
+@@ -322,7 +328,7 @@ class SimpleFbConnectUserManager {
+       $i++;
+       // Calculate max length for $base and truncate if needed.
+       $max_length_base = $max_length - strlen((string) $i) - 1;
+-      $base = Unicode::substr($base, 0, $max_length_base);
++      $base = mb_substr($base, 0, $max_length_base);
+       $candidate = $base . " " . $i;
+     }
+ 
+@@ -565,7 +571,7 @@ class SimpleFbConnectUserManager {
+    * @see file_prepare_directory
+    */
+   protected function filePrepareDirectory(&$directory, $options) {
+-    return file_prepare_directory($directory, $options);
++    return $this->fileSystem->prepareDirectory($directory, $options);
+   }
+ 
+   /**
+@@ -591,7 +597,7 @@ class SimpleFbConnectUserManager {
+    * @see drupal_set_message
+    */
+   protected function drupalSetMessage($message = NULL, $type = 'status', $repeat = FALSE) {
+-    return drupal_set_message($message, $type, $repeat);
++    return $this->messenger()->addMessage($message, $type, $repeat);
+   }
+ 
+   /**
+diff --git a/tests/src/Unit/SimpleFbConnectFbFactoryTest.php b/tests/src/Unit/SimpleFbConnectFbFactoryTest.php
+index d2f48e6..dfd929f 100644
+--- a/tests/src/Unit/SimpleFbConnectFbFactoryTest.php
++++ b/tests/src/Unit/SimpleFbConnectFbFactoryTest.php
+@@ -19,10 +19,10 @@ class SimpleFbConnectFbFactoryTest extends UnitTestCase {
+   /**
+    * {@inheritdoc}
+    */
+-  protected function setUp() {
++  protected function setUp(): void {
+     parent::setUp();
+ 
+-    $this->loggerFactory = $this->getMock('Drupal\Core\Logger\LoggerChannelFactoryInterface');
++    $this->loggerFactory = $this->createMock('Drupal\Core\Logger\LoggerChannelFactoryInterface');
+ 
+     $this->persistentDataHandler = $this->getMockBuilder('Drupal\simple_fb_connect\SimpleFbConnectPersistentDataHandler')
+       ->disableOriginalConstructor()
+diff --git a/tests/src/Unit/SimpleFbConnectFbManagerTest.php b/tests/src/Unit/SimpleFbConnectFbManagerTest.php
+index b81630b..9a146e9 100644
+--- a/tests/src/Unit/SimpleFbConnectFbManagerTest.php
++++ b/tests/src/Unit/SimpleFbConnectFbManagerTest.php
+@@ -22,16 +22,16 @@ class SimpleFbConnectFbManagerTest extends UnitTestCase {
+   /**
+    * {@inheritdoc}
+    */
+-  protected function setUp() {
++  protected function setUp(): void {
+     parent::setUp();
+ 
+-    $this->loggerFactory = $this->getMock('Drupal\Core\Logger\LoggerChannelFactoryInterface');
++    $this->loggerFactory = $this->createMock('Drupal\Core\Logger\LoggerChannelFactoryInterface');
+ 
+-    $this->eventDispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
++    $this->eventDispatcher = $this->createMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+ 
+-    $this->entityFieldManager = $this->getMock('Drupal\Core\Entity\EntityFieldManagerInterface');
++    $this->entityFieldManager = $this->createMock('Drupal\Core\Entity\EntityFieldManagerInterface');
+ 
+-    $this->urlGenerator = $this->getMock('Drupal\Core\Routing\UrlGeneratorInterface');
++    $this->urlGenerator = $this->createMock('Drupal\Core\Routing\UrlGeneratorInterface');
+ 
+     $this->persistentDataHandler = $this->getMockBuilder('Drupal\simple_fb_connect\SimpleFbConnectPersistentDataHandler')
+       ->disableOriginalConstructor()
+diff --git a/tests/src/Unit/SimpleFbConnectPersistentDataHandlerTest.php b/tests/src/Unit/SimpleFbConnectPersistentDataHandlerTest.php
+index ada0a31..ea4425b 100644
+--- a/tests/src/Unit/SimpleFbConnectPersistentDataHandlerTest.php
++++ b/tests/src/Unit/SimpleFbConnectPersistentDataHandlerTest.php
+@@ -17,10 +17,10 @@ class SimpleFbConnectPersistentDataHandlerTest extends UnitTestCase {
+   /**
+    * {@inheritdoc}
+    */
+-  protected function setUp() {
++  protected function setUp(): void {
+     parent::setUp();
+ 
+-    $this->session = $this->getMock('Symfony\Component\HttpFoundation\Session\SessionInterface');
++    $this->session = $this->createMock('Symfony\Component\HttpFoundation\Session\SessionInterface');
+ 
+     $this->persistentDataHandler = new SimpleFbConnectPersistentDataHandler(
+       $this->session
+diff --git a/tests/src/Unit/SimpleFbConnectPostLoginManagerTest.php b/tests/src/Unit/SimpleFbConnectPostLoginManagerTest.php
+index 8e844de..6b97b05 100644
+--- a/tests/src/Unit/SimpleFbConnectPostLoginManagerTest.php
++++ b/tests/src/Unit/SimpleFbConnectPostLoginManagerTest.php
+@@ -20,7 +20,7 @@ class SimpleFbConnectPostLoginManagerTest extends UnitTestCase {
+   /**
+    * {@inheritdoc}
+    */
+-  protected function setUp() {
++  protected function setUp(): void {
+     parent::setUp();
+ 
+     $this->configFactory = $this->getConfigFactoryStub(
+@@ -31,7 +31,7 @@ class SimpleFbConnectPostLoginManagerTest extends UnitTestCase {
+       ]
+     );
+ 
+-    $this->requestContext = $this->getMock('Drupal\Core\Routing\RequestContext');
++    $this->requestContext = $this->createMock('Drupal\Core\Routing\RequestContext');
+ 
+     $this->pathValidator = $this->getMockBuilder('Drupal\Core\Path\PathValidatorInterface')
+       ->disableOriginalConstructor()
+diff --git a/tests/src/Unit/SimpleFbConnectUserManagerTest.php b/tests/src/Unit/SimpleFbConnectUserManagerTest.php
+index 6823537..c2f7877 100644
+--- a/tests/src/Unit/SimpleFbConnectUserManagerTest.php
++++ b/tests/src/Unit/SimpleFbConnectUserManagerTest.php
+@@ -24,7 +24,7 @@ class SimpleFbConnectUserManagerTest extends UnitTestCase {
+   /**
+    * {@inheritdoc}
+    */
+-  protected function setUp() {
++  protected function setUp(): void {
+     parent::setUp();
+ 
+     $this->configFactory = $this->getConfigFactoryStub(
+@@ -42,11 +42,11 @@ class SimpleFbConnectUserManagerTest extends UnitTestCase {
+       ]
+     );
+ 
+-    $this->loggerFactory = $this->getMock('Drupal\Core\Logger\LoggerChannelFactoryInterface');
++    $this->loggerFactory = $this->createMock('Drupal\Core\Logger\LoggerChannelFactoryInterface');
+ 
+-    $this->stringTranslation = $this->getMock('Drupal\Core\StringTranslation\TranslationInterface');
++    $this->stringTranslation = $this->createMock('Drupal\Core\StringTranslation\TranslationInterface');
+ 
+-    $this->eventDispatcher = $this->getMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
++    $this->eventDispatcher = $this->createMock('Symfony\Component\EventDispatcher\EventDispatcherInterface');
+ 
+     $this->entityTypeManager = $this->getMockBuilder('Drupal\Core\Entity\EntityTypeManagerInterface')
+       ->setMethods(['load'])
+@@ -66,6 +66,9 @@ class SimpleFbConnectUserManagerTest extends UnitTestCase {
+     $this->languageManager = $this->getMockBuilder('Drupal\Core\Language\LanguageManagerInterface')
+       ->getMock();
+ 
++    $this->fileSystem = $this->getMockBuilder('Drupal\Core\File\FileSystemInterface')
++      ->getMock();
++
+     // Note that we are creating an instance of TestSimpleFbConnectUserManager
+     // instead of SimpleFbConnectUserManager. The test class overriders the
+     // wrapper methods that call procedural Drupal functions.
+@@ -78,7 +81,8 @@ class SimpleFbConnectUserManagerTest extends UnitTestCase {
+       $this->entityFieldManager,
+       $this->token,
+       $this->transliteration,
+-      $this->languageManager
++      $this->languageManager,
++      $this->fileSystem
+     );
+   }
+ 
+@@ -402,7 +406,7 @@ class SimpleFbConnectUserManagerTest extends UnitTestCase {
+   public function testDownloadProfilePicWhenDirectoryNotWriteable() {
+     $picture_directory = 'not/writeable/directory';
+ 
+-    $field_definition = $this->getMock('Drupal\Core\Field\FieldDefinitionInterface');
++    $field_definition = $this->createMock('Drupal\Core\Field\FieldDefinitionInterface');
+ 
+     $field_definition
+       ->expects($this->once())
+@@ -450,7 +454,7 @@ class SimpleFbConnectUserManagerTest extends UnitTestCase {
+   public function testSetProfilePic() {
+     $picture_directory = 'writeable/directory';
+ 
+-    $field_definition = $this->getMock('Drupal\Core\Field\FieldDefinitionInterface');
++    $field_definition = $this->createMock('Drupal\Core\Field\FieldDefinitionInterface');
+ 
+     $field_definition
+       ->expects($this->once())

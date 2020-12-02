@@ -1,0 +1,417 @@
+diff --git a/jstimer.info.yml b/jstimer.info.yml
+index de39753..f1b4644 100644
+--- a/jstimer.info.yml
++++ b/jstimer.info.yml
+@@ -2,6 +2,8 @@ name: 'Javascript Timer API'
+ description: 'Provides a timer api and several timer widgets for dynamic html thingys.'
+ package: 'Javascript timer api'
+ core: 8.x
++core_version_requirement: ^8 || ^9
+ type: module
+ dependencies:
+   - field
+diff --git a/jstimer.install b/jstimer.install
+index 39226b1..657f5fc 100644
+--- a/jstimer.install
++++ b/jstimer.install
+@@ -51,5 +51,7 @@ function jstimer_update_7000() {
+  */
+ function jstimer_install() {
+   jstimer_build_js_cache();
+-  drupal_clear_js_cache();
++  /* @var \Drupal\Core\Asset\JsCollectionOptimizer $js */
++  $js = \Drupal::service('asset.js.collection_optimizer');
++  $js->deleteAll();
+ }
+diff --git a/jstimer.module b/jstimer.module
+index b76927c..40d030e 100644
+--- a/jstimer.module
++++ b/jstimer.module
+@@ -1,5 +1,7 @@
+ <?php
+
+ /**
+  * @file
+  * A module which creates javascript timed dhtml things.
+@@ -116,15 +118,16 @@ function jstimer_clean_for_javascript($format_string='') {
+ function jstimer_build_js_cache() {
+   // Create the files/jstimer
+   $path = 'public://jstimer';
+-  file_prepare_directory($path, FILE_CREATE_DIRECTORY);
++  \Drupal::service('file_system')->prepareDirectory($path, FileSystemInterface::CREATE_DIRECTORY);
+   $data = jstimer_get_javascript(TRUE);
+-  file_save_data($data, $path .'/timer.js', FILE_EXISTS_REPLACE);
+-  drupal_set_message(t('Javascript timer javascript file saved to: ') . $path .'/timer.js');
++  file_save_data($data, $path .'/timer.js', FileSystemInterface::EXISTS_REPLACE);
+
+-  if (!file_exists($path .'/timer.js')) {
+-    drupal_set_message(t('File Create Error: timer.js could not be created'), 'error');
++  $messenger = \Drupal::messenger();
++  if (!file_exists($path . '/timer.js')) {
++    $messenger->addError(t('File Create Error: timer.js could not be created'));
+   }
+   else {
++    $messenger->addStatus(t('Javascript timer javascript file saved to: ') . $path .'/timer.js');
+     \Drupal::configFactory()->getEditable('jstimer.settings')->set('jstimer_timerjs_path', $path .'/timer.js')->save();
+   }
+   return $path .'/timer.js';
+diff --git a/src/Form/JstimerAdminSettings.php b/src/Form/JstimerAdminSettings.php
+index 2a229ea..b3e25b6 100644
+--- a/src/Form/JstimerAdminSettings.php
++++ b/src/Form/JstimerAdminSettings.php
+@@ -7,12 +7,42 @@
+
+ namespace Drupal\jstimer\Form;
+
++use Drupal\Core\Asset\JsCollectionOptimizer;
++use Drupal\Core\Config\ConfigFactoryInterface;
+ use Drupal\Core\Form\ConfigFormBase;
+ use Drupal\Core\Form\FormStateInterface;
+-use Drupal\Core\Render\Element;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+
+ class JstimerAdminSettings extends ConfigFormBase {
+
++  /**
++   * Used to clear the JS caches.
++   *
++   * @var \Drupal\Core\Asset\JsCollectionOptimizer
++   */
++  protected $js_collection_optimizer;
++
++  /**
++   * {@inheritDoc}
++   */
++  public function __construct(
++    ConfigFactoryInterface $config_factory,
++    JsCollectionOptimizer $jsCollectionOptimizer
++  ) {
++    parent::__construct($config_factory);
++    $this->js_collection_optimizer = $jsCollectionOptimizer;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container) {
++    return new static(
++      $container->get('config.factory'),
++      $container->get('asset.js.collection_optimizer')
++    );
++  }
++
+   /**
+    * {@inheritdoc}
+    */
+@@ -33,11 +63,11 @@ class JstimerAdminSettings extends ConfigFormBase {
+     $form = [];
+
+ 	// Placeholder method for global jstimer settings.  Currently none.
+-
++
+     $form = parent::buildForm($form, $form_state);
+     return $form;
+   }
+-
++
+   /**
+    * {@inheritdoc}
+    */
+@@ -67,6 +97,6 @@ class JstimerAdminSettings extends ConfigFormBase {
+   public function _submitForm(array &$form, FormStateInterface $form_state) {
+     // build timer.js file with new settings.
+     jstimer_build_js_cache();
+-	drupal_clear_js_cache();
++    $this->js_collection_optimizer->deleteAll();
+   }
+ }
+diff --git a/src/Plugin/Field/FieldFormatter/JsTimerDefaultFormatter.php b/src/Plugin/Field/FieldFormatter/JsTimerDefaultFormatter.php
+index f73848d..b191181 100644
+--- a/src/Plugin/Field/FieldFormatter/JsTimerDefaultFormatter.php
++++ b/src/Plugin/Field/FieldFormatter/JsTimerDefaultFormatter.php
+@@ -1,112 +1,112 @@
+-<?php
+-
+-namespace Drupal\jstimer\Plugin\Field\FieldFormatter;
+-
+-use Drupal\Core\Datetime\DrupalDateTime;
+-use Drupal\Core\Field\FieldItemListInterface;
+-use Drupal\Core\Field\FormatterBase;
+-use Drupal\Core\Form\FormStateInterface;
+-
+-/**
+- * Plugin implementation of the 'JsTimer' formatter for 'datetime' fields.
+- *
+- * @FieldFormatter(
+- *   id = "jstimer_jst_timer",
+- *   label = @Translation("JsTimer - Timer"),
+- *   field_types = {
+- *     "datetime"
+- *   }
+- * )
+- */
+-class JsTimerDefaultFormatter extends FormatterBase {
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public static function defaultSettings() {
+-    $settings = array(
+-      'dir' => 'down',
+-      'format_txt' => ''
+-    ) + parent::defaultSettings();
+-
+-    return $settings;
+-  }
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function viewElements(FieldItemListInterface $items, $langcode) {
+-    $elements = array();
+-
+-    foreach ($items as $delta => $item) {
+-      $date = $item->date;
+-      $output = [];
+-      if (!empty($item->date)) {
+-        if ($this->getFieldSetting('datetime_type') == 'date') {
+-          // A date without time will pick up the current time, use the default.
+-          datetime_date_default_time($date);
+-        }
+-
+-        // $date is a DrupalDateTime object
+-        $args = $this->dateToWidget($date->getTimestamp(), "jst_timer", $this->getSettings());
+-        $output = jst_timer_show($args['widget_args']);
+-      }
+-      $elements[$delta] = array('#markup' => $output);
+-    }
+-
+-    return $elements;
+-  }
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function settingsForm(array $form, FormStateInterface $form_state) {
+-    $form = parent::settingsForm($form, $form_state);
+-
+-    $form['dir'] = array(
+-    '#title' => $this->t('Countdown or countup timer'),
+-    '#type' => 'select',
+-    '#options' => array('up' => t('Up'), 'down' => t('Down')),
+-    '#default_value' => $this->getSetting('dir'),
+-    '#weight' => 0,
+-    );
+-
+-    $form['format_txt'] = array(
+-    '#type' => 'textfield',
+-    '#title' => $this->t('Format of the timer:'),
+-    '#default_value' => $this->getSetting('format_txt'),
+-    '#weight' => 1,
+-    );
+-
+-    return $form;
+-  }
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function settingsSummary() {
+-    $summary = parent::settingsSummary();
+-    $summary[] = t('Displaying a countdown timer');
+-
+-    return $summary;
+-  }
+-
+-
+-  protected function dateToWidget($unix_timestamp, $widget_name, $settings = array()) {
+-    $datetime = date_iso8601($unix_timestamp);
+-
+-    $widget_args = array(
+-      'widget_name' => $widget_name,
+-      'widget_args' => array(
+-        'datetime' => $datetime
+-      )
+-    );
+-
+-    foreach ($settings as $key => $val) {
+-      if ($val <> '') {
+-        $widget_args['widget_args'][$key] = $val;
+-      }
+-    }
+-    return $widget_args;
+-  }
+-}
++<?php
++
++namespace Drupal\jstimer\Plugin\Field\FieldFormatter;
++
++use Drupal\Core\Datetime\DrupalDateTime;
++use Drupal\Core\Field\FieldItemListInterface;
++use Drupal\Core\Field\FormatterBase;
++use Drupal\Core\Form\FormStateInterface;
++
++/**
++ * Plugin implementation of the 'JsTimer' formatter for 'datetime' fields.
++ *
++ * @FieldFormatter(
++ *   id = "jstimer_jst_timer",
++ *   label = @Translation("JsTimer - Timer"),
++ *   field_types = {
++ *     "datetime"
++ *   }
++ * )
++ */
++class JsTimerDefaultFormatter extends FormatterBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function defaultSettings() {
++    $settings = array(
++      'dir' => 'down',
++      'format_txt' => ''
++    ) + parent::defaultSettings();
++
++    return $settings;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function viewElements(FieldItemListInterface $items, $langcode) {
++    $elements = array();
++
++    foreach ($items as $delta => $item) {
++      $date = $item->date;
++      $output = [];
++      if (!empty($item->date)) {
++        if ($this->getFieldSetting('datetime_type') == 'date') {
++          // A date without time will pick up the current time, use the default.
++          $date->setDefaultDateTime();
++        }
++
++        // $date is a DrupalDateTime object
++        $args = $this->dateToWidget($date->getTimestamp(), "jst_timer", $this->getSettings());
++        $output = jst_timer_show($args['widget_args']);
++      }
++      $elements[$delta] = array('#markup' => $output);
++    }
++
++    return $elements;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function settingsForm(array $form, FormStateInterface $form_state) {
++    $form = parent::settingsForm($form, $form_state);
++
++    $form['dir'] = array(
++    '#title' => $this->t('Countdown or countup timer'),
++    '#type' => 'select',
++    '#options' => array('up' => t('Up'), 'down' => t('Down')),
++    '#default_value' => $this->getSetting('dir'),
++    '#weight' => 0,
++    );
++
++    $form['format_txt'] = array(
++    '#type' => 'textfield',
++    '#title' => $this->t('Format of the timer:'),
++    '#default_value' => $this->getSetting('format_txt'),
++    '#weight' => 1,
++    );
++
++    return $form;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function settingsSummary() {
++    $summary = parent::settingsSummary();
++    $summary[] = t('Displaying a countdown timer');
++
++    return $summary;
++  }
++
++
++  protected function dateToWidget($unix_timestamp, $widget_name, $settings = array()) {
++    $datetime = date('c', $unix_timestamp);
++
++    $widget_args = array(
++      'widget_name' => $widget_name,
++      'widget_args' => array(
++        'datetime' => $datetime
++      )
++    );
++
++    foreach ($settings as $key => $val) {
++      if ($val <> '') {
++        $widget_args['widget_args'][$key] = $val;
++      }
++    }
++    return $widget_args;
++  }
++}
+diff --git a/widgets/jst_clock.info.yml b/widgets/jst_clock.info.yml
+index 6048f4a..c41b714 100644
+--- a/widgets/jst_clock.info.yml
++++ b/widgets/jst_clock.info.yml
+@@ -2,6 +2,7 @@ name: 'Javascript Timer API - Clock'
+ description: 'Uses the Javascript Timer API to provide a clock widget.'
+ package: 'Javascript timer api'
+ core: 8.x
++core_version_requirement: ^8 || ^9
+ dependencies:
+   - jstimer
+ type: module
+diff --git a/widgets/jst_clock.module b/widgets/jst_clock.module
+index 99dfa22..918d3db 100644
+--- a/widgets/jst_clock.module
++++ b/widgets/jst_clock.module
+@@ -332,5 +332,7 @@ function jst_clock_show($widget_args) {
+  */
+ function jst_clock_install() {
+   jstimer_build_js_cache();
+-  drupal_clear_js_cache();
++  /* @var \Drupal\Core\Asset\JsCollectionOptimizer $js */
++  $js = \Drupal::service('asset.js.collection_optimizer');
++  $js->deleteAll();
+ }
+diff --git a/widgets/jst_timer.info.yml b/widgets/jst_timer.info.yml
+index 0b4c5a8..570fac0 100644
+--- a/widgets/jst_timer.info.yml
++++ b/widgets/jst_timer.info.yml
+@@ -2,6 +2,7 @@ name: 'Javascript Timer API - Timer'
+ description: 'Uses the Javascript Timer API to provide a timer widget.'
+ package: 'Javascript timer api'
+ core: 8.x
++core_version_requirement: ^8 || ^9
+ dependencies:
+   - jstimer
+ type: module
+diff --git a/widgets/jst_timer.module b/widgets/jst_timer.module
+index c351559..e97dc21 100644
+--- a/widgets/jst_timer.module
++++ b/widgets/jst_timer.module
+@@ -498,7 +498,7 @@ function jst_timer_admin_settings_submit($form, FormStateInterface $form_state)
+   $config->set('jst_timer_complete_alert_message', $form_state->getValue('jst_timer_complete_alert_message'));
+
+   $config->save();
+-  drupal_set_message(t('Remember to "reload" the page.  Most browsers will cache the javascript file.'));
++  \Drupal::messenger()->addStatus(t('Remember to "reload" the page.  Most browsers will cache the javascript file.'));
+ }
+
+
+@@ -523,7 +523,9 @@ function jst_timer_show($widget_args) {
+  */
+ function jst_timer_install() {
+   jstimer_build_js_cache();
+-  drupal_clear_js_cache();
++  /* @var \Drupal\Core\Asset\JsCollectionOptimizer $js */
++  $js = \Drupal::service('asset.js.collection_optimizer');
++  $js->deleteAll();
+ }
+
+

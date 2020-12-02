@@ -2,7 +2,6 @@
 
 namespace Drupal\opbieden\Plugin\Field\FieldFormatter;
 
-use Drupal\Core\Field\AllowedTagsXssTrait;
 use Drupal\Core\Field\FieldFilteredMarkup;
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
@@ -37,9 +36,6 @@ class OpbiedenFormatterType extends FormatterBase {
   protected function numberFormat($number) {
     return number_format($number, 0, '', $this->getSetting('thousand_separator'));
   }
-  
-  //use AllowedTagsXssTrait; deprecated in Drupal 9 in favor of FieldFilteredMarkup
-  use AllowedTagsXssTrait; 
 
   /**
    * {@inheritdoc}
@@ -112,7 +108,7 @@ class OpbiedenFormatterType extends FormatterBase {
       $elements[$delta] = array('#markup' => $output,
       '#allowed_tags' => FieldFilteredMarkup::allowedTags(),
     );
-      
+
   }
 
     return $elements;
