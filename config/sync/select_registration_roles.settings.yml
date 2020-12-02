@@ -1,8 +1,0 @@
-select_registration_roles_setby_admin:
-  particulier: particulier
-  handelaar: handelaar
-  administrator: 0
-select_registration_roles_admin_approval:
-  administrator: 0
-  particulier: 0
-  handelaar: 0
