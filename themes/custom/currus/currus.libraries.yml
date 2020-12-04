@@ -18,7 +18,7 @@ global-js:
      js/custom-color-filter.js : {}
      js/jquery.meanmenu.js : {}
      https://www.w3schools.com/lib/w3.js : {type: external}
-     libraries/jquery.countdown/js/jquery.countdown.js: {}
+     thirdparty-libraries/jquery.countdown/js/jquery.countdown.js: {}
    dependencies:
     - core/jquery
     - core/jquery.once
