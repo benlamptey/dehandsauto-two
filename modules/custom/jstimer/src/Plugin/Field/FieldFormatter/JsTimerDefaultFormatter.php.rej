@@ -1,0 +1,34 @@
+***************
+*** 48,54 ****
+        if (!empty($item->date)) {
+          if ($this->getFieldSetting('datetime_type') == 'date') {
+            // A date without time will pick up the current time, use the default.
+-           $date->setDefaultDateTime();
+          }
+  
+          // $date is a DrupalDateTime object
+--- 48,54 ----
+        if (!empty($item->date)) {
+          if ($this->getFieldSetting('datetime_type') == 'date') {
+            // A date without time will pick up the current time, use the default.
++           datetime_date_default_time($date);
+          }
+  
+          // $date is a DrupalDateTime object
+***************
+*** 96,102 ****
+  
+  
+    protected function dateToWidget($unix_timestamp, $widget_name, $settings = array()) {
+-     $datetime = date('c', $unix_timestamp);
+  
+      $widget_args = array(
+        'widget_name' => $widget_name,
+--- 96,102 ----
+  
+  
+    protected function dateToWidget($unix_timestamp, $widget_name, $settings = array()) {
++     $datetime = date_iso8601($unix_timestamp);
+  
+      $widget_args = array(
+        'widget_name' => $widget_name,

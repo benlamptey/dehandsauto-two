@@ -1,0 +1,133 @@
+diff --git a/modules/contrib/jstimer/jstimer.install b/modules/contrib/jstimer/jstimer.install
+index 39226b1..657f5fc 100644
+--- a/modules/contrib/jstimer/jstimer.install
++++ b/modules/contrib/jstimer/jstimer.install
+@@ -51,5 +51,7 @@ function jstimer_update_7000() {
+  */
+ function jstimer_install() {
+   jstimer_build_js_cache();
+-  drupal_clear_js_cache();
++  /* @var \Drupal\Core\Asset\JsCollectionOptimizer $js */
++  $js = \Drupal::service('asset.js.collection_optimizer');
++  $js->deleteAll();
+ }
+diff --git a/modules/contrib/jstimer/jstimer.module b/modules/contrib/jstimer/jstimer.module
+index 3c9dfe7..62ac77d 100644
+--- a/modules/contrib/jstimer/jstimer.module
++++ b/modules/contrib/jstimer/jstimer.module
+@@ -126,6 +126,7 @@ function jstimer_build_js_cache() {
+     \Drupal::messenger()->addError(t('File Create Error: timer.js could not be created'));
+   }
+   else {
++    \Drupal::messenger()->addStatus(t('Javascript timer javascript file saved to: ') . $path .'/timer.js');
+     \Drupal::configFactory()->getEditable('jstimer.settings')->set('jstimer_timerjs_path', $path .'/timer.js')->save();
+   }
+   return $path .'/timer.js';
+diff --git a/modules/contrib/jstimer/src/Form/JstimerAdminSettings.php b/modules/contrib/jstimer/src/Form/JstimerAdminSettings.php
+index f2cc258..46e46a7 100644
+--- a/modules/contrib/jstimer/src/Form/JstimerAdminSettings.php
++++ b/modules/contrib/jstimer/src/Form/JstimerAdminSettings.php
+@@ -7,12 +7,43 @@
+
+ namespace Drupal\jstimer\Form;
+
++use Drupal\Core\Asset\JsCollectionOptimizer;
++use Drupal\Core\Config\ConfigFactoryInterface;
+ use Drupal\Core\Form\ConfigFormBase;
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Render\Element;
++use Symfony\Component\DependencyInjection\ContainerInterface;
+
+ class JstimerAdminSettings extends ConfigFormBase {
+
++  /**
++   * Used to clear the JS caches.
++   *
++   * @var \Drupal\Core\Asset\JsCollectionOptimizer
++   */
++  protected $js_collection_optimizer;
++
++  /**
++   * {@inheritDoc}
++   */
++  public function __construct(
++    ConfigFactoryInterface $config_factory,
++    JsCollectionOptimizer $jsCollectionOptimizer
++  ) {
++    parent::__construct($config_factory);
++    $this->js_collection_optimizer = $jsCollectionOptimizer;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container) {
++    return new static(
++      $container->get('config.factory'),
++      $container->get('asset.js.collection_optimizer')
++    );
++  }
++
+   /**
+    * {@inheritdoc}
+    */
+@@ -67,6 +98,6 @@ public function validateForm(array &$form, FormStateInterface $form_state) {
+   public function _submitForm(array &$form, FormStateInterface $form_state) {
+     // build timer.js file with new settings.
+     jstimer_build_js_cache();
+-	drupal_clear_js_cache();
++    $this->js_collection_optimizer->deleteAll();
+   }
+ }
+diff --git a/modules/contrib/jstimer/widgets/jst_clock.info.yml b/modules/contrib/jstimer/widgets/jst_clock.info.yml
+index 5af7537..b3d0473 100644
+--- a/modules/contrib/jstimer/widgets/jst_clock.info.yml
++++ b/modules/contrib/jstimer/widgets/jst_clock.info.yml
+@@ -1,7 +1,7 @@
+ name: 'Javascript Timer API - Clock'
+ description: 'Uses the Javascript Timer API to provide a clock widget.'
+ package: 'Javascript timer api'
+-core: 8.x
++core_version_requirement: ^8 || ^9
+ dependencies:
+   - jstimer
+ type: module
+diff --git a/modules/contrib/jstimer/widgets/jst_clock.module b/modules/contrib/jstimer/widgets/jst_clock.module
+index 99dfa22..918d3db 100644
+--- a/modules/contrib/jstimer/widgets/jst_clock.module
++++ b/modules/contrib/jstimer/widgets/jst_clock.module
+@@ -332,5 +332,7 @@ function jst_clock_show($widget_args) {
+  */
+ function jst_clock_install() {
+   jstimer_build_js_cache();
+-  drupal_clear_js_cache();
++  /* @var \Drupal\Core\Asset\JsCollectionOptimizer $js */
++  $js = \Drupal::service('asset.js.collection_optimizer');
++  $js->deleteAll();
+ }
+diff --git a/modules/contrib/jstimer/widgets/jst_timer.info.yml b/modules/contrib/jstimer/widgets/jst_timer.info.yml
+index 48b1e5e..0547f08 100644
+--- a/modules/contrib/jstimer/widgets/jst_timer.info.yml
++++ b/modules/contrib/jstimer/widgets/jst_timer.info.yml
+@@ -1,7 +1,7 @@
+ name: 'Javascript Timer API - Timer'
+ description: 'Uses the Javascript Timer API to provide a timer widget.'
+ package: 'Javascript timer api'
+-core: 8.x
++core_version_requirement: ^8 || ^9
+ dependencies:
+   - jstimer
+ type: module
+diff --git a/modules/contrib/jstimer/widgets/jst_timer.module b/modules/contrib/jstimer/widgets/jst_timer.module
+index c11333f..e97dc21 100644
+--- a/modules/contrib/jstimer/widgets/jst_timer.module
++++ b/modules/contrib/jstimer/widgets/jst_timer.module
+@@ -523,7 +523,9 @@ function jst_timer_show($widget_args) {
+  */
+ function jst_timer_install() {
+   jstimer_build_js_cache();
+-  drupal_clear_js_cache();
++  /* @var \Drupal\Core\Asset\JsCollectionOptimizer $js */
++  $js = \Drupal::service('asset.js.collection_optimizer');
++  $js->deleteAll();
+ }

@@ -1,0 +1,12 @@
+name: 'Javascript Timer API - Timer'
+description: 'Uses the Javascript Timer API to provide a timer widget.'
+package: 'Javascript timer api'
+core_version_requirement: ^8 || ^9
+dependencies:
+  - jstimer
+type: module
+
+# Information added by Drupal.org packaging script on 2020-10-18
+version: '8.x-1.3'
+project: 'jstimer'
+datestamp: 1603022889

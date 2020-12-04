@@ -28,6 +28,17 @@
             $('#edit-field-kleur-picker-color--2--wrapper .custom-color-checkbox label', context).once().click(function() {
                 $(this).toggleClass('custom-color-active');
             });
+            
+            $('#edit-field-kleur-picker-color--wrapper input', context).each(function () {
+                var color_hex = $(this).attr('value');
+                $(this).next('label').css('background-color', '#' + color_hex);
+                $(this).next('label').html('');
+            });
+
+            // When checkbox is clicked
+            $('#edit-field-kleur-picker-color--wrapper .custom-color-checkbox label', context).once().click(function() {
+                $(this).toggleClass('custom-color-active');
+            });
         },
     };
 

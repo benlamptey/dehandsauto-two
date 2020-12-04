@@ -118,19 +118,25 @@ display:
                 animate_ms: '0'
                 orientation: horizontal
               field_schakeling_value:
-                plugin_id: default
+                plugin_id: bef
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: 0
               field_brandstof_value:
-                plugin_id: default
+                plugin_id: bef
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: 0
               field_regio_target_id:
                 plugin_id: default
                 advanced:
@@ -149,12 +155,15 @@ display:
                 select_all_none_nested: false
                 display_inline: 0
               field_deuren_value:
-                plugin_id: default
+                plugin_id: bef
                 advanced:
                   rewrite:
                     filter_rewrite_values: ''
                   collapsible: false
                   is_secondary: false
+                select_all_none: false
+                select_all_none_nested: false
+                display_inline: 0
               field_vermogen_value:
                 plugin_id: bef_sliders
                 advanced:

@@ -7,7 +7,6 @@ global-styling:
       css/style.css: {}
       css/codepulse-styles/codepulse-styles.css: {}
       css/belba-styles/belba.css: {}
-      https://www.w3schools.com/w3css/4/w3.css: { type: external }
       https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {type: external}
 
 global-js:

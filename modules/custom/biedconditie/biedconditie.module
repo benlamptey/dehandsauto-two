@@ -62,17 +62,18 @@ function biedconditie_form_views_exposed_form_alter(&$form, $form_state, $form_i
 
         // Hide the input fields as we will now be using the custom markup
         // to display the values.
-        $form[$children_field]['min']['#attributes']['style'] = ['display: none;'];
-        $form[$children_field]['max']['#attributes']['style'] = ['display: none;'];
+        $form[$children_field . '_wrapper'][$children_field]['min']['#attributes']['style'] = ['display: none;'];
+        $form[$children_field . '_wrapper'][$children_field]['max']['#attributes']['style'] = ['display: none;'];
 
         // Hide the "AND" label for the max field
-        unset($form[$children_field]['max']['#title']);
+        unset($form[$children_field . '_wrapper'][$children_field]['min']['#title']);
+        unset($form[$children_field . '_wrapper'][$children_field]['max']['#title']);
 
-        $form[$children_field]['min_custom'] = ['#markup' => "<span id='$id-custom-min' class='custom-min-max'>$min</span>"];
-        $form[$children_field]['max_custom'] = ['#markup' => " - <span id='$id-custom-max' class='custom-min-max'>$max</span>"];
+        $form[$children_field . '_wrapper'][$children_field]['min_custom'] = ['#markup' => "<span id='$id-custom-min' class='custom-min-max'>$min</span>"];
+        $form[$children_field . '_wrapper'][$children_field]['max_custom'] = ['#markup' => " - <span id='$id-custom-max' class='custom-min-max'>$max</span>"];
 
-        $form[$children_field]['#prefix'] = "<div id='custom-filter-wrapper'>";
-        $form[$children_field]['#suffix'] = "</div>";
+        $form[$children_field . '_wrapper'][$children_field]['#prefix'] = "<div id='custom-filter-wrapper'>";
+        $form[$children_field . '_wrapper'][$children_field]['#suffix'] = "</div>";
       }
     }
   }
