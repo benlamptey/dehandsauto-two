@@ -127,18 +127,6 @@
         {
             "type": "package",
             "package": {
-                "name": "hilios/jquery.countdown",
-                "version": "v2.2.0",
-                "type": "drupal-library",
-                "dist": {
-                    "url": "https://github.com/hilios/jQuery.countdown/releases/download/2.2.0/jquery.countdown-2.2.0.zip",
-                    "type": "zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "county/county",
                 "version": "v1.0.0",
                 "type": "drupal-library",
@@ -244,7 +232,6 @@
         "fotorama_gallery/fotorama": "^4.6",
         "frdh/mmenu": "^8.5",
         "furf/jquery-ui-touch-punch": "^1.0",
-        "hilios/jquery.countdown": "^2.2",
         "itsjavi/fontawesome-iconpicker": "^3.2",
         "jackmoore/colorbox": "^1.6",
         "joeldbirch/superfish": "^1.0",
