@@ -47,6 +47,9 @@ function veiling_node_presave($entity) {
     $in = $entity->get('field_expaire_time')->value;
     $NewDate=Date('Y-m-d\TH:i:s', strtotime("+".$in." days"));
     $entity->set('field_afteller',$NewDate);
+      // Something has been configured very BADLY if i have to do this
+     // to set node to published -@bl
+    $entity->set('status', TRUE);
   }
 }
 
